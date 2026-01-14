@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Download UD treebanks for English GUM, EWT, and GUMReddit.
+Download UD treebanks for a set of English UD corpora.
 
 This script retrieves version‑controlled CoNLL‑U files and accompanying
 license/README texts from the official Universal Dependencies GitHub
@@ -28,10 +28,10 @@ import json
 import os
 import sys
 import requests
-from typing import Optional
+from typing import Optional, List, Tuple
 
-# UD release tag to use.  Pinning ensures the same corpus version is
-# downloaded across runs.  Update this value to use a newer release.
+# UD release tag to use. Pinning ensures the same corpus version is
+# downloaded across runs. Update this value to use a newer release.
 VERSION = "r2.16"
 
 # Fully qualified repository names.  Keys correspond to the short
@@ -40,35 +40,93 @@ REPOS = {
     "gum": "UniversalDependencies/UD_English-GUM",
     "ewt": "UniversalDependencies/UD_English-EWT",
     "gumreddit": "UniversalDependencies/UD_English-GUMReddit",
+    "esl": "UniversalDependencies/UD_English-ESL",
+    "eslspok": "UniversalDependencies/UD_English-ESLSpok",
+    "gentle": "UniversalDependencies/UD_English-GENTLE",
+    "childes": "UniversalDependencies/UD_English-CHILDES",
+    "lines": "UniversalDependencies/UD_English-LinES",
+    "pud": "UniversalDependencies/UD_English-PUD",
+    "partut": "UniversalDependencies/UD_English-ParTUT",
+    "unidive": "UniversalDependencies/UD_English-UniDive",
+    "atis": "UniversalDependencies/UD_English-Atis",
+    "littleprince": "UniversalDependencies/UD_English-LittlePrince",
+    "pronouns": "UniversalDependencies/UD_English-Pronouns",
+    "ctetex": "UniversalDependencies/UD_English-CTeTex",
+    "pcedt": "UniversalDependencies/UD_English-PCEDT",
 }
 
-# List of files to fetch from each repository.  The CoNLL‑U files and
-# ancillary license/README documents live in the root of the repo at
-# the specified tag.  Adjust this list if the treebank layout changes
-# in future releases.
-FILES = {
-    "gum": [
-        "en_gum-ud-train.conllu",
-        "en_gum-ud-dev.conllu",
-        "en_gum-ud-test.conllu",
-        "LICENSE.txt",
-        "README.md",
-    ],
-    "ewt": [
-        "en_ewt-ud-train.conllu",
-        "en_ewt-ud-dev.conllu",
-        "en_ewt-ud-test.conllu",
-        "LICENSE.txt",
-        "README.md",
-    ],
-    "gumreddit": [
-        "en_gumreddit-ud-train.conllu",
-        "en_gumreddit-ud-dev.conllu",
-        "en_gumreddit-ud-test.conllu",
-        "LICENSE.txt",
-        "README.md",
-    ],
-}
+# Optional explicit file lists per corpus. When absent, files are discovered
+# via the GitHub API and all root-level .conllu files are downloaded along
+# with LICENSE/README documents if present.
+FILES: dict = {}
+
+
+def get_default_branch(repo: str, session: requests.Session) -> str:
+    """Fetch the default branch name for a GitHub repo."""
+    resp = session.get(f"https://api.github.com/repos/{repo}", timeout=30)
+    if resp.status_code == 200:
+        data = resp.json()
+        return data.get("default_branch", "master")
+    return "master"
+
+
+def list_repo_files(repo: str, session: requests.Session) -> Tuple[List[str], str]:
+    """List .conllu files (and root README/LICENSE) for a repo, with fallback.
+
+    Returns (files, ref_used) where files may include subdirectory paths.
+    """
+    def fetch_contents(path: str, ref: Optional[str]) -> List[dict]:
+        url = f"https://api.github.com/repos/{repo}/contents"
+        if path:
+            url = f"{url}/{path}"
+        params = {"ref": ref} if ref else None
+        resp = session.get(url, params=params, timeout=30)
+        if resp.status_code != 200:
+            return []
+        data = resp.json()
+        return data if isinstance(data, list) else []
+
+    def walk(path: str, ref: Optional[str], depth: int, max_depth: int, files: List[str]) -> None:
+        entries = fetch_contents(path, ref)
+        for entry in entries:
+            etype = entry.get("type")
+            name = entry.get("name", "")
+            lower = name.lower()
+            entry_path = entry.get("path", name)
+            if etype == "file":
+                if lower.endswith(".conllu"):
+                    files.append(entry_path)
+                elif depth == 0 and (lower.startswith("readme") or lower.startswith("license")):
+                    files.append(entry_path)
+            elif etype == "dir" and depth < max_depth:
+                # Skip non-release and large auxiliary directories
+                if lower in {"not-to-release", "not_to_release"}:
+                    continue
+                walk(entry_path, ref, depth + 1, max_depth, files)
+
+    for ref in (VERSION, None):
+        files: List[str] = []
+        root_entries = fetch_contents("", ref)
+        root_files: List[str] = []
+        for entry in root_entries:
+            if entry.get("type") != "file":
+                continue
+            name = entry.get("name", "")
+            lower = name.lower()
+            if lower.endswith(".conllu") or lower.startswith("readme") or lower.startswith("license"):
+                root_files.append(entry.get("path", name))
+        # If we already have root-level .conllu files, use them and avoid recursion.
+        if any(f.lower().endswith(".conllu") for f in root_files):
+            files = root_files
+        else:
+            walk("", ref, 0, 2, files)
+        if files:
+            if ref is None:
+                default_branch = get_default_branch(repo, session)
+                print(f"[WARN] {repo} has no tag {VERSION}; using default branch '{default_branch}'.")
+                return files, default_branch
+            return files, ref
+    return [], ""
 
 
 def ensure_dir(path: str) -> None:
@@ -78,7 +136,7 @@ def ensure_dir(path: str) -> None:
         os.makedirs(parent, exist_ok=True)
 
 
-def download_from_raw(repo: str, filename: str, dest_path: str) -> bool:
+def download_from_raw(repo: str, filename: str, dest_path: str, ref: str) -> bool:
     """
     Attempt to download a file using the raw.githubusercontent.com URL.
 
@@ -97,7 +155,7 @@ def download_from_raw(repo: str, filename: str, dest_path: str) -> bool:
         ``True`` if the file was successfully downloaded and saved; ``False``
         otherwise.
     """
-    raw_url = f"https://raw.githubusercontent.com/{repo}/{VERSION}/{filename}"
+    raw_url = f"https://raw.githubusercontent.com/{repo}/{ref}/{filename}"
     try:
         print(f"[RAW]  {raw_url}")
         resp = requests.get(raw_url, timeout=60)
@@ -150,7 +208,7 @@ def fetch_api_tool_name(session: requests.Session, action_keyword: str) -> Optio
         return None
 
 
-def download_via_api(repo: str, filename: str, dest_path: str, session: requests.Session) -> bool:
+def download_via_api(repo: str, filename: str, dest_path: str, session: requests.Session, ref: str) -> bool:
     """
     Download a file from GitHub using the internal API tool (if available).
 
@@ -187,7 +245,7 @@ def download_via_api(repo: str, filename: str, dest_path: str, session: requests
             "params": json.dumps({
                 "repository_full_name": repo,
                 "path": filename,
-                "ref": VERSION,
+                "ref": ref,
             }),
         }
         meta_resp = session.get(
@@ -230,19 +288,29 @@ def main() -> None:
     """Entry point: download all required files for both treebanks."""
     session = requests.Session()
     for corpus, repo in REPOS.items():
-        for filename in FILES[corpus]:
-            dest_dir = os.path.join("data", "ud", corpus)
+        dest_dir = os.path.join("data", "ud", corpus)
+        if os.path.isdir(dest_dir) and any(fn.endswith(".conllu") for fn in os.listdir(dest_dir)):
+            print(f"[SKIP] data/ud/{corpus} already has .conllu files")
+            continue
+        file_list = FILES.get(corpus)
+        ref_used = VERSION
+        if not file_list:
+            file_list, ref_used = list_repo_files(repo, session)
+        if not file_list or not ref_used:
+            print(f"[WARN] No file list available for {corpus} ({repo}); skipping.")
+            continue
+        for filename in file_list:
             dest_path = os.path.join(dest_dir, filename)
             # Skip if file already exists and is non‑empty
             if os.path.exists(dest_path) and os.path.getsize(dest_path) > 0:
                 print(f"[SKIP] {dest_path} already exists")
                 continue
             # Try the API tool first
-            ok = download_via_api(repo, filename, dest_path, session)
+            ok = download_via_api(repo, filename, dest_path, session, ref_used)
             if ok:
                 continue
             # Fallback: raw.githubusercontent.com
-            ok = download_from_raw(repo, filename, dest_path)
+            ok = download_from_raw(repo, filename, dest_path, ref_used)
             if not ok:
                 print(
                     f"[ERROR] Failed to download {filename} from both API tool and raw URLs",
