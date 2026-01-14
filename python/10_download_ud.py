@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Download UD treebanks for English GUM and EWT.
+Download UD treebanks for English GUM, EWT, and GUMReddit.
 
 This script retrieves version‑controlled CoNLL‑U files and accompanying
 license/README texts from the official Universal Dependencies GitHub
@@ -39,6 +39,7 @@ VERSION = "r2.16"
 REPOS = {
     "gum": "UniversalDependencies/UD_English-GUM",
     "ewt": "UniversalDependencies/UD_English-EWT",
+    "gumreddit": "UniversalDependencies/UD_English-GUMReddit",
 }
 
 # List of files to fetch from each repository.  The CoNLL‑U files and
@@ -57,6 +58,13 @@ FILES = {
         "en_ewt-ud-train.conllu",
         "en_ewt-ud-dev.conllu",
         "en_ewt-ud-test.conllu",
+        "LICENSE.txt",
+        "README.md",
+    ],
+    "gumreddit": [
+        "en_gumreddit-ud-train.conllu",
+        "en_gumreddit-ud-dev.conllu",
+        "en_gumreddit-ud-test.conllu",
         "LICENSE.txt",
         "README.md",
     ],

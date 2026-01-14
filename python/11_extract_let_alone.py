@@ -18,11 +18,11 @@ Outputs:
 Usage:
 
 ```
-python3 src/11_extract_let_alone.py
+python python/11_extract_let_alone.py
 ```
 
 The script depends on `pandas` and `numpy` as well as functions from
-`src/utils_ud.py`.  It must be run from the repository root so that
+`python/utils_ud.py`. It must be run from the repository root so that
 relative paths resolve correctly.
 """
 
@@ -36,9 +36,9 @@ from typing import Dict, List, Tuple, Any, Optional
 import pandas as pd
 import numpy as np
 
-# ensure src directory is on sys.path for utils_ud
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from src import utils_ud  # type: ignore
+# ensure python directory is on sys.path for utils_ud
+sys.path.insert(0, os.path.dirname(__file__))
+import utils_ud  # type: ignore
 
 
 LICENSOR_WORDS = {"not", "n't", "no", "never", "hardly", "without", "even"}

@@ -1,0 +1,5 @@
+sent_id,text,anchor_start,anchor_end,route,x_idx,y_idx,x_form,y_form,upos_x,upos_y,parallelism,licensing,dist_x_anchor,dist_anchor_y,corpus
+GUM_essay_food-13,"What’s more, close to half of that waste occurs before it even reaches the distributor, let alone the end-consumer.",19,20,both,17,21,distributor,the,NOUN,OTHER,0,1,2,1,gum
+reviews-376320-0004,This can tend to be a stressful experience in itself let alone adding crossing boarders for the first time.,11,12,both,10,13,itself,adding,OTHER,VERB,0,0,1,1,ewt
+reviews-026883-0013,The customer service at Home Delivery Service was terrible let alone their promise to proper set up furniture.,10,11,both,9,12,terrible,their,ADJ,OTHER,0,0,1,1,ewt
+reviews-211797-0022,I felt very much like Wedding Gallery was being dishonest and I wouldn't trust them to lace me up in another gown let alone trust them with the gown I will wear on the most important day of my life.,24,25,both,23,26,gown,trust,NOUN,VERB,0,0,1,1,ewt
