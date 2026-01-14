@@ -330,21 +330,21 @@ The projectibility test asks: can patterns learned in one corpus predict instanc
                 & Drop parallelism & 0.612 & --0.274 \\
                 & Drop licensing & 0.822 & --0.063 \\
     \addlinespace
-    EWT$\to$GUM & Full bundle & 0.833 & ~--  \\
-                & Drop parallelism & 0.417 & --0.417 \\
-                & Drop licensing & 0.667 & --0.167 \\
+    EWT$\to$GUM & Full bundle & 0.829 & ~--  \\
+                & Drop parallelism & 0.527 & --0.302 \\
+                & Drop licensing & 0.650 & --0.179 \\
     \bottomrule
   \end{tabular}
   
   \smallskip
   \footnotesize
-  Note: Metrics are computed on anchor-present candidate sets; full precision/recall/F1 values are available in supplementary materials.\\Anchor-present counts: GUM $n=12$ (pos=4), EWT $n=18$ (pos=10). These results are illustrative; the confirmatory analysis expands to additional UD English corpora and a larger anchor sweep.
+  Note: Metrics are computed on anchor-present candidate sets; full precision/recall/F1 values are available in supplementary materials.\\Anchor-present counts: GUM $n=12$ (pos=5), EWT $n=18$ (pos=10). These results are illustrative; the confirmatory analysis expands to additional UD English corpora and a larger anchor sweep.
 
   
 \end{table}
 
 % Explain what the numbers mean
-The full three-cue model achieves PR--AUC in the 0.83--0.89 range in both transfer directions (GUM$\to$EWT means training on GUM, testing on EWT). This exceeds the prevalence baseline and indicates robust cross-corpus generalization. Removing parallelism produces the largest drops ($\Delta\approx$0.27--0.42), while removing licensing yields smaller but consistent losses ($\Delta\approx$0.06--0.17). The string anchor alone isn't sufficient; the construction needs its supporting cast of cues.
+The full three-cue model achieves PR--AUC in the 0.83--0.89 range in both transfer directions (GUM$\to$EWT means training on GUM, testing on EWT). This exceeds the prevalence baseline and indicates robust cross-corpus generalization. Removing parallelism produces the largest drops ($\Delta\approx$0.27--0.30), while removing licensing yields smaller but consistent losses ($\Delta\approx$0.06--0.18). The string anchor alone isn't sufficient; the construction needs its supporting cast of cues.
 
 % Make Figure 3 interpretation clearer
 Figure~\ref{fig:or-even-profile} decomposes the cue distributions in each corpus. Despite different genres and collection methods, both corpora show similar profiles: verbs and nouns dominate the $Y$ position, and scalar/contrast cues appear at comparable rates. This cross-corpus stability~-- maintained without explicit coordination between the corpus creators~-- suggests genuine linguistic regularities rather than annotation artifacts.

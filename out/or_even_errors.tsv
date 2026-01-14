@@ -1,8 +1,5 @@
 corpus	sent_id	text	label	pred_label	pred_prob
-ewt	weblog-juancole.com_juancole_20030914114200_ENG_20030914_114200-0006	Falluja has long been roiled by tense relations with the US soldiers there, since local Sunnis either remain committed to Arab nationalism or have become Sunni fundamentalists or even radicals.	1	0	0.4899638229752833
-ewt	weblog-blogspot.com_dakbangla_20041119231111_ENG_20041119_231111-0022	Kalkat, who currently chairs the independent US-based International Council on Conflict Resolution, said despite the failure of the Indian army to disarm or even subdue the Tigers, India remained the only power capable of influencing the course of the current peace talks.	1	0	0.4899638229752833
-ewt	reviews-107692-0011	I suggest you go up to Raging Taco & Raging Burrito a couple of blocks up the street or even Taco Mac.	1	0	0.4899638229752833
-ewt	answers-20111108085945AAgJhOG_ans-0018	If you have a pet store near buy some wheat,pigeon corn or even mixed bird seed will do,but do not feed bread.	1	0	0.3690664675608374
-ewt	answers-20111108111031AARG57j_ans-0003	(He is 92 pounds) He does not listen to any commands, but my major problem is that he will not go outside on command, or even with me.	1	0	0.3690664675608374
-ewt	reviews-358702-0004	I also understand that weekend staffs are different than daytime staffs and not necessarily Starbucks A-team or even full-time.	1	0	0.3690664675608374
-ewt	reviews-093655-0008	I would NOT recommend having a party here or even going here.	1	0	0.3690664675608374
+ewt	answers-20111108085945AAgJhOG_ans-0018	If you have a pet store near buy some wheat,pigeon corn or even mixed bird seed will do,but do not feed bread.	1	0	0.4695229500796454
+ewt	answers-20111108111031AARG57j_ans-0003	(He is 92 pounds) He does not listen to any commands, but my major problem is that he will not go outside on command, or even with me.	1	0	0.4695229500796454
+ewt	reviews-358702-0004	I also understand that weekend staffs are different than daytime staffs and not necessarily Starbucks A-team or even full-time.	1	0	0.4695229500796454
+ewt	reviews-093655-0008	I would NOT recommend having a party here or even going here.	1	0	0.4695229500796454
