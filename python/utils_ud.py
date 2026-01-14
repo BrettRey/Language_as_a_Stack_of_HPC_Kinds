@@ -231,6 +231,28 @@ def find_let_alone_anchors(sentence: Dict[str, Any]) -> List[Tuple[int, int, str
     return anchor_list
 
 
+def find_let_alone_string_anchors(sentence: Dict[str, Any]) -> List[Tuple[int, int]]:
+    """Return all contiguous string anchors for 'let alone'.
+
+    Parameters
+    ----------
+    sentence: dict
+        Parsed sentence dictionary
+
+    Returns
+    -------
+    List[Tuple[int, int]]
+        List of (start, end) token indices (0-based, inclusive) for
+        contiguous 'let alone' bigrams.
+    """
+    tokens = sentence["tokens"]
+    spans: List[Tuple[int, int]] = []
+    for i in range(len(tokens) - 1):
+        if tokens[i]["form"].lower() == "let" and tokens[i + 1]["form"].lower() == "alone":
+            spans.append((i, i + 1))
+    return spans
+
+
 def merge_route(existing: Optional[str], new: str) -> str:
     """Merge detection routes for duplicate anchors."""
     if existing is None:
@@ -411,5 +433,67 @@ def extract_let_alone_features(sentence: Dict[str, Any], licensor_words: Set[str
             "licensing": int(licensing),
             "dist_x_anchor": dist_x_anchor,
             "dist_anchor_y": dist_anchor_y,
+        })
+    return rows
+
+
+def extract_let_alone_candidates(sentence: Dict[str, Any], licensor_words: Set[str]) -> List[Dict[str, Any]]:
+    """Extract anchor-present candidates with heuristic labels for evaluation.
+
+    This function enumerates all spans where "let" is followed by "alone"
+    within a short window (up to 3 tokens), computes the cue bundle
+    features (parallelism, licensing), and assigns a heuristic label.
+    The label is defined as 1 only for contiguous "let alone" bigrams
+    that pass the metalinguistic filter; non-contiguous spans serve as
+    near-miss decoys (label 0).
+    """
+    tokens = sentence["tokens"]
+    spans: List[Tuple[int, int]] = []
+    for i in range(len(tokens)):
+        if tokens[i]["form"].lower() != "let":
+            continue
+        for j in range(i + 1, min(i + 4, len(tokens))):
+            if tokens[j]["form"].lower() == "alone":
+                spans.append((i, j))
+    rows: List[Dict[str, Any]] = []
+    for (start, end) in spans:
+        keep = apply_metalinguistic_filter(tokens, start, end)
+        # Determine anchor start position for directional calculations
+        anchor_start = start
+        x_idx = find_nearest_head(tokens, anchor_start, "left")
+        y_idx = find_nearest_head(tokens, end, "right")
+        if x_idx is None or y_idx is None:
+            # Skip candidates without identifiable heads
+            continue
+        upos_x_raw = tokens[x_idx]["upos"]
+        upos_y_raw = tokens[y_idx]["upos"]
+        upos_x = normalize_upos(upos_x_raw)
+        upos_y = normalize_upos(upos_y_raw)
+        parallel = False
+        if {upos_x, upos_y} <= {"NOUN"}:
+            parallel = True
+        elif upos_x == upos_y and upos_x in {"VERB", "ADJ"}:
+            parallel = True
+        licensing = has_licensor(tokens, anchor_start, licensor_words)
+        dist_x_anchor = anchor_start - x_idx
+        dist_anchor_y = y_idx - end
+        label = int(keep and end == start + 1)
+        rows.append({
+            "sent_id": sentence.get("sent_id"),
+            "text": sentence.get("text"),
+            "anchor_start": start + 1,
+            "anchor_end": end + 1,
+            "x_idx": x_idx + 1,
+            "y_idx": y_idx + 1,
+            "x_form": tokens[x_idx]["form"],
+            "y_form": tokens[y_idx]["form"],
+            "upos_x": upos_x,
+            "upos_y": upos_y,
+            "parallelism": int(parallel),
+            "licensing": int(licensing),
+            "dist_x_anchor": dist_x_anchor,
+            "dist_anchor_y": dist_anchor_y,
+            "anchor_present": 1,
+            "label": label,
         })
     return rows

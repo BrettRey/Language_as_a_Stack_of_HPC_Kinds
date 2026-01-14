@@ -1,3 +1,4 @@
-corpus	sent_id	label	prediction
-gum	syn-gum-0	1	0
-ewt	syn-ewt-1	0	1
+corpus	sent_id	text	label	pred_label	pred_prob
+ewt	reviews-376320-0004	This can tend to be a stressful experience in itself let alone adding crossing boarders for the first time.	1	0	0.2895118122504627
+ewt	reviews-026883-0013	The customer service at Home Delivery Service was terrible let alone their promise to proper set up furniture.	1	0	0.2895118122504627
+ewt	reviews-211797-0022	I felt very much like Wedding Gallery was being dishonest and I wouldn't trust them to lace me up in another gown let alone trust them with the gown I will wear on the most important day of my life.	1	0	0.2895118122504627

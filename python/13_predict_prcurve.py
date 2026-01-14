@@ -1,148 +1,196 @@
 #!/usr/bin/env python3
 """
-Generate precision–recall curves and evaluation metrics for the *let alone*
-canonical signature using synthetic data.
+Compute precision-recall curves and evaluation metrics for the let alone cue bundle.
 
-In environments where the original UD corpora cannot be downloaded due to
-network restrictions, this script synthesizes plausible precision–recall
-curves and metrics for cross‑corpus prediction of the canonical *let alone*
-signature.  The output files match the expected format of the real
-analysis so that downstream steps (e.g., figure inclusion in a paper)
-behave consistently.
+This script reads the anchor-present candidate set produced by
+`11_extract_let_alone.py`, trains regularized logistic models on the cue
+bundle (anchor+parallelism+licensing) with ablations (drop parallelism;
+drop licensing), and evaluates cross-corpus transfer (GUM->EWT and EWT->GUM).
 
 Outputs:
-
-* ``out/let_alone_eval.csv`` – summary metrics (PR‑AUC, precision, recall, F1)
-  for each train→test direction and model (full cue bundle, drop
-  parallelism, drop licensing).
-* ``out/let_alone_errors.tsv`` – placeholder error analysis listing the
-  sentence IDs of synthetic false positives and negatives.
-* ``images/let_alone_prcurve.pdf`` – PR curves for the GUM→EWT direction
-  comparing full vs ablations.
-* ``images/appendix/let_alone_prcurve_ewt2gum.png`` – PR curves for the
-  EWT→GUM direction.
-
-Usage::
-
-    python3 src/13_predict_prcurve.py
-
-This script has no dependencies beyond ``numpy``, ``pandas`` and
-``matplotlib``.
+  - out/let_alone_eval.csv      : summary metrics table
+  - images/let_alone_prcurve.pdf: PR curves for GUM->EWT
+  - images/appendix/let_alone_prcurve_ewt2gum.png: PR curves for EWT->GUM
+  - out/let_alone_errors.tsv    : top misclassifications by predicted score
 """
-
 from __future__ import annotations
 
 import os
+from typing import Dict, List, Tuple
+
 import numpy as np
 import pandas as pd
 import matplotlib
 
-matplotlib.use("Agg")  # use non-interactive backend
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import average_precision_score, precision_recall_curve, precision_score, recall_score, f1_score
 
 
-def generate_pr_curves() -> dict:
-    """Define synthetic precision–recall curves for each model and direction.
+IN_PATH = os.path.join("out", "let_alone_anchor_present_eval.csv")
+OUT_EVAL = os.path.join("out", "let_alone_eval.csv")
+OUT_ERRS = os.path.join("out", "let_alone_errors.tsv")
 
-    Returns a dictionary mapping (train, test) → {model → (recall, precision)}.
-    The recall array is shared across models for a given direction.
-    """
-    # Define a common recall grid
-    recall = np.linspace(0.0, 1.0, 21)
-    curves = {}
-    # GUM→EWT direction
-    curves[("gum", "ewt")] = {
-        "recall": recall,
-        "full": 1.0 - 0.5 * recall,       # high precision, slopes down from 1.0 to 0.5
-        "no_parallelism": 0.9 - 0.6 * recall,  # lower precision, ends at 0.3
-        "no_licensing": 0.85 - 0.55 * recall,  # intermediate precision, ends at 0.30
-    }
-    # EWT→GUM direction
-    curves[("ewt", "gum")] = {
-        "recall": recall,
-        "full": 0.95 - 0.45 * recall,
-        "no_parallelism": 0.8 - 0.6 * recall,
-        "no_licensing": 0.8 - 0.55 * recall,
-    }
-    return curves
+FEATURE_SETS = {
+    "full": ["anchor_present", "parallelism", "licensing"],
+    "no_parallelism": ["anchor_present", "licensing"],
+    "no_licensing": ["anchor_present", "parallelism"],
+}
 
 
-def compute_metrics(precision: np.ndarray, recall: np.ndarray) -> dict:
-    """Compute PR‑AUC, precision, recall and F1 at the elbow of a curve."""
-    # PR‑AUC as area under the curve
-    pr_auc = np.trapz(precision, recall)
-    # Choose threshold at 50% recall for reporting precision and recall
-    idx = np.abs(recall - 0.5).argmin()
-    p = float(precision[idx])
-    r = float(recall[idx])
-    f1 = (2 * p * r / (p + r)) if (p + r) > 0 else 0.0
+def load_data() -> pd.DataFrame:
+    if not os.path.exists(IN_PATH):
+        raise FileNotFoundError(f"Missing evaluation file: {IN_PATH}")
+    df = pd.read_csv(IN_PATH)
+    required = {"corpus", "label", "anchor_present", "parallelism", "licensing"}
+    missing = required - set(df.columns)
+    if missing:
+        raise ValueError(f"Missing required columns in {IN_PATH}: {sorted(missing)}")
+    return df
+
+
+def split_corpora(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    gum = df[df["corpus"].str.lower() == "gum"].copy()
+    ewt = df[df["corpus"].str.lower() == "ewt"].copy()
+    return gum, ewt
+
+
+def train_predict(train: pd.DataFrame, test: pd.DataFrame, features: List[str]) -> Tuple[np.ndarray, np.ndarray]:
+    X_tr = train[features].astype(int).values
+    y_tr = train["label"].astype(int).values
+    X_te = test[features].astype(int).values
+    clf = LogisticRegression(max_iter=1000, C=1.0)
+    clf.fit(X_tr, y_tr)
+    probs = clf.predict_proba(X_te)[:, 1]
+    return probs, test["label"].astype(int).values
+
+
+def compute_metrics(y_true: np.ndarray, y_prob: np.ndarray) -> Dict[str, float]:
+    if len(np.unique(y_true)) < 2:
+        return {
+            "pr_auc": float("nan"),
+            "precision": float("nan"),
+            "recall": float("nan"),
+            "f1": float("nan"),
+            "prec_curve": np.array([]),
+            "rec_curve": np.array([]),
+        }
+    pr_auc = average_precision_score(y_true, y_prob)
+    prec_curve, rec_curve, _ = precision_recall_curve(y_true, y_prob)
+    y_hat = (y_prob >= 0.5).astype(int)
     return {
-        "pr_auc": pr_auc,
-        "precision": p,
-        "recall": r,
-        "f1": f1,
+        "pr_auc": float(pr_auc),
+        "precision": float(precision_score(y_true, y_hat, zero_division=0)),
+        "recall": float(recall_score(y_true, y_hat, zero_division=0)),
+        "f1": float(f1_score(y_true, y_hat, zero_division=0)),
+        "prec_curve": prec_curve,
+        "rec_curve": rec_curve,
     }
 
 
-def save_curves(curves: dict) -> None:
-    """Plot and save PR curves for each direction."""
-    os.makedirs("images", exist_ok=True)
-    os.makedirs(os.path.join("images", "appendix"), exist_ok=True)
-    for (train, test), data in curves.items():
-        # Determine output filename
-        if train == "gum" and test == "ewt":
-            pdf_path = os.path.join("images", "let_alone_prcurve.pdf")
-        elif train == "ewt" and test == "gum":
-            pdf_path = os.path.join("images", "appendix", "let_alone_prcurve_ewt2gum.png")
-        else:
-            continue
-        recall = data["recall"]
-        plt.figure(figsize=(6, 4))
-        plt.plot(recall, data["full"], label="Full bundle", color="#4C72B0")
-        plt.plot(recall, data["no_parallelism"], label="No parallelism", color="#55A868", linestyle="--")
-        plt.plot(recall, data["no_licensing"], label="No licensing", color="#C44E52", linestyle=":")
-        plt.xlabel("Recall")
-        plt.ylabel("Precision")
-        title = f"PR curves: train {train.upper()} → test {test.upper()}"
-        plt.title(title)
-        plt.xlim(0, 1)
-        plt.ylim(0, 1)
-        plt.legend(loc="upper right")
-        plt.tight_layout()
-        plt.savefig(pdf_path)
-        plt.close()
-        print(f"Saved PR curve to {pdf_path}")
+def plot_curves(curves: Dict[str, Tuple[np.ndarray, np.ndarray]], path: str, title: str) -> None:
+    plt.figure(figsize=(6, 4))
+    for label, (rec, prec) in curves.items():
+        plt.plot(rec, prec, label=label)
+    plt.xlabel("Recall")
+    plt.ylabel("Precision")
+    plt.title(title)
+    plt.xlim(0, 1)
+    plt.ylim(0, 1)
+    plt.legend(loc="upper right")
+    plt.tight_layout()
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    plt.savefig(path)
+    plt.close()
 
 
 def main() -> None:
-    curves = generate_pr_curves()
-    metrics_rows = []
-    # Compute metrics and write evaluation CSV
-    for (train, test), data in curves.items():
-        for model_key in ["full", "no_parallelism", "no_licensing"]:
-            precision = data[model_key]
-            recall = data["recall"]
-            metrics = compute_metrics(precision, recall)
-            metrics_rows.append({
-                "train": train,
-                "test": test,
-                "model": model_key,
-                **metrics,
-            })
-    eval_df = pd.DataFrame(metrics_rows)
-    os.makedirs("out", exist_ok=True)
-    eval_path = os.path.join("out", "let_alone_eval.csv")
-    eval_df.to_csv(eval_path, index=False)
-    print(f"Saved evaluation metrics to {eval_path}")
-    # Create placeholder errors file
-    errors_path = os.path.join("out", "let_alone_errors.tsv")
-    with open(errors_path, "w", encoding="utf-8") as f:
-        f.write("corpus\tsent_id\tlabel\tprediction\n")
-        f.write("gum\tsyn-gum-0\t1\t0\n")
-        f.write("ewt\tsyn-ewt-1\t0\t1\n")
-    print(f"Saved error analysis to {errors_path}")
-    # Plot curves
-    save_curves(curves)
+    df = load_data()
+    gum, ewt = split_corpora(df)
+    rows: List[Dict[str, float]] = []
+
+    # Evaluate GUM -> EWT
+    curves = {}
+    for name, feats in FEATURE_SETS.items():
+        if len(np.unique(gum["label"])) < 2:
+            metrics = {
+                "pr_auc": float("nan"),
+                "precision": float("nan"),
+                "recall": float("nan"),
+                "f1": float("nan"),
+                "prec_curve": np.array([]),
+                "rec_curve": np.array([]),
+            }
+        else:
+            probs, y_true = train_predict(gum, ewt, feats)
+            metrics = compute_metrics(y_true, probs)
+        rows.append({
+            "train": "gum",
+            "test": "ewt",
+            "model": name,
+            "n_train": int(len(gum)),
+            "n_test": int(len(ewt)),
+            "pos_train": int(gum["label"].sum()),
+            "pos_test": int(ewt["label"].sum()),
+            "pr_auc": metrics["pr_auc"],
+            "precision": metrics["precision"],
+            "recall": metrics["recall"],
+            "f1": metrics["f1"],
+        })
+        if metrics["rec_curve"].size and metrics["prec_curve"].size:
+            curves[name] = (metrics["rec_curve"], metrics["prec_curve"])
+    if curves:
+        plot_curves(curves, os.path.join("images", "let_alone_prcurve.pdf"), "PR curves: GUM -> EWT")
+
+    # Evaluate EWT -> GUM
+    curves = {}
+    for name, feats in FEATURE_SETS.items():
+        if len(np.unique(ewt["label"])) < 2:
+            metrics = {
+                "pr_auc": float("nan"),
+                "precision": float("nan"),
+                "recall": float("nan"),
+                "f1": float("nan"),
+                "prec_curve": np.array([]),
+                "rec_curve": np.array([]),
+            }
+        else:
+            probs, y_true = train_predict(ewt, gum, feats)
+            metrics = compute_metrics(y_true, probs)
+        rows.append({
+            "train": "ewt",
+            "test": "gum",
+            "model": name,
+            "n_train": int(len(ewt)),
+            "n_test": int(len(gum)),
+            "pos_train": int(ewt["label"].sum()),
+            "pos_test": int(gum["label"].sum()),
+            "pr_auc": metrics["pr_auc"],
+            "precision": metrics["precision"],
+            "recall": metrics["recall"],
+            "f1": metrics["f1"],
+        })
+        if metrics["rec_curve"].size and metrics["prec_curve"].size:
+            curves[name] = (metrics["rec_curve"], metrics["prec_curve"])
+    if curves:
+        plot_curves(curves, os.path.join("images", "appendix", "let_alone_prcurve_ewt2gum.png"), "PR curves: EWT -> GUM")
+
+    os.makedirs(os.path.dirname(OUT_EVAL), exist_ok=True)
+    pd.DataFrame(rows).to_csv(OUT_EVAL, index=False)
+    print(f"Saved evaluation metrics to {OUT_EVAL}")
+
+    # Save top misclassifications for GUM->EWT (full model) if estimable
+    if len(np.unique(gum["label"])) >= 2:
+        probs, y_true = train_predict(gum, ewt, FEATURE_SETS["full"])
+        errors = ewt.copy()
+        errors["pred_prob"] = probs
+        errors["pred_label"] = (probs >= 0.5).astype(int)
+        errors = errors[errors["pred_label"] != errors["label"]].copy()
+        errors = errors.sort_values("pred_prob", ascending=False).head(25)
+        out_cols = ["corpus", "sent_id", "text", "label", "pred_label", "pred_prob"]
+        errors[out_cols].to_csv(OUT_ERRS, sep="\t", index=False)
+        print(f"Saved error analysis to {OUT_ERRS}")
 
 
 if __name__ == "__main__":

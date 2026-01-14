@@ -1,0 +1,7 @@
+sent_id,text,anchor_start,anchor_end,x_idx,y_idx,x_form,y_form,upos_x,upos_y,parallelism,licensing,dist_x_anchor,dist_anchor_y,anchor_present,label,corpus
+GUM_bio_fillmore-32,Their paper highlighted the merits of such a theory of by focusing on the 'let alone' construction.,16,17,14,19,the,construction,OTHER,NOUN,0,0,2,2,1,0,gum
+GUM_essay_food-13,"What’s more, close to half of that waste occurs before it even reaches the distributor, let alone the end-consumer.",19,20,17,21,distributor,the,NOUN,OTHER,0,1,2,1,1,1,gum
+GUM_fiction_claus-26,“You’re seriously going to let me eat alone again on Christmas Eve?”,7,10,6,11,to,again,OTHER,OTHER,0,0,1,1,1,0,gum
+reviews-376320-0004,This can tend to be a stressful experience in itself let alone adding crossing boarders for the first time.,11,12,10,13,itself,adding,OTHER,VERB,0,0,1,1,1,1,ewt
+reviews-026883-0013,The customer service at Home Delivery Service was terrible let alone their promise to proper set up furniture.,10,11,9,12,terrible,their,ADJ,OTHER,0,0,1,1,1,1,ewt
+reviews-211797-0022,I felt very much like Wedding Gallery was being dishonest and I wouldn't trust them to lace me up in another gown let alone trust them with the gown I will wear on the most important day of my life.,24,25,23,26,gown,trust,NOUN,VERB,0,0,1,1,1,1,ewt

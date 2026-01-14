@@ -14,6 +14,8 @@ Outputs:
 * `out/let_alone_stats.csv` – Summary statistics per corpus, including
   counts, parallelism and licensing rates, and the top Y‑head words
   ranked by a collostruction score.
+* `out/let_alone_anchor_present_eval.csv` – Anchor‑present candidates
+  with cue features and heuristic labels for evaluation.
 
 Usage:
 
@@ -109,6 +111,26 @@ def load_corpus_features(corpus: str) -> pd.DataFrame:
             rows.extend(feats)
     df = pd.DataFrame(rows)
     return df
+
+
+def load_corpus_candidates(corpus: str) -> pd.DataFrame:
+    """Load all files for a corpus and extract anchor-present candidates."""
+    base_dir = os.path.join("data", "ud", corpus)
+    if not os.path.isdir(base_dir) or not any(f.endswith(".conllu") for f in os.listdir(base_dir)):
+        print(f"[WARN] No .conllu files found for corpus '{corpus}'. Skipping candidates.")
+        return pd.DataFrame()
+    files = [fn for fn in os.listdir(base_dir) if fn.endswith(".conllu")]
+    rows: List[Dict[str, Any]] = []
+    for filename in files:
+        path = os.path.join(base_dir, filename)
+        print(f"Parsing {path} for candidates...")
+        sentences = utils_ud.load_conllu(path)
+        for sent in sentences:
+            feats = utils_ud.extract_let_alone_candidates(sent, LICENSOR_WORDS)
+            for row in feats:
+                row["corpus"] = corpus
+            rows.extend(feats)
+    return pd.DataFrame(rows)
 
 
 def compute_collostruction(df: pd.DataFrame) -> Dict[str, str]:
@@ -230,6 +252,17 @@ def main() -> None:
     stats_path = os.path.join("out", "let_alone_stats.csv")
     stats_df.to_csv(stats_path, index=False)
     print(f"Saved stats to {stats_path}")
+
+    # Anchor-present candidate set for evaluation
+    cand_gum = load_corpus_candidates("gum")
+    cand_ewt = load_corpus_candidates("ewt")
+    cand_all = pd.concat([cand_gum, cand_ewt], ignore_index=True) if not cand_gum.empty or not cand_ewt.empty else pd.DataFrame()
+    cand_path = os.path.join("out", "let_alone_anchor_present_eval.csv")
+    if not cand_all.empty:
+        cand_all.to_csv(cand_path, index=False)
+        print(f"Saved anchor-present candidates to {cand_path}")
+    else:
+        print("[WARN] No candidates extracted; evaluation file not written.")
 
 
 if __name__ == "__main__":
