@@ -97,22 +97,20 @@ def add_row(rows: List[Dict[str, Any]], construction: str, corpus: str, sent: Di
     })
 
 
-def extract_let_alone(sent: Dict[str, Any]) -> List[Dict[str, Any]]:
+def extract_or_even(sent: Dict[str, Any]) -> List[Dict[str, Any]]:
     rows: List[Dict[str, Any]] = []
-    candidates = utils_ud.extract_let_alone_candidates(
-        sent, {"not", "n't", "no", "never", "hardly", "without", "even"}
-    )
+    candidates = utils_ud.extract_or_even_candidates(sent)
     for cand in candidates:
         add_row(
             rows,
-            "let_alone",
+            "or_even",
             "",
             sent,
             cue1=1,
             cue2=cand.get("parallelism", 0),
             cue3=cand.get("licensing", 0),
             label=cand.get("label", 0),
-            anchor=f"let_alone@{cand.get('anchor_start')}",
+            anchor=f"or_even@{cand.get('anchor_start')}",
         )
     return rows
 
@@ -349,7 +347,7 @@ def extract_x_much(sent: Dict[str, Any], idx: Dict[str, Any]) -> List[Dict[str, 
 def process_sentence(sent: Dict[str, Any]) -> List[Dict[str, Any]]:
     idx = build_index(sent["tokens"])
     rows: List[Dict[str, Any]] = []
-    rows.extend(extract_let_alone(sent))
+    rows.extend(extract_or_even(sent))
     rows.extend(extract_way_construction(sent, idx))
     rows.extend(extract_time_away(sent, idx))
     rows.extend(extract_comparative_correlative(sent, idx))

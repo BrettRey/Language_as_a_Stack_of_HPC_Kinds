@@ -1,0 +1,7 @@
+train,test,model,n_train,n_test,pos_train,pos_test,pr_auc,precision,recall,f1
+gum,ewt,full,12,18,6,14,1.0,1.0,1.0,1.0
+gum,ewt,no_parallelism,12,18,6,14,0.9523809523809523,1.0,0.7857142857142857,0.88
+gum,ewt,no_licensing,12,18,6,14,0.873015873015873,1.0,0.42857142857142855,0.6
+ewt,gum,full,18,12,14,6,1.0,0.5,1.0,0.6666666666666666
+ewt,gum,no_parallelism,18,12,14,6,0.8333333333333333,0.5,1.0,0.6666666666666666
+ewt,gum,no_licensing,18,12,14,6,0.6666666666666667,0.5,1.0,0.6666666666666666

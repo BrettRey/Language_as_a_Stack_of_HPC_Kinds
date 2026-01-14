@@ -11,8 +11,8 @@
   `xelatex main.tex && biber main && xelatex main.tex && xelatex main.tex`
 - Phoneme pipeline (run from repo root so outputs land in top-level folders):
   `python python/01_download_phoible.py`, `python python/02_make_ridgelines.py`, `python python/03_model_y.py`
-- Construction pipeline:
-  `python python/10_download_ud.py`, `python python/11_extract_let_alone.py`, `python python/12_profile_plot.py`, `python python/13_predict_prcurve.py`
+- Construction pipeline (flagship *or even*):
+  `python python/10_download_ud.py`, `python python/11_extract_or_even.py`, `python python/12_or_even_profile_plot.py`, `python python/13_or_even_prcurve.py`
 - Outputs: tables in `out/` (created by scripts) and figures in `images/` or `figs/` depending on the script.
 
 ## Coding Style & Naming Conventions

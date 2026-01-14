@@ -253,6 +253,48 @@ def find_let_alone_string_anchors(sentence: Dict[str, Any]) -> List[Tuple[int, i
     return spans
 
 
+def find_or_even_anchors(sentence: Dict[str, Any]) -> List[Tuple[int, int]]:
+    """Return all contiguous string anchors for 'or even'."""
+    tokens = sentence["tokens"]
+    spans: List[Tuple[int, int]] = []
+    for i in range(len(tokens) - 1):
+        if tokens[i]["form"].lower() == "or" and tokens[i + 1]["form"].lower() == "even":
+            spans.append((i, i + 1))
+    return spans
+
+
+def has_left_punct(tokens: List[Dict[str, Any]], anchor_start: int, window: int = 3) -> bool:
+    """Check for comma/semicolon/colon/dash immediately to the left."""
+    count = 0
+    for idx in range(anchor_start - 1, -1, -1):
+        tok = tokens[idx]
+        if tok["upos"] == "PUNCT" and tok["form"] in {",", ";", ":", "—", "-", "–"}:
+            return True
+        count += 1
+        if count >= window:
+            break
+    return False
+
+
+def has_scalar_cue(tokens: List[Dict[str, Any]], anchor_start: int, window: int = 6) -> bool:
+    """Check for scalar/contrast cues in a left context window."""
+    scalar_words = {
+        "not", "no", "never", "hardly", "barely", "only", "just",
+        "almost", "nearly", "at", "least", "more", "less", "fewer",
+    }
+    count = 0
+    for idx in range(anchor_start - 1, -1, -1):
+        tok = tokens[idx]
+        if tok["upos"] == "PUNCT":
+            continue
+        if tok["form"].lower() in scalar_words:
+            return True
+        count += 1
+        if count >= window:
+            break
+    return False
+
+
 def merge_route(existing: Optional[str], new: str) -> str:
     """Merge detection routes for duplicate anchors."""
     if existing is None:
@@ -478,6 +520,92 @@ def extract_let_alone_candidates(sentence: Dict[str, Any], licensor_words: Set[s
         dist_x_anchor = anchor_start - x_idx
         dist_anchor_y = y_idx - end
         label = int(keep and end == start + 1)
+        rows.append({
+            "sent_id": sentence.get("sent_id"),
+            "text": sentence.get("text"),
+            "anchor_start": start + 1,
+            "anchor_end": end + 1,
+            "x_idx": x_idx + 1,
+            "y_idx": y_idx + 1,
+            "x_form": tokens[x_idx]["form"],
+            "y_form": tokens[y_idx]["form"],
+            "upos_x": upos_x,
+            "upos_y": upos_y,
+            "parallelism": int(parallel),
+            "licensing": int(licensing),
+            "dist_x_anchor": dist_x_anchor,
+            "dist_anchor_y": dist_anchor_y,
+            "anchor_present": 1,
+            "label": label,
+        })
+    return rows
+
+
+def extract_or_even_features(sentence: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Extract feature rows for all 'or even' anchors in a sentence."""
+    tokens = sentence["tokens"]
+    anchors = find_or_even_anchors(sentence)
+    rows: List[Dict[str, Any]] = []
+    for (start, end) in anchors:
+        if not apply_metalinguistic_filter(tokens, start, end):
+            continue
+        anchor_start = start
+        x_idx = find_nearest_head(tokens, anchor_start, "left")
+        y_idx = find_nearest_head(tokens, end, "right")
+        if x_idx is None or y_idx is None:
+            continue
+        upos_x = normalize_upos(tokens[x_idx]["upos"])
+        upos_y = normalize_upos(tokens[y_idx]["upos"])
+        parallel = False
+        if {upos_x, upos_y} <= {"NOUN"}:
+            parallel = True
+        elif upos_x == upos_y and upos_x in {"VERB", "ADJ"}:
+            parallel = True
+        licensing = has_scalar_cue(tokens, anchor_start) or has_left_punct(tokens, anchor_start)
+        dist_x_anchor = anchor_start - x_idx
+        dist_anchor_y = y_idx - end
+        rows.append({
+            "sent_id": sentence.get("sent_id"),
+            "text": sentence.get("text"),
+            "anchor_start": start + 1,
+            "anchor_end": end + 1,
+            "x_idx": x_idx + 1,
+            "y_idx": y_idx + 1,
+            "x_form": tokens[x_idx]["form"],
+            "y_form": tokens[y_idx]["form"],
+            "upos_x": upos_x,
+            "upos_y": upos_y,
+            "parallelism": int(parallel),
+            "licensing": int(licensing),
+            "dist_x_anchor": dist_x_anchor,
+            "dist_anchor_y": dist_anchor_y,
+        })
+    return rows
+
+
+def extract_or_even_candidates(sentence: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Extract anchor-present candidates for 'or even' with heuristic labels."""
+    tokens = sentence["tokens"]
+    anchors = find_or_even_anchors(sentence)
+    rows: List[Dict[str, Any]] = []
+    for (start, end) in anchors:
+        keep = apply_metalinguistic_filter(tokens, start, end)
+        anchor_start = start
+        x_idx = find_nearest_head(tokens, anchor_start, "left")
+        y_idx = find_nearest_head(tokens, end, "right")
+        if x_idx is None or y_idx is None:
+            continue
+        upos_x = normalize_upos(tokens[x_idx]["upos"])
+        upos_y = normalize_upos(tokens[y_idx]["upos"])
+        parallel = False
+        if {upos_x, upos_y} <= {"NOUN"}:
+            parallel = True
+        elif upos_x == upos_y and upos_x in {"VERB", "ADJ"}:
+            parallel = True
+        licensing = has_scalar_cue(tokens, anchor_start) or has_left_punct(tokens, anchor_start)
+        dist_x_anchor = anchor_start - x_idx
+        dist_anchor_y = y_idx - end
+        label = int(keep and (parallel or licensing))
         rows.append({
             "sent_id": sentence.get("sent_id"),
             "text": sentence.get("text"),

@@ -25,13 +25,13 @@ python python/02_make_ridgelines.py
 python python/03_model_y.py
 ```
 
-Construction/UD pipeline:
+Construction/UD pipeline (flagship *or even*):
 
 ```bash
 python python/10_download_ud.py
-python python/11_extract_let_alone.py
-python python/12_profile_plot.py
-python python/13_predict_prcurve.py
+python python/11_extract_or_even.py
+python python/12_or_even_profile_plot.py
+python python/13_or_even_prcurve.py
 ```
 
 Outputs land in `out/`, `images/`, or `figs/` depending on the script.

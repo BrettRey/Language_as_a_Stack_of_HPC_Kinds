@@ -12,7 +12,7 @@
 - [x] Conceptual framework (projectibility + homeostasis diagnostics)
 - [x] Case A: Phonemes (PHOIBLE, /y/ scaling) - preliminary
 - [x] Case B: Words (semantic drift, egregious) - preliminary
-- [x] Case C: Constructions (let alone, cross-corpus transfer) - preliminary
+- [x] Case C: Constructions (or even, cross-corpus transfer) - preliminary
 - [x] Failure modes taxonomy (thin/fat/negative)
 - [x] Python analysis code
 - [ ] Full verification of empirical results
@@ -36,7 +36,7 @@
 |------|------|--------|-------|
 | Phonemes | PHOIBLE 2.0 | Preliminary | /y/ scaling, inventory ridgelines |
 | Words | Historical corpora | Preliminary | Egregious drift; needs multi-lexeme expansion |
-| Constructions | UD GUM + EWT | Preliminary | let alone cross-corpus; small n (12, 15) |
+| Constructions | UD GUM + EWT (+ broader UD set) | Preliminary | or even cross-corpus; anchor-present counts modest |
 
 ---
 
@@ -47,9 +47,14 @@ Python scripts in `python/`:
 - `02_make_ridgelines.py` - inventory visualization
 - `03_model_y.py` - /y/ scaling model
 - `10_download_ud.py` - Universal Dependencies
-- `11_extract_let_alone.py` - construction extraction
-- `12_profile_plot.py` - cue profiles
-- `13_predict_prcurve.py` - cross-corpus evaluation
+- `11_extract_let_alone.py` - legacy let alone extraction
+- `11_extract_or_even.py` - or even extraction
+- `12_profile_plot.py` - legacy let alone cue profiles
+- `12_or_even_profile_plot.py` - or even cue profiles
+- `13_predict_prcurve.py` - legacy let alone evaluation
+- `13_or_even_prcurve.py` - or even evaluation
+- `20_extract_construction_battery.py` - construction battery candidates
+- `21_eval_construction_battery.py` - battery evaluation
 
 ---
 
@@ -64,3 +69,4 @@ Python scripts in `python/`:
 ## Session Log
 
 - **2026-01-08**: Imported from Overleaf; STATUS.md created
+- **2026-01-14**: Switched flagship construction to *or even* due to low *let alone* counts in UD
