@@ -1,4 +1,4 @@
 corpus,n_tokens,parallelism_rate,licensing_rate
-gum,10,0.2,0.4
+gum,10,0.2,0.5
 ewt,18,0.3333333333333333,0.6111111111111112
 gumreddit,0,0.0,0.0

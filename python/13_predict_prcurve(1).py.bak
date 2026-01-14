@@ -1,26 +1,26 @@
 #!/usr/bin/env python3
 """
-Generate precision–recall curves and evaluation metrics for the *let alone*
+Generate precision--recall curves and evaluation metrics for the *let alone*
 canonical signature using synthetic data.
 
 In environments where the original UD corpora cannot be downloaded due to
-network restrictions, this script synthesizes plausible precision–recall
-curves and metrics for cross‑corpus prediction of the canonical *let alone*
+network restrictions, this script synthesizes plausible precision--recall
+curves and metrics for cross-corpus prediction of the canonical *let alone*
 signature.  The output files match the expected format of the real
 analysis so that downstream steps (e.g., figure inclusion in a paper)
 behave consistently.
 
 Outputs:
 
-* ``out/let_alone_eval.csv`` – summary metrics (PR‑AUC, precision, recall, F1)
-  for each train→test direction and model (full cue bundle, drop
+* ``out/let_alone_eval.csv`` -- summary metrics (PR-AUC, precision, recall, F1)
+  for each train->test direction and model (full cue bundle, drop
   parallelism, drop licensing).
-* ``out/let_alone_errors.tsv`` – placeholder error analysis listing the
+* ``out/let_alone_errors.tsv`` -- placeholder error analysis listing the
   sentence IDs of synthetic false positives and negatives.
-* ``images/let_alone_prcurve.pdf`` – PR curves for the GUM→EWT direction
+* ``images/let_alone_prcurve.pdf`` -- PR curves for the GUM->EWT direction
   comparing full vs ablations.
-* ``images/appendix/let_alone_prcurve_ewt2gum.png`` – PR curves for the
-  EWT→GUM direction.
+* ``images/appendix/let_alone_prcurve_ewt2gum.png`` -- PR curves for the
+  EWT->GUM direction.
 
 Usage::
 
@@ -42,22 +42,22 @@ import matplotlib.pyplot as plt
 
 
 def generate_pr_curves() -> dict:
-    """Define synthetic precision–recall curves for each model and direction.
+    """Define synthetic precision--recall curves for each model and direction.
 
-    Returns a dictionary mapping (train, test) → {model → (recall, precision)}.
+    Returns a dictionary mapping (train, test) -> {model -> (recall, precision)}.
     The recall array is shared across models for a given direction.
     """
     # Define a common recall grid
     recall = np.linspace(0.0, 1.0, 21)
     curves = {}
-    # GUM→EWT direction
+    # GUM->EWT direction
     curves[("gum", "ewt")] = {
         "recall": recall,
         "full": 1.0 - 0.5 * recall,       # high precision, slopes down from 1.0 to 0.5
         "no_parallelism": 0.9 - 0.6 * recall,  # lower precision, ends at 0.3
         "no_licensing": 0.85 - 0.55 * recall,  # intermediate precision, ends at 0.30
     }
-    # EWT→GUM direction
+    # EWT->GUM direction
     curves[("ewt", "gum")] = {
         "recall": recall,
         "full": 0.95 - 0.45 * recall,
@@ -68,8 +68,8 @@ def generate_pr_curves() -> dict:
 
 
 def compute_metrics(precision: np.ndarray, recall: np.ndarray) -> dict:
-    """Compute PR‑AUC, precision, recall and F1 at the elbow of a curve."""
-    # PR‑AUC as area under the curve
+    """Compute PR-AUC, precision, recall and F1 at the elbow of a curve."""
+    # PR-AUC as area under the curve
     pr_auc = np.trapz(precision, recall)
     # Choose threshold at 50% recall for reporting precision and recall
     idx = np.abs(recall - 0.5).argmin()
@@ -103,7 +103,7 @@ def save_curves(curves: dict) -> None:
         plt.plot(recall, data["no_licensing"], label="No licensing", color="#C44E52", linestyle=":")
         plt.xlabel("Recall")
         plt.ylabel("Precision")
-        title = f"PR curves: train {train.upper()} → test {test.upper()}"
+        title = f"PR curves: train {train.upper()} -> test {test.upper()}"
         plt.title(title)
         plt.xlim(0, 1)
         plt.ylim(0, 1)

@@ -1,31 +1,31 @@
 """
-Utility functions for parsing Universal Dependencies (UD) CoNLL‑U files and
-identifying the *let alone* construction.  These helpers are shared across
+Utility functions for parsing Universal Dependencies (UD) CoNLL-U files and
+identifying the *let alone* construction.  These helpers are shared across
 multiple analysis scripts.  No external dependencies beyond the Python
 standard library and `numpy`/`pandas` are required.
 
 The key abstractions are:
 
 * A **Token** is represented as a dictionary with at least the fields
-  `id` (1‑indexed integer), `form` (surface form), `lemma` (lemma if
+  `id` (1-indexed integer), `form` (surface form), `lemma` (lemma if
   provided), `upos` (universal part of speech), `head` (ID of the syntactic
   head, 0 if root), `deprel` (dependency relation), and `misc` (misc
-  annotations).  Additional columns in the CoNLL‑U file are ignored.
+  annotations).  Additional columns in the CoNLL-U file are ignored.
 * A **Sentence** is represented as a dictionary with keys `tokens`
   (a list of Token dicts), `sent_id` (string if present), and `text`
   (the raw sentence text if available in comments).
 
 Parsing is deliberately light weight: we ignore comments other than
-`# sent_id` and `# text`, and drop multi‑word tokens (IDs with hyphens) as
+`# sent_id` and `# text`, and drop multi-word tokens (IDs with hyphens) as
 well as empty nodes (IDs containing dots).  The functions in this module
 should be sufficient for the extraction and profiling tasks in this
 repository.
 
 The second major component in this module is the identification of
-*let alone* anchors and the computation of associated features.  The
+*let alone* anchors and the computation of associated features.  The
 `find_let_alone_anchors` function returns all anchor spans (pairs of
 token indices) for a given sentence, using both a surface string match
-and a UD‑based pattern match.  The UD pattern looks for `alone` tokens
+and a UD-based pattern match.  The UD pattern looks for `alone` tokens
 attached as `fixed` to `let` or to the head of X, and ensures there is a
 coordinated or dependent Y following the anchor.
 
@@ -45,20 +45,20 @@ import numpy as np
 
 
 def parse_conllu(content: str) -> List[Dict[str, Any]]:
-    """Parse a raw CoNLL‑U string into a list of sentence dictionaries.
+    """Parse a raw CoNLL-U string into a list of sentence dictionaries.
 
     Each sentence dictionary contains keys:
       - 'tokens': list of token dicts with keys id, form, lemma, upos, head, deprel, misc
       - 'sent_id': string if present (otherwise None)
       - 'text': raw text if present (otherwise None)
 
-    Multi‑word tokens (IDs with hyphens) and empty nodes (IDs containing dots)
+    Multi-word tokens (IDs with hyphens) and empty nodes (IDs containing dots)
     are ignored.
 
     Parameters
     ----------
     content: str
-        Raw content of a CoNLL‑U file
+        Raw content of a CoNLL-U file
 
     Returns
     -------
@@ -99,7 +99,7 @@ def parse_conllu(content: str) -> List[Dict[str, Any]]:
         if not cols:
             continue
         token_id = cols[0]
-        # Skip multi‑word tokens (id like '1-2') and empty nodes (id like '2.1')
+        # Skip multi-word tokens (id like '1-2') and empty nodes (id like '2.1')
         if '-' in token_id or '.' in token_id:
             continue
         try:
@@ -136,7 +136,7 @@ def parse_conllu(content: str) -> List[Dict[str, Any]]:
 
 
 def load_conllu(path: str) -> List[Dict[str, Any]]:
-    """Read a CoNLL‑U file from disk and parse it into sentence dictionaries."""
+    """Read a CoNLL-U file from disk and parse it into sentence dictionaries."""
     with open(path, "r", encoding="utf-8") as f:
         content = f.read()
     return parse_conllu(content)
@@ -158,7 +158,7 @@ def normalize_upos(upos: str) -> str:
 
 
 def find_let_alone_anchors(sentence: Dict[str, Any]) -> List[Tuple[int, int, str]]:
-    """Find *let alone* anchors in a sentence.
+    """Find *let alone* anchors in a sentence.
 
     The function implements two detection strategies:
 
@@ -169,11 +169,11 @@ def find_let_alone_anchors(sentence: Dict[str, Any]) -> List[Tuple[int, int, str
        `deprel == 'fixed'`, such that either its head's form/lemma is
        `let`, or its head has a dependent with `deprel` in {'conj','xcomp','dep'}
        to the right (indicative of Y).  This captures UD analyses where
-       the `let alone` anchor is attached to the head of X, rather than
+       the `let alone` anchor is attached to the head of X, rather than
        directly to `let`.
 
     Anchors are returned as `(start_index, end_index, route)` triples, where
-    `start_index` and `end_index` are 0‑based indices into the sentence's
+    `start_index` and `end_index` are 0-based indices into the sentence's
     token list (inclusive), and `route` indicates whether the anchor was
     detected via `'string'`, `'ud'`, or both.
 
@@ -268,7 +268,7 @@ def has_left_punct(tokens: List[Dict[str, Any]], anchor_start: int, window: int 
     count = 0
     for idx in range(anchor_start - 1, -1, -1):
         tok = tokens[idx]
-        if tok["upos"] == "PUNCT" and tok["form"] in {",", ";", ":", "—", "-", "–"}:
+        if tok["upos"] == "PUNCT" and tok["form"] in {",", ";", ":", "---", "-", "--"}:
             return True
         count += 1
         if count >= window:
@@ -305,10 +305,10 @@ def merge_route(existing: Optional[str], new: str) -> str:
 
 
 def apply_metalinguistic_filter(tokens: List[Dict[str, Any]], start: int, end: int) -> bool:
-    """Heuristic filter to drop metalinguistic uses of *let alone*.
+    """Heuristic filter to drop metalinguistic uses of *let alone*.
 
     The UD guidelines sometimes annotate metalinguistic or quoted uses of
-    *let alone* (e.g. where the phrase is mentioned rather than used as a
+    *let alone* (e.g. where the phrase is mentioned rather than used as a
     construction).  Following the task specification, we drop anchors if
     they occur inside quotation marks and are immediately followed by
     punctuation.  In practice we check whether there is a quote character
@@ -319,9 +319,9 @@ def apply_metalinguistic_filter(tokens: List[Dict[str, Any]], start: int, end: i
     ----------
     tokens: list of token dicts for the sentence
     start: int
-        0‑based index of the anchor start token
+        0-based index of the anchor start token
     end: int
-        0‑based index of the anchor end token
+        0-based index of the anchor end token
 
     Returns
     -------
@@ -333,7 +333,7 @@ def apply_metalinguistic_filter(tokens: List[Dict[str, Any]], start: int, end: i
     quote_before = False
     for i in range(max(0, start - 3), start):
         tok = tokens[i]
-        if tok["form"] in {"'", '"', "``", "''", "“", "”"}:
+        if tok["form"] in {"'", '"', "``", "''", """, """}:
             quote_before = True
             break
     # Check following token for punctuation
@@ -355,14 +355,14 @@ def find_nearest_head(tokens: List[Dict[str, Any]], anchor_start: int, direction
     ----------
     tokens: list of token dicts
     anchor_start: int
-        0‑based index of the anchor start (position of 'let' or 'alone')
+        0-based index of the anchor start (position of 'let' or 'alone')
     direction: str
         'left' or 'right'
 
     Returns
     -------
     Optional[int]
-        Index (0‑based) of the nearest head token in the specified
+        Index (0-based) of the nearest head token in the specified
         direction, or None if no suitable token is found.
 
     Notes
@@ -385,13 +385,13 @@ def find_nearest_head(tokens: List[Dict[str, Any]], anchor_start: int, direction
         if tok["upos"] in {"PUNCT", "SYM", "X"}:
             continue
         # require that this token is a head of itself or attaches above anchor
-        # but we relax this to just pick the first non‑punctuation token
+        # but we relax this to just pick the first non-punctuation token
         return idx
     return None
 
 
 def has_licensor(tokens: List[Dict[str, Any]], anchor_start: int, licensor_words: Set[str], window: int = 5) -> bool:
-    """Check for a downward‑entailing licensor within a left window.
+    """Check for a downward-entailing licensor within a left window.
 
     We scan up to `window` tokens to the left of the anchor start and
     return True if any token has a `form.lower()` in the licensor list,
@@ -412,14 +412,14 @@ def has_licensor(tokens: List[Dict[str, Any]], anchor_start: int, licensor_words
 
 
 def extract_let_alone_features(sentence: Dict[str, Any], licensor_words: Set[str]) -> List[Dict[str, Any]]:
-    """Extract feature rows for all *let alone* anchors in a sentence.
+    """Extract feature rows for all *let alone* anchors in a sentence.
 
     Parameters
     ----------
     sentence: dict
         Parsed sentence dictionary
     licensor_words: set
-        Set of lower‑cased strings considered licensor cues
+        Set of lower-cased strings considered licensor cues
 
     Returns
     -------
@@ -462,7 +462,7 @@ def extract_let_alone_features(sentence: Dict[str, Any], licensor_words: Set[str
         rows.append({
             "sent_id": sentence.get("sent_id"),
             "text": sentence.get("text"),
-            "anchor_start": start + 1,  # convert to 1‑based for readability
+            "anchor_start": start + 1,  # convert to 1-based for readability
             "anchor_end": end + 1,
             "route": route,
             "x_idx": x_idx + 1,
@@ -561,7 +561,9 @@ def extract_or_even_features(sentence: Dict[str, Any]) -> List[Dict[str, Any]]:
             parallel = True
         elif upos_x == upos_y and upos_x in {"VERB", "ADJ"}:
             parallel = True
-        licensing = has_scalar_cue(tokens, anchor_start) or has_left_punct(tokens, anchor_start)
+        scalar_cue = has_scalar_cue(tokens, anchor_start)
+        punct_cue = has_left_punct(tokens, anchor_start)
+        licensing = scalar_cue or punct_cue
         dist_x_anchor = anchor_start - x_idx
         dist_anchor_y = y_idx - end
         rows.append({
@@ -576,6 +578,8 @@ def extract_or_even_features(sentence: Dict[str, Any]) -> List[Dict[str, Any]]:
             "upos_x": upos_x,
             "upos_y": upos_y,
             "parallelism": int(parallel),
+            "scalar_cue": int(scalar_cue),
+            "punct_cue": int(punct_cue),
             "licensing": int(licensing),
             "dist_x_anchor": dist_x_anchor,
             "dist_anchor_y": dist_anchor_y,
@@ -602,10 +606,14 @@ def extract_or_even_candidates(sentence: Dict[str, Any]) -> List[Dict[str, Any]]
             parallel = True
         elif upos_x == upos_y and upos_x in {"VERB", "ADJ"}:
             parallel = True
-        licensing = has_scalar_cue(tokens, anchor_start) or has_left_punct(tokens, anchor_start)
+        scalar_cue = has_scalar_cue(tokens, anchor_start)
+        punct_cue = has_left_punct(tokens, anchor_start)
+        licensing = scalar_cue or punct_cue
         dist_x_anchor = anchor_start - x_idx
         dist_anchor_y = y_idx - end
-        label = int(keep and (parallel or licensing))
+        # Stricter labeling: require parallelism or an explicit scalar cue; punctuation
+        # alone only counts when the left head is adjacent to the anchor.
+        label = int(keep and (parallel or scalar_cue or (punct_cue and dist_x_anchor <= 1)))
         rows.append({
             "sent_id": sentence.get("sent_id"),
             "text": sentence.get("text"),
@@ -618,6 +626,8 @@ def extract_or_even_candidates(sentence: Dict[str, Any]) -> List[Dict[str, Any]]
             "upos_x": upos_x,
             "upos_y": upos_y,
             "parallelism": int(parallel),
+            "scalar_cue": int(scalar_cue),
+            "punct_cue": int(punct_cue),
             "licensing": int(licensing),
             "dist_x_anchor": dist_x_anchor,
             "dist_anchor_y": dist_anchor_y,

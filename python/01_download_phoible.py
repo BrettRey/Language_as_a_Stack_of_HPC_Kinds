@@ -12,7 +12,7 @@ HTTP.  Because the build environment may restrict outbound network
 requests, the script traps download errors and reports them while
 continuing if local copies are available.
 
-The PHOIBLE CSV is large (~25 MB); ensure adequate disk space.
+The PHOIBLE CSV is large (~25 MB); ensure adequate disk space.
 
 """
 import os
@@ -41,7 +41,7 @@ def safe_download(url: str, dest: str) -> bool:
     and return False.  Partial downloads are removed.
     """
     try:
-        print(f"[download] downloading {os.path.basename(dest)} …")
+        print(f"[download] downloading {os.path.basename(dest)} ...")
         urlretrieve(url, dest)
         print(f"[download] saved to {dest}")
         return True
@@ -77,7 +77,7 @@ def main() -> None:
         # extract languoid.csv from zip
         import zipfile
         with zipfile.ZipFile(GLOTTOLOG_ZIP, 'r') as zf:
-            print("[download] extracting languoid.csv …")
+            print("[download] extracting languoid.csv ...")
             zf.extract('languoid.csv', path=RAW_DIR)
             print(f"[download] extracted languoid.csv to {LANGUOID_CSV}")
     else:

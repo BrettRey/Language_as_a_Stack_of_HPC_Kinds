@@ -2,7 +2,7 @@
 
 Preprint manuscript and analysis scripts supporting: *Language as a Stack of Homeostatic Property-Cluster Kinds: From Phonemes to Constructions*.
 
-## What’s Here
+## What's Here
 - `main.tex` + `house-style-and-preamble.tex`: LaTeX source
 - `refs.bib`: bibliography
 - `images/`: figures referenced by the paper

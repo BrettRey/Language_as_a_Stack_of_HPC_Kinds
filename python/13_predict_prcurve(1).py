@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 """
-Compute precision–recall curves and evaluation metrics for the *let alone*
+Compute precision--recall curves and evaluation metrics for the *let alone*
 cue bundle using extracted features (anchor-present evaluation set).
 
 This script reads `out/let_alone_anchor_present_eval.csv` produced by
 `11_extract_let_alone.py`, trains regularized logistic models on cue bundles
 (Anchor+Parallelism+Licensing) with ablations (drop Parallelism; drop Licensing),
-evaluates cross-corpus transfer (GUM→EWT and EWT→GUM), computes PR-AUC, precision,
+evaluates cross-corpus transfer (GUM->EWT and EWT->GUM), computes PR-AUC, precision,
 recall, F1 with bootstrap 95% CIs, and performs isotonic calibration on the
 target domain (slope & intercept reported).
 
 Outputs:
-  - out/let_alone_eval.csv – summary metrics table
-  - figs/let_alone_prcurve.pdf/.png – PR curves for GUM→EWT (default)
-  - out/let_alone_errors.tsv – top misclassifications (by calibrated score)
+  - out/let_alone_eval.csv -- summary metrics table
+  - figs/let_alone_prcurve.pdf/.png -- PR curves for GUM->EWT (default)
+  - out/let_alone_errors.tsv -- top misclassifications (by calibrated score)
 
 Note: Anchor-only baseline over the *full* candidate set is not computed here,
 because the extraction pipeline currently produces the anchor-present set.
@@ -123,14 +123,14 @@ def main():
         'no_parallelism': ['anchor_present','licensing'],
         'no_licensing': ['anchor_present','parallelism']
     }
-    # GUM→EWT
+    # GUM->EWT
     base, ci = bootstrap_ci(gum, ewt, featuresets['full'])
     rows.append({'direction':'gum->ewt','model':'full', **base, 'pr_auc_lo': ci['pr_auc'][0], 'pr_auc_hi': ci['pr_auc'][1]})
     base_np, ci_np = bootstrap_ci(gum, ewt, featuresets['no_parallelism'])
     rows.append({'direction':'gum->ewt','model':'no_parallelism', **base_np, 'pr_auc_lo': ci_np['pr_auc'][0], 'pr_auc_hi': ci_np['pr_auc'][1]})
     base_nl, ci_nl = bootstrap_ci(gum, ewt, featuresets['no_licensing'])
     rows.append({'direction':'gum->ewt','model':'no_licensing', **base_nl, 'pr_auc_lo': ci_nl['pr_auc'][0], 'pr_auc_hi': ci_nl['pr_auc'][1]})
-    # EWT→GUM
+    # EWT->GUM
     base2, ci2 = bootstrap_ci(ewt, gum, featuresets['full'])
     rows.append({'direction':'ewt->gum','model':'full', **base2, 'pr_auc_lo': ci2['pr_auc'][0], 'pr_auc_hi': ci2['pr_auc'][1]})
     base2_np, ci2_np = bootstrap_ci(ewt, gum, featuresets['no_parallelism'])
@@ -138,8 +138,8 @@ def main():
     base2_nl, ci2_nl = bootstrap_ci(ewt, gum, featuresets['no_licensing'])
     rows.append({'direction':'ewt->gum','model':'no_licensing', **base2_nl, 'pr_auc_lo': ci2_nl['pr_auc'][0], 'pr_auc_hi': ci2_nl['pr_auc'][1]})
     write_eval(rows)
-    # Plot PR curves for GUM→EWT
-    plot_pr(gum, ewt, featuresets, 'GUM→EWT')
+    # Plot PR curves for GUM->EWT
+    plot_pr(gum, ewt, featuresets, 'GUM->EWT')
     # Save top misclassifications (by calibrated score) for one direction
     # (placeholder: will be populated when run in a full environment)
     with open(OUT_ERRS, 'w', encoding='utf-8') as f:

@@ -9,7 +9,7 @@ all: data_download features profile prcurve session
 data_download:
 	$(PYTHON) src/10_download_ud.py
 
-# Extract let‑alone features and stats
+# Extract let-alone features and stats
 features:
 	$(PYTHON) src/11_extract_let_alone.py
 
@@ -17,7 +17,7 @@ features:
 profile:
 	$(PYTHON) src/12_profile_plot.py
 
-# Run cross‑corpus prediction and plot PR curves
+# Run cross-corpus prediction and plot PR curves
 prcurve:
 	$(PYTHON) src/13_predict_prcurve.py
 

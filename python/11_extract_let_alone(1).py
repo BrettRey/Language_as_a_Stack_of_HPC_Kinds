@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """
-Extract *let alone* instances from UD treebanks and compute cue features.
+Extract *let alone* instances from UD treebanks and compute cue features.
 
 This script loads the UD English GUM and EWT treebanks (downloaded by
-`10_download_ud.py`), identifies all *let alone* anchors using both string
+`10_download_ud.py`), identifies all *let alone* anchors using both string
 and UD patterns, applies a metalinguistic filter, and computes the cue
 features defined in the study: UPOS categories for the left (X) and
 right (Y) heads, syntactic parallelism, licensing cues, and distances.
 
 Outputs:
 
-* `out/let_alone_features.csv` – All extracted instances with features.
-* `out/let_alone_stats.csv` – Summary statistics per corpus, including
-  counts, parallelism and licensing rates, and the top Y‑head words
+* `out/let_alone_features.csv` -- All extracted instances with features.
+* `out/let_alone_stats.csv` -- Summary statistics per corpus, including
+  counts, parallelism and licensing rates, and the top Y-head words
   ranked by a collostruction score.
 
 Usage:
@@ -55,7 +55,7 @@ def load_corpus_features(corpus: str) -> pd.DataFrame:
     Returns
     -------
     pandas.DataFrame
-        Features for all *let alone* anchors in the corpus
+        Features for all *let alone* anchors in the corpus
     """
     base_dir = os.path.join("data", "ud", corpus)
     # If the directory or files are missing, fall back to synthetic data for reproducibility.
@@ -112,12 +112,12 @@ def load_corpus_features(corpus: str) -> pd.DataFrame:
 
 
 def compute_collostruction(df: pd.DataFrame) -> Dict[str, str]:
-    """Compute log‑likelihood collostruction scores for Y‑head forms.
+    """Compute log-likelihood collostruction scores for Y-head forms.
 
-    For each unique Y‑head word (lowercased) we construct a 2×2 table over
+    For each unique Y-head word (lowercased) we construct a 2x2 table over
     the two corpora (GUM vs EWT) counting how many times the word occurs
     as Y and how many times other words occur.  We then compute the
-    log‑likelihood ratio (LLR) statistic and record the top five words
+    log-likelihood ratio (LLR) statistic and record the top five words
     with the highest positive LLR for each corpus.
 
     Parameters
@@ -129,7 +129,7 @@ def compute_collostruction(df: pd.DataFrame) -> Dict[str, str]:
     Returns
     -------
     Dict[str, str]
-        Mapping from corpus name to a semicolon‑separated list of
+        Mapping from corpus name to a semicolon-separated list of
         "form:score" pairs
     """
     results: Dict[str, str] = {"gum": "", "ewt": ""}

@@ -2,7 +2,7 @@
 """
 Download UD treebanks for a set of English UD corpora.
 
-This script retrieves version‑controlled CoNLL‑U files and accompanying
+This script retrieves version-controlled CoNLL-U files and accompanying
 license/README texts from the official Universal Dependencies GitHub
 repositories.  We pin the downloads to a specific release tag (``r2.16``)
 to ensure reproducibility.  Files are saved under ``data/ud/{gum,ewt}/``.
@@ -19,7 +19,7 @@ Usage (from repository root)::
 
 Each file is only downloaded if it does not already exist.  Progress
 messages are printed to standard output.  Any unrecoverable errors
-will terminate the script with a non‑zero exit code.
+will terminate the script with a non-zero exit code.
 """
 
 from __future__ import annotations
@@ -301,7 +301,7 @@ def main() -> None:
             continue
         for filename in file_list:
             dest_path = os.path.join(dest_dir, filename)
-            # Skip if file already exists and is non‑empty
+            # Skip if file already exists and is non-empty
             if os.path.exists(dest_path) and os.path.getsize(dest_path) > 0:
                 print(f"[SKIP] {dest_path} already exists")
                 continue

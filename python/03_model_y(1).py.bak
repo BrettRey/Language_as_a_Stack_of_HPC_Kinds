@@ -6,9 +6,9 @@
 
 Fit logistic regression models to examine how the probability of the
 close front rounded vowel /y/ depends on vowel inventory size.  The
-script also fits a comparison model for /i/, computes a 10‑fold
-cross‑validated AUC for the /y/ model, and produces a plot showing
-observed presence/absence, the fitted probability curves with 95 %
+script also fits a comparison model for /i/, computes a 10-fold
+cross-validated AUC for the /y/ model, and produces a plot showing
+observed presence/absence, the fitted probability curves with 95 %
 confidence intervals, and a lighter comparison curve for /i/.
 
 """
@@ -34,8 +34,8 @@ FIG_DIR = 'figs'
 def normalize_phoneme_strip_marks(s: str) -> str:
     """Normalise a phoneme string to NFKC and strip length/tone/stress marks.
 
-    This function removes combining characters that encode length (ː, ˑ),
-    stress (ˈ, ˌ) and common tone diacritics (acute, grave, circumflex, tilde,
+    This function removes combining characters that encode length (long, half-long),
+    stress (primary stress, secondary stress) and common tone diacritics (acute, grave, circumflex, tilde,
     macron, breve, diaeresis) while preserving base characters that reflect
     rounding and frontness.  The result is trimmed of surrounding
     whitespace.
@@ -188,12 +188,12 @@ def main() -> None:
     # Prepare dataset
     data = prepare_dataset()
     # Fit models
-    print('[model] fitting logistic regression for /y/ and /i/ …')
+    print('[model] fitting logistic regression for /y/ and /i/ ...')
     model_y, model_i = fit_models(data)
-    # Cross‑validated AUC
-    print('[model] computing cross‑validated AUC …')
+    # Cross-validated AUC
+    print('[model] computing cross-validated AUC ...')
     cv_auc = cross_validated_auc(data)
-    print(f'[model] mean 10‑fold CV AUC for /y/: {cv_auc:.3f}')
+    print(f'[model] mean 10-fold CV AUC for /y/: {cv_auc:.3f}')
     # Build prediction grid
     vmin = data['vowel_inventory_size'].min()
     vmax = data['vowel_inventory_size'].max()
@@ -220,7 +220,7 @@ def main() -> None:
     ax.set_title('Probability of /y/ vs vowel inventory size')
     ax.legend(loc='upper left')
     # Annotate AUC
-    ax.text(vmax * 0.97, 0.9, f'10‑fold CV AUC (/y/): {cv_auc:.3f}',
+    ax.text(vmax * 0.97, 0.9, f'10-fold CV AUC (/y/): {cv_auc:.3f}',
             ha='right', va='center', fontsize=9)
     fig.tight_layout()
     # Save

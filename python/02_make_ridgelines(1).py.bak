@@ -5,7 +5,7 @@
 ---------------------
 
 Generate ridgeline density plots of total phoneme inventory size by
-language family and compute per‑family summary statistics.  The
+language family and compute per-family summary statistics.  The
 script reads the raw PHOIBLE and Glottolog languoid tables, cleans
 and deduplicates the data, summarises inventory sizes, and writes a
 CSV of counts, medians and IQRs to `out/summary_tables.csv`.  The
@@ -21,7 +21,7 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib
-matplotlib.use('Agg')  # ensure non‑interactive backend
+matplotlib.use('Agg')  # ensure non-interactive backend
 import matplotlib.pyplot as plt
 from scipy.stats import gaussian_kde
 
@@ -81,7 +81,7 @@ def compute_family_mapping(languoid: pd.DataFrame) -> pd.DataFrame:
 
 
 def compute_summary(language_data: pd.DataFrame) -> pd.DataFrame:
-    """Compute per‑family counts, medians and IQRs of total inventory size."""
+    """Compute per-family counts, medians and IQRs of total inventory size."""
     summary = (language_data.groupby('family_name')['total_inventory_size']
                .agg(N='count', median_inventory='median',
                     q25=lambda x: np.percentile(x, 25),
@@ -103,7 +103,7 @@ def make_ridgeline_plot(language_data: pd.DataFrame, summary: pd.DataFrame) -> N
     # Global IQR across all languages
     q25 = np.percentile(language_data['total_inventory_size'], 25)
     q75 = np.percentile(language_data['total_inventory_size'], 75)
-    print(f"[ridgelines] global IQR: {q25:.1f}–{q75:.1f}")
+    print(f"[ridgelines] global IQR: {q25:.1f}--{q75:.1f}")
     # Set up figure
     fig, ax = plt.subplots(figsize=(8, 6))
     # Colour map
@@ -146,12 +146,12 @@ def main() -> None:
     if not os.path.exists(PHOIBLE_FILE) or not os.path.exists(LANGUOID_FILE):
         raise FileNotFoundError('Required raw files missing; run 01_download_phoible.py first')
     # Read data
-    print('[ridgelines] reading PHOIBLE …')
+    print('[ridgelines] reading PHOIBLE ...')
     phoible = pd.read_csv(PHOIBLE_FILE)
-    print('[ridgelines] reading languoid …')
+    print('[ridgelines] reading languoid ...')
     languoid = pd.read_csv(LANGUOID_FILE)
     # Compute inventory sizes and select largest inventory per language
-    print('[ridgelines] computing inventory sizes …')
+    print('[ridgelines] computing inventory sizes ...')
     sizes = compute_inventory_sizes(phoible)
     largest = select_largest_inventory(sizes)
     # Merge language names

@@ -15,18 +15,18 @@ set -euo pipefail
 # ensure directories exist
 mkdir -p data/raw data/processed out figs
 
-# run each step in order; Rscript will stop with a non‑zero exit
+# run each step in order; Rscript will stop with a non-zero exit
 # code if any step fails
-echo "[runner] downloading raw data…"
+echo "[runner] downloading raw data..."
 python3 src/01_download_phoible.py
 
-echo "[runner] processing data and generating ridgeline plot…"
+echo "[runner] processing data and generating ridgeline plot..."
 python3 src/02_make_ridgelines.py
 
-echo "[runner] fitting logistic models and producing P(/y/) vs vowel size plot…"
+echo "[runner] fitting logistic models and producing P(/y/) vs vowel size plot..."
 python3 src/03_model_y.py
 
-echo "[runner] recording session information…"
+echo "[runner] recording session information..."
 python3 - <<'PY'
 import importlib
 import sys

@@ -21,18 +21,18 @@ For **every** construction in the battery:
 
 1. **Prevalence map**: Count anchor-/frame-candidates and validated instances per corpus (or genre slice). Zeros are informative as distributional scope, not test failures.
 
-2. **In-register projectibility**: Transfer between corpora/slices in the same register class (informal↔informal; edited↔edited), provided minimum-count thresholds are met.
+2. **In-register projectibility**: Transfer between corpora/slices in the same register class (informal<->informal; edited<->edited), provided minimum-count thresholds are met.
 
 3. **Cross-register stress test**: Train in informal, test in edited (and optionally reverse). This makes "register-local homeostasis" falsifiable.
 
 ## Minimum Evaluability Thresholds
 
-- Anchor-present candidate set: ≥20 items in both train and test
-- Positive class: ≥10 instances in both train and test
+- Anchor-present candidate set: >=20 items in both train and test
+- Positive class: >=10 instances in both train and test
 - When thresholds aren't met: report prevalence, mark as "not estimable"
 
 ## Why This Works
 
-- Same corpus grid for all constructions → no opportunistic asymmetry
+- Same corpus grid for all constructions -> no opportunistic asymmetry
 - Sparsity is informative (scope/extent of kind), not a classifier failure
 - "Projection fails outside informal dialogue" means *given adequate data*, not "no tokens available"

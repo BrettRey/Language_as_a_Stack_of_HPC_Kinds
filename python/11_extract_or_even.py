@@ -3,9 +3,9 @@
 Extract *or even* instances from UD treebanks and compute cue features.
 
 Outputs:
-* `out/or_even_features.csv` – All extracted instances with features.
-* `out/or_even_stats.csv` – Summary statistics per corpus.
-* `out/or_even_anchor_present_eval.csv` – Anchor-present candidates with labels.
+* `out/or_even_features.csv` -- All extracted instances with features.
+* `out/or_even_stats.csv` -- Summary statistics per corpus.
+* `out/or_even_anchor_present_eval.csv` -- Anchor-present candidates with labels.
 """
 from __future__ import annotations
 
