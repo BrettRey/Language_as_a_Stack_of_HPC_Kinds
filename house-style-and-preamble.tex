@@ -1,0 +1,128 @@
+% !TEX TS-program = xelatex
+% File: house-style-and-preamble.tex
+% Purpose: Brett's typical preamble + usage conventions:
+%   examples (langsci-gb4e), italics vs. quotation, dashes, contractions, plain style, etc.
+
+\documentclass[12pt]{article}
+
+% --- Layout & language ---
+\usepackage[margin=1in]{geometry}
+\usepackage[british]{babel}            % British conventions; use -ize spellings in prose
+\usepackage{fontspec}                  % Xe/LuaLaTeX
+\setmainfont{Charis SIL}
+\usepackage[final]{microtype}
+
+% --- Quotation marks ---
+\usepackage{csquotes}                  % \enquote{…} with locale-aware quoting
+
+% --- Hyperlinks ---
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdfauthor={Brett Reynolds},
+  pdftitle={House Style \& Preamble}
+}
+
+% --- Numbered linguistic examples (LangSci/gb4e wrapper, no 'exe' env) ---
+\usepackage{langsci-gb4e}
+\noautomath
+
+% --- Lists & small utilities ---
+\usepackage{enumitem}
+\setlist{itemsep=0.3\baselineskip, topsep=0.3\baselineskip}
+\usepackage{xspace}
+
+% =========================
+% Bibliography (biblatex)
+% =========================
+% Default portable setup:
+\usepackage[backend=biber,style=apa,natbib=true,doi=true,isbn=false,url=true]{biblatex}
+\addbibresource{references.bib}
+
+% If working in LangSci projects, you can switch to their unified style:
+% \usepackage[backend=biber,style=unified,natbib=true,doi=true,isbn=false,url=false]{biblatex}
+
+% =========================
+% Light house macros
+% =========================
+% Mention (italics) vs. quotation marks
+\newcommand{\term}[1]{\textit{#1}}
+
+% Small-caps abbreviations for glosses
+\newcommand{\abbr}[1]{\textsc{#1}}
+
+% Judgement markers
+\newcommand{\ungram}[1]{*\!#1}
+\newcommand{\marg}[1]{?\!#1}
+\newcommand{\odd}[1]{\#\!#1}
+
+% e.g., i.e., etc., with sensible spacing
+\newcommand{\eg}{e.g.,\xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\etc}{etc.\xspace}
+
+% =========================
+% Document
+% =========================
+\title{House Style \& Preamble:\\A Compact Demonstration}
+\author{Brett Reynolds}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Mention vs.\ quotation}
+Use italics for mention of forms and categories; reserve quotation marks for actual quotations.
+Mention: \term{going forward} is best analysed as a preposition selecting a directional PP.
+Quotation (with \verb|\enquote|): As \enquote{going forward} spread in business English, its syntax broadened.
+Nested quotes: \enquote{Outer with an \enquote{inner} quote}.
+
+\section{Dashes, ranges, hyphens}
+Use an em dash (\textemdash) without surrounding spaces for parenthetical asides: the category is stable—within limits—across registers.
+Use an en dash for ranges and relations: 2001--2025; pp.\ 113--127; the form--function distinction.
+Use hyphens only for compounds: corpus-based study, task-specific rubric.
+
+\section{Contractions and plain style}
+Contractions are fine where rhythm improves: \enquote{We don’t gain anything by multiplying categories.}
+Prefer direct verbs and short clauses. Delete throat-clearers:
+\begin{itemize}[nosep]
+  \item \textbf{Avoid:} \enquote{It is important to note that the results clearly show that \dots}
+  \item \textbf{Prefer:} \enquote{The results show \dots}
+\end{itemize}
+
+\section{Numbered examples with \texttt{langsci-gb4e}}
+Single example (note: no \texttt{exe} environment):
+\ea\label{ex:simple}
+The committee have decided to adjourn.
+\z
+
+Judgement markers and subexamples:
+\ea\label{ex:sub}
+\ex She has already left.
+\ex[*]{\ungram{She have already left.}}
+\ex[\#]{\odd{The square triangle laughed.}}
+\z
+
+Cross-reference: see (\ref{ex:sub}).
+
+Interlinear gloss (\texttt{\textbackslash gll}/\texttt{\textbackslash glt}; abbreviations in small caps):
+\ea\label{ex:gloss}
+\gll Ich sehe den Hund. \\
+     I see  the.\abbr{acc} dog \\
+\glt `I see the dog.'
+\z
+
+\section{Category vs.\ function}
+Distinguish lexical categories (e.g., \term{determinative}, \term{adjective}) from functions (e.g., \term{head}, \term{modifier}, \term{subject}).
+In \enquote{\term{those} books}, \term{those} is a \term{determinative} (category) functioning as a \term{determinative} (function) of the NP.
+
+\section{Minimal citation examples (biblatex)}
+Parenthetical: \citep{HuddlestonPullum2002}. Textual: \textcite{Pullum2018}.
+Multiple: \citep{HuddlestonPullum2002,Pullum2018}. Page: \citep[113--127]{HuddlestonPullum2002}.
+
+% \printbibliography % enable when you want the list
+
+\end{document}
