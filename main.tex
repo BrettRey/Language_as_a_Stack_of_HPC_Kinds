@@ -550,6 +550,14 @@ This appendix provides complete technical specifications for the analyses in the
 
 \textbf{Success criteria.} (1) Cross-corpus PR--AUC around or above 0.70; (2) Ablations reduce PR--AUC, with the largest drops expected when parallelism is removed; (3) Anchor-only baseline on the anchor-present evaluation set equals prevalence. Calibration and shuffled-label baselines are reserved for the larger construction battery.
 
+\subsection{Construction battery prevalence and results}
+
+This run yields five constructions with estimable cross-corpus pairs under the minimum thresholds (Table~\ref{tab:cx-battery-prevalence}). Table~\ref{tab:cx-battery-results} summarizes the full-model PR--AUC and ablation deltas for those pairs. Constructions failing thresholds are retained as prevalence-only evidence, since zeros and sparsity delimit their distributional scope rather than registering as failures.
+
+\input{out/cx_battery_prevalence.tex}
+
+\input{out/cx_battery_summary.tex}
+
 \subsection{Multiple testing and inference}
 
 \textbf{Primary outcomes (no correction).} /\textipa{y}/ slope and AUC (Case A); average cohesion and F1 across target/control pairs (Case B); cross-corpus PR--AUC and mean ablation delta (Case C).
