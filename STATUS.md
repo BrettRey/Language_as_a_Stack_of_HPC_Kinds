@@ -83,3 +83,4 @@ Python scripts in `python/`:
 - **2026-01-15**: Prioritize expanding UD corpora coverage for construction analyses
 - **2026-01-15**: Log decisions in STATUS.md going forward
 - **2026-01-15**: Checked UD English treebank comparison list; current palette already covers all listed English UD treebanks (no new additions)
+- **2026-01-15**: Restrict corpora expansion to English only (no non-English UD)
