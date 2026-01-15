@@ -19,7 +19,24 @@ import pandas as pd
 
 import utils_ud
 
-CORPORA = ["gum", "ewt", "gumreddit"]
+CORPORA = [
+    "gum",
+    "ewt",
+    "gumreddit",
+    "esl",
+    "eslspok",
+    "gentle",
+    "childes",
+    "lines",
+    "pud",
+    "partut",
+    "unidive",
+    "atis",
+    "littleprince",
+    "pronouns",
+    "ctetex",
+    "pcedt",
+]
 
 POSSESSIVE_FORMS = {"my", "your", "his", "her", "our", "their", "its", "one's"}
 PATH_PREPS = {
