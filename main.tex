@@ -464,6 +464,8 @@ Two additional targets are included explicitly to discipline the ontology. The f
 
 This run yields five constructions with estimable cross-corpus pairs under the minimum thresholds (Table~\ref{tab:cx-battery-prevalence}). Table~\ref{tab:cx-battery-results} summarizes the full-model PR--AUC and ablation deltas for those pairs. The full model reaches PR--AUC $=1.000$ for each estimable pair. Cue~1 and Cue~2 ablations do not reduce PR--AUC in these slices, whereas Cue~3 ablation produces substantial drops ($\Delta=0.12$ to $0.94$), with the largest losses for the pooled resultatives. Some targets are sparse (e.g., comparative correlatives and N--P--N have $n_{tr}, n_{te} \approx 20$), so these saturated scores should be read as separability within the specified candidate sets rather than as claims about broad generalization.
 
+By the preregistered decision rule, four constructions count as \emph{provisional positives at this grain}: all-clefts, binominal \mention{N of a N}, comparative correlatives, and N--P--N. They meet the evaluability thresholds and show non-trivial ablation sensitivity, though the last two sit at the minimum $n$ and remain fragile. The pooled resultative is treated as a \emph{brakes} outcome rather than a kind: separability depends almost entirely on Cue~3, consistent with the \enquote{too fat} prediction and indicating that stratification is required before any kind claim. The remaining targets (\mention{or even}, \mention{way}, \mention{time-away}, \mention{just because} \dots \mention{doesn't mean} \dots, \mention{X much?}) fall below prevalence thresholds in this corpus palette, so no kind claim is made for them in this run.
+
 \input{out/cx_battery_prevalence.tex}
 
 \input{out/cx_battery_summary.tex}
