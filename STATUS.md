@@ -21,6 +21,7 @@
 - [x] Construction spot-check sample (all-cleft, way, comparative correlative) - preliminary
 - [x] Comparative-correlative heuristic tightened with UD Degree=Cmp + "than" filter - preliminary
 - [x] Construction heuristics frozen after Gelman-style checks (comparative correlatives treated as non-evaluable at this grain)
+- [x] Construction tier declared complete for this round (frozen unless new task design)
 - [x] Failure modes taxonomy (thin/fat/negative)
 - [x] Python analysis code
 - [ ] Full verification of empirical results
@@ -85,6 +86,7 @@ Python scripts in `python/`:
 - **2026-01-15**: Spot-checked 10 pos/10 neg samples for all-cleft, way, comparative correlative; notes saved to `notes/cx_battery_spotcheck.md`
 - **2026-01-15**: Tightened comparative-correlative heuristic (comparative detection + than filter); remains below evaluability thresholds
 - **2026-01-15**: Froze construction heuristics after Gelman-style checks; comparative correlatives recorded as non-evaluable at this grain
+- **2026-01-15**: Declared construction tier complete for this round; no further heuristic tweaks without new task design
 
 ---
 
@@ -100,3 +102,4 @@ Python scripts in `python/`:
 - **2026-01-15**: Perform and record manual spot-checks for newly estimable constructions
 - **2026-01-15**: Prioritize precision over recall for comparative correlatives to avoid false positives
 - **2026-01-15**: Stop further heuristic tweaking; treat comparative correlatives as a failure mode unless a new task design is introduced
+- **2026-01-15**: Treat construction tier as closed for now; move effort to other sections
