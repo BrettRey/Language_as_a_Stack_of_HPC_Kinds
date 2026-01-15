@@ -18,6 +18,7 @@
 - [x] Expanded UD English palette for construction battery - preliminary
 - [x] Construction heuristics broadened to increase estimable pairs - preliminary
 - [x] Gelman-style checks (bootstrap CIs + shuffled-label baselines) - preliminary
+- [x] Construction spot-check sample (all-cleft, way, comparative correlative) - preliminary
 - [x] Failure modes taxonomy (thin/fat/negative)
 - [x] Python analysis code
 - [ ] Full verification of empirical results
@@ -79,6 +80,7 @@ Python scripts in `python/`:
 - **2026-01-15**: Expanded construction battery to additional UD English treebanks; recomputed prevalence and transfer tables
 - **2026-01-15**: Broadened construction heuristics to increase estimable pairs (all-cleft, comparative correlative, way now estimable)
 - **2026-01-15**: Added Gelman-style robustness checks (bootstrap CIs, shuffled-label baselines) for construction battery
+- **2026-01-15**: Spot-checked 10 pos/10 neg samples for all-cleft, way, comparative correlative; notes saved to `notes/cx_battery_spotcheck.md`
 
 ---
 
@@ -91,3 +93,4 @@ Python scripts in `python/`:
 - **2026-01-15**: No additional corpora for now; keep current UD English palette
 - **2026-01-15**: Broaden cue/label heuristics to raise estimable construction counts before adding new corpora
 - **2026-01-15**: Run Gelman-style model checks before further construction expansion
+- **2026-01-15**: Perform and record manual spot-checks for newly estimable constructions

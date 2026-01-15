@@ -570,7 +570,7 @@ This appendix provides complete technical specifications for the analyses in the
 
 \subsection{Construction-level specifications}
 
-\textbf{Corpus palette.} All construction-battery analyses use a fixed set of three UD English treebanks: GUM (multi-genre), EWT (web genres), and GUMReddit (informal social media). Register is treated as an explicit experimental factor via the three-step protocol in \S\ref{sec:cx-candidates}.
+\textbf{Corpus palette.} Construction-battery analyses use the UD English palette (GUM, EWT, GUMReddit, ESL, ESLSpok, GENTLE, CHILDES, LinES, PUD, ParTUT, UniDive, ATIS, LittlePrince, Pronouns, CTeTex, PCEDT). Register is treated as an explicit experimental factor via the three-step protocol in \S\ref{sec:cx-candidates}.
 
 \textbf{Minimum evaluability thresholds.} For the construction battery, PR--AUC and ablation metrics are computed only when both train and test sets contain $\geq$20 anchor-present candidates and $\geq$10 validated positive instances. When thresholds aren't met, prevalence is reported and the construction--corpus pair is marked \enquote{not estimable} rather than \enquote{projection failed}. The flagship \textit{or even} analysis falls below this bar, so its metrics are reported as illustrative and accompanied by explicit prevalence counts.
 
@@ -579,6 +579,10 @@ This appendix provides complete technical specifications for the analyses in the
 \textbf{Model and evaluation.} L2-regularized logistic regression ($C$=1.0). Evaluation restricted to anchor-present candidates (true \mention{or even} vs. strings containing \enquote{or even} but lacking parallelism or explicit scalar cues; punctuation-only contexts count as positive only when the left head is adjacent to the anchor). Sample sizes in Table~\ref{tab:oreven-eval} reflect the anchor-present evaluation set.
 
 \textbf{Success criteria.} (1) Cross-corpus PR--AUC around or above 0.70; (2) Ablations reduce PR--AUC, with the largest drops expected when parallelism is removed; (3) Anchor-only baseline on the anchor-present evaluation set equals prevalence. Calibration and shuffled-label baselines are reserved for the larger construction battery.
+
+\textbf{Battery robustness checks.} For the construction battery we compute bootstrap CIs for full PR--AUC and ablation deltas (200 resamples of train and test with replacement) and shuffled-label baselines (200 permutations of train labels) to assess overfitting and prevalence effects. Outputs: \texttt{out/cx\_battery\_bootstrap.csv} and \texttt{out/cx\_battery\_shuffle.csv}.
+
+\textbf{Manual spot-checks.} We manually inspect a stratified sample (10 positives and 10 negatives per newly estimable construction) and record judgments in \texttt{out/cx\_battery\_spotcheck\_annotated.csv}; summary notes in \texttt{notes/cx\_battery\_spotcheck.md}.
 
 \subsection{Multiple testing and inference}
 
@@ -596,7 +600,7 @@ This appendix provides complete technical specifications for the analyses in the
 
 \subsection{Software and versions}
 
-R 4.3.1 (phoneme analyses): lme4 1.1-34, ggplot2 3.4.2, boot 1.3-28. Python 3.10.12 (word/construction): scikit-learn 1.3.0, pandas 2.0.3, numpy 1.24.3, gensim 4.3.1, stanza 1.5.0. All random seeds fixed at 42. Complete session info in repository \texttt{SESSION.txt}.
+R 4.3.1 (phoneme analyses): lme4 1.1-34, ggplot2 3.4.2, boot 1.3-28. Python 3.10.12 (word/construction): scikit-learn 1.3.0, pandas 2.0.3, numpy 1.24.3, gensim 4.3.1, stanza 1.5.0. Random seeds are fixed per script (42 unless otherwise noted; construction battery bootstrap/shuffle checks use 17). Complete session info in repository \texttt{SESSION.txt}.
 
 
 

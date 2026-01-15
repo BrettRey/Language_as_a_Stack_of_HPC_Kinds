@@ -1,0 +1,61 @@
+construction,sample_type,label,corpus,sent_id,anchor,cue1,cue2,cue3,text
+all_cleft,pos,1,gum,GUM_podcast_brave-66,all@32,0,1,1,"Well, maybe we should talk about that, because what I know or you know and you've read much more in depth about it than I have, because all I know is that apparently."
+all_cleft,pos,1,ewt,email-enronsent30_02-0014,all@1,1,1,1,"All you want is for ""them"" to get on with it - and to leave you alone.."
+all_cleft,pos,1,childes,29681,all@2,0,1,1,And all you saying is Isabelle's christening.
+all_cleft,pos,1,ewt,weblog-blogspot.com_alaindewitt_20060924104100_ENG_20060924_104100-0115,all@2,0,1,1,"After all, if you want to be an anti-Semite, there are subtle ways of doing it."
+all_cleft,pos,1,childes,29679,all@1,1,1,1,All you saying is the crocodile.
+all_cleft,pos,1,ewt,reviews-342807-0005,all@1,1,1,1,"All you have to do to make it authentic Jamaican food, is add a whole lot of pepper."
+all_cleft,pos,1,ewt,answers-20111108081911AAy6QeW_ans-0006,all@1,1,1,1,All you can do is take each section (individual video) and edit them together on software.
+all_cleft,pos,1,lines,en_lines-ud-train-doc7-2633,all@1,1,1,1,"All he could tell was that he was standing in the stone fireplace of what looked like a large, dimly lit wizard's shop – but nothing in here was ever likely to be on a Hogwarts school list."
+all_cleft,pos,1,ewt,newsgroup-groups.google.com_alt.animals.bears_1125853b1f13cff6_ENG_20040126_171100-0004,all@1,1,1,1,"All I say is, it works."
+all_cleft,pos,1,lines,en_lines-ud-dev-doc3-3487,all@27,0,1,0,"In Anna Scherer's salon, the elegant guests are discussing the scandal of Napoleon and the Duc d'Enghien, and Prince Andrei says that after all there is a great difference between Napoleon the Emperor and Napoleon the private person."
+all_cleft,neg,0,atis,2359.train,all@3,0,1,1,show me all the northwest flights from new york to milwaukee that leave at 720 am
+all_cleft,neg,0,ctetex,77,all@28,0,1,0,"When the user selects “Submit” on the “Create Flight Plan” screen, the FPMS shall do the following: a. Check that all entries are valid according to any constraints given in Table 2; b. Save the flight plan in the knowledge base, and c. Submit the flight plan file to the TGF for approval."
+all_cleft,neg,0,ewt,email-enronsent30_01-0027,all@3,0,1,0,"I understand all of those comparisons, however, the reality is if we lose Dean (which we will if we don't pay 65k + 10k), we will end up hiring a replacement at 75-80k."
+all_cleft,neg,0,ewt,newsgroup-groups.google.com_alt.animals_434fe80fb3577e8e_ENG_20031011_200300-0059,all@57,0,1,0,"This mentally ill humanity, destroyed families, twisted moral values, manifest or repressed homosexuality in human beings, anti natural feminism rebellion, drug addiction, corrupt social outlines, mad youths without direction, non respect to hierarchies, convulsed nations, misanthropy, misogyny, paedophilia, irrational and feeble lasciviousness and all other type of existent aberrations, are due to the vast manoeuvre that Satan executed through his main marionettes the Beatles and the Rolling Stones, from the Devil's Island."
+all_cleft,neg,0,partut,en_partut-ud-1868,all@19,0,1,0,"The First Folio of 1623, however, lists Shakespeare as one of ""the Principal Actors in all these Plays"", some of which were first staged after Volpone, although we cannot know for certain which roles he played."
+all_cleft,neg,0,gum,GUM_speech_newzealand-10,all@1,1,1,0,"All but 10 of the remaining passengers on the flight, who are not considered to be close contacts, have also been contacted to provide reassurance and answer any questions they might have; those 10 that haven't been contacted did not provide accurate contact information."
+all_cleft,neg,0,partut,en_partut-ud-923,all@2,0,1,0,And all sorts of other oxalates are also sequestering carbon dioxide through the minerals that are being formed and taken out of the rock matrix.
+all_cleft,neg,0,atis,0323.dev,all@3,0,1,1,show me all flights from dallas to pittsburgh which leave on monday after 8 o'clock am
+all_cleft,neg,0,partut,en_partut-ud-757,all@1,1,1,0,All are equal before the law and are entitled without any discrimination to equal protection of the law.
+all_cleft,neg,0,ewt,answers-20111108110610AA4bcXX_ans-0014,all@4,0,1,0,(it's all outdoors and the pictures are only a fourth of the real Everland!)
+way_construction,pos,1,partut,en_partut-ud-2037,way@26,1,1,1,"Expressions such as ""with bated breath"" (Merchant of Venice) and ""a foregone conclusion"" (Othello) have found their way into everyday English speech."
+way_construction,pos,1,lines,en_lines-ud-test-doc6-4863,way@9,1,1,0,I said I should have to learn my way round all over again.
+way_construction,pos,1,ewt,reviews-200429-0003,way@9,1,1,0,"I explained that i was already on my way and i would rush to get there as soon as i could because i needed my car for work at 5am, but the guy was arguing with me saying he was gonna lock the doors right at 5:30."
+way_construction,pos,1,lines,en_lines-ud-train-doc8-2796,way@13,1,1,0,"Months later, proud complacent Zeus had a headache and yowled his way over the earth, threatening to split the firmament with pain."
+way_construction,pos,1,lines,en_lines-ud-train-doc2-462,way@10,1,1,1,"He said not a word as he made his way to his seat, nor did he acknowledge Quinn's presence."
+way_construction,pos,1,lines,en_lines-ud-test-doc6-4857,way@10,1,1,0,"Yes, I suppose I won't know my way around when I get into town."
+way_construction,pos,1,lines,en_lines-ud-test-doc8-5200,way@6,1,1,0,"He compensated by wheedling his way onto the tugs, and because there was still an apprenticeship mentality about the Company, his oddity was tolerated."
+way_construction,pos,1,lines,en_lines-ud-test-doc2-4385,way@3,1,1,1,"Making his way through the press of oncoming bodies, Quinn made a tour of the numbered gates, looking for hidden staircases, unmarked exits, dark alcoves."
+way_construction,pos,1,pud,n01143009,way@15,1,1,0,"Two Australians, who by their own admission are terrible golfers, bluffed their way into a premier golf tournament in North Korea."
+way_construction,pos,1,lines,en_lines-ud-train-doc9-5621,way@5,1,1,0,"We were on our ways somewhere else: we stopped to meet Paniotis, who was in London for the book fair."
+way_construction,neg,0,gum,GUM_vlog_appearance-59,way@5,0,1,1,"I still feel that way, but I'm working on it."
+way_construction,neg,0,atis,2549.train,way@18,0,1,1,i 'd like to fly from denver to pittsburgh to atlanta could you find me the cheapest way to do this
+way_construction,neg,0,lines,en_lines-ud-train-doc3-1107,way@10,0,0,0,"He says, ""I ask myself in what ways my life has not been typical."
+way_construction,neg,0,childes,13861,way@2,0,0,0,Dis way.
+way_construction,neg,0,ewt,newsgroup-groups.google.com_FOOLED_1bf9cdc5a4c2ac48_ENG_20050904_130400-0059,way@14,0,1,0,"i think it could have been done in a much more cost efficient way, right here on bad-old-planet-earth."
+way_construction,neg,0,ewt,answers-20111107092617AAgKm4X_ans-0039,way@11,0,1,0,Tet made it clear that the war was a long way from being over if the Americans thought they could preserve the South and that the North was perfectly willing to suffer great losses to continue their fight.
+way_construction,neg,0,gum,GUM_conversation_christmas-26,way@15,0,0,0,"Oh I got lot of these presents, you know, just along the way."
+way_construction,neg,0,lines,en_lines-ud-dev-doc1-3203,way@19,0,0,0,XML separates the data from the presentation so that the same XML data can be presented in multiple ways by using different presentation files.
+way_construction,neg,0,atis,2581.train,way@13,0,0,0,can you list flights from washington to toronto with the lowest one way fares
+way_construction,neg,0,ewt,answers-20111108094740AA1lbom_ans-0003,way@35,0,0,0,"You shouldn't ask this question it's intimidating, if i tell you what people knows about Philippines you will blush, thank god many thinks i'm japanese just because of the way i keep myself, the way i talk and treat people, and the way i dress, so if you don't want nasty, insulting answers especially from those undesirable migrants like puttagenius, caloy, gro science, and irene."
+comparative_correlative,pos,1,lines,en_lines-ud-train-doc8-2864,the@1-11,1,1,0,The drunk and drunker men who used to talk about the war and hold each other's knees.
+comparative_correlative,pos,1,eslspok,file00320.txt_145,the@3-7,1,1,1,"And at the same time , the other man was driving a bike making telephone call to his girlfriend ."
+comparative_correlative,pos,1,childes,2610,the@5-10,1,1,0,Because you know what the other option is Roman the other option is to take the sticker away.
+comparative_correlative,pos,1,pud,n03005025,the@2-5,1,1,1,"In the message, the former Minister for Justice accused Brice Hortefeux of being a 'fascist', 'Minister (moron) of the Interior' and a 'thug'."
+comparative_correlative,pos,1,ewt,newsgroup-groups.google.com_magicworld_04c89d43ff4fd6ea_ENG_20050104_152000-0015,the@2-6,1,1,1,"As the year progresses, the more impressive your ideas and works become."
+comparative_correlative,pos,1,lines,en_lines-ud-dev-doc4-3584,the@32-35,1,1,1,"Often far away there I thought of these two, guarding the door of Darkness, knitting black wool as for a warm pall, one introducing, introducing continuously to the unknown, the other scrutinizing the cheery and foolish faces with unconcerned old eyes."
+comparative_correlative,pos,1,lines,en_lines-ud-train-doc9-5372,the@13-21,1,1,1,"It was nearly thirty years since his first marriage ended, and the further he got from that life, the more real it became to him."
+comparative_correlative,pos,1,ewt,weblog-blogspot.com_alaindewitt_20060924104100_ENG_20060924_104100-0116,the@8-15,1,1,1,"You do not have to claim that the holocaust never happened, and that the Jewish temple in Jerusalem never existed."
+comparative_correlative,pos,1,childes,17933,the@1-3,1,1,0,The smaller the light gets the hotter it gets.
+comparative_correlative,pos,1,lines,en_lines-ud-train-doc8-3055,the@9-11,1,1,0,The stories agree that in the difficulty and the dream the hero should never count the cost.
+comparative_correlative,neg,0,childes,1160,the@6-9,1,1,0,Go from one end of the street to the other.
+comparative_correlative,neg,0,gum,GUM_letter_roomers-16,the@15-18,1,1,0,"Unless they take them out this summer, you will notice 2 hooks in the ceiling of the outer porch."
+comparative_correlative,neg,0,gum,GUM_academic_epistemic-14,the@3-43,1,1,1,"Insofar as the larger organization, with a broader membership base, can be expected to reflect a wider range of expert opinions and a higher degree of expertise, it is reasonable to give its views greater weight than those of the smaller organization."
+comparative_correlative,neg,0,gum,GUM_court_insanity-39,the@6-9,1,1,0,"Well, of course, the more serious the crime, the longer the maximum sentence that could have been imposed and the more distant, uh, the rights that we're talking about, the more distant in time the rights we're talking about would become available."
+comparative_correlative,neg,0,lines,en_lines-ud-test-doc6-4962,the@10-13,1,1,0,The elderly servant who brought ice and lemon had the nicks at the outer corner of the eyes that Northern Gala people wore.
+comparative_correlative,neg,0,gum,GUM_court_prince-13,the@19-26,1,1,0,We give follow-on artists credit for innovation at Factor 1 while recognizing that Factor 4 and the other factors will sometimes cut decisively the other way.
+comparative_correlative,neg,0,gum,GUM_whow_basil-56,the@3-8,1,1,0,Weed out the smaller plants to give the larger ones more space.
+comparative_correlative,neg,0,childes,3611,the@2-3,1,1,0,See the the the other fish is fine.
+comparative_correlative,neg,0,lines,en_lines-ud-test-doc9-5568,the@2-4,1,1,0,"At the bottom the hallway was darker and cooler than the street, but because of the windows at the back of the upper storeys, as it rose it became lighter and warmer."
+comparative_correlative,neg,0,gum,GUM_textbook_stats-45,the@10-13,1,1,0,"Using the same procedure, we can see that the median of the upper half, or the third quartile (Q3) will be the middle value of the upper half, or 9."
