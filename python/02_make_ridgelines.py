@@ -33,6 +33,8 @@ PHOIBLE_FILE = os.path.join(RAW_DIR, 'phoible.csv')
 LANGUOID_FILE = os.path.join(RAW_DIR, 'languoid.csv')
 
 MIN_N = 10  # minimum number of languages per family to include in plot
+RANDOM_REPS = 10
+RANDOM_SEED = 20250101
 
 def normalize_phoneme(x: pd.Series) -> pd.Series:
     """Normalise phoneme strings using NFC and strip whitespace.
@@ -71,6 +73,18 @@ def select_largest_inventory(sizes: pd.DataFrame) -> pd.DataFrame:
     return largest
 
 
+def select_smallest_inventory(sizes: pd.DataFrame) -> pd.DataFrame:
+    """Within each Glottocode, select the inventory with the smallest total size."""
+    sizes_sorted = sizes.sort_values(by=['Glottocode', 'total_inventory_size', 'vowel_inventory_size'], ascending=[True, True, True])
+    smallest = sizes_sorted.groupby('Glottocode').head(1).reset_index(drop=True)
+    return smallest
+
+
+def select_random_inventory(sizes: pd.DataFrame, rng: np.random.Generator) -> pd.DataFrame:
+    """Within each Glottocode, randomly select one inventory."""
+    return sizes.groupby('Glottocode').apply(lambda g: g.sample(1, random_state=rng.integers(0, 2**31 - 1))).reset_index(drop=True)
+
+
 def compute_family_mapping(languoid: pd.DataFrame) -> pd.DataFrame:
     """Create a mapping from Glottocode to family name using the languoid table."""
     families = languoid[languoid['level'] == 'family'][['id', 'name']].rename(columns={'id': 'family_id', 'name': 'family_name'})
@@ -91,6 +105,53 @@ def compute_summary(language_data: pd.DataFrame) -> pd.DataFrame:
     summary.drop(columns=['q25', 'q75'], inplace=True)
     return summary
 
+
+def bootstrap_family_medians(df: pd.DataFrame, n_boot: int = 2000, random_state: int = 20250101) -> pd.DataFrame:
+    """Bootstrap family medians and 95% CIs for total inventory size."""
+    rng = np.random.default_rng(random_state)
+    records = []
+    for fam, sub in df.groupby('family_name'):
+        values = sub['total_inventory_size'].to_numpy()
+        if len(values) == 0:
+            continue
+        med = float(np.median(values))
+        boots = []
+        for _ in range(n_boot):
+            sample = rng.choice(values, size=len(values), replace=True)
+            boots.append(np.median(sample))
+        lo, hi = np.percentile(boots, [2.5, 97.5])
+        records.append({'family_name': fam, 'median': med, 'ci_lower': float(lo), 'ci_upper': float(hi), 'n': int(len(values))})
+    return pd.DataFrame.from_records(records)
+
+
+def compute_band_mass(df: pd.DataFrame, low: int = 20, high: int = 50) -> pd.DataFrame:
+    """Compute the fraction of KDE mass within [low, high] for each family."""
+    records = []
+    grid = np.linspace(df['total_inventory_size'].min(), df['total_inventory_size'].max(), 1000)
+    for fam, sub in df.groupby('family_name'):
+        values = sub['total_inventory_size'].to_numpy()
+        if len(values) < 2 or np.unique(values).size < 2:
+            mass = float('nan')
+        else:
+            try:
+                kde = gaussian_kde(values, bw_method='scott')
+                density = kde(grid)
+                density /= np.trapz(density, grid)
+                mask = (grid >= low) & (grid <= high)
+                mass = float(np.trapz(density[mask], grid[mask]))
+            except Exception:
+                mass = float('nan')
+        records.append({'family_name': fam, 'mass_in_band': mass, 'n': int(len(values))})
+    return pd.DataFrame.from_records(records)
+
+
+def prepare_language_data(selected: pd.DataFrame, phoible: pd.DataFrame, languoid: pd.DataFrame) -> pd.DataFrame:
+    language_meta = phoible[['Glottocode', 'LanguageName']].drop_duplicates()
+    language_data = selected.merge(language_meta, on='Glottocode', how='left')
+    mapping = compute_family_mapping(languoid)
+    language_data = language_data.merge(mapping, left_on='Glottocode', right_on='id', how='left')
+    language_data['family_name'] = language_data['family_name'].fillna('(Unknown)')
+    return language_data
 
 def make_ridgeline_plot(language_data: pd.DataFrame, summary: pd.DataFrame) -> None:
     """Create and save the ridgeline density plot."""
@@ -153,22 +214,53 @@ def main() -> None:
     # Compute inventory sizes and select largest inventory per language
     print('[ridgelines] computing inventory sizes ...')
     sizes = compute_inventory_sizes(phoible)
-    largest = select_largest_inventory(sizes)
-    # Merge language names
-    language_meta = phoible[['Glottocode', 'LanguageName']].drop_duplicates()
-    language_data = largest.merge(language_meta, on='Glottocode', how='left')
-    # Compute family mapping
-    mapping = compute_family_mapping(languoid)
-    language_data = language_data.merge(mapping, left_on='Glottocode', right_on='id', how='left')
-    language_data['family_name'] = language_data['family_name'].fillna('(Unknown)')
-    # Compute summary statistics
-    summary = compute_summary(language_data)
-    # Write summary table
+    rng = np.random.default_rng(RANDOM_SEED)
+    selection_specs = [("largest", 0), ("smallest", 0)]
+    selection_specs += [("random", i + 1) for i in range(RANDOM_REPS)]
+
+    all_metrics = []
+    all_summaries = []
+
+    for selection, rep in selection_specs:
+        if selection == "largest":
+            selected = select_largest_inventory(sizes)
+        elif selection == "smallest":
+            selected = select_smallest_inventory(sizes)
+        elif selection == "random":
+            selected = select_random_inventory(sizes, rng)
+        else:
+            raise ValueError(f"Unknown selection: {selection}")
+
+        language_data = prepare_language_data(selected, phoible, languoid)
+        summary = compute_summary(language_data)
+        summary_sel = summary.copy()
+        summary_sel["selection"] = selection
+        summary_sel["replicate"] = rep
+        all_summaries.append(summary_sel)
+
+        fam_medians = bootstrap_family_medians(language_data)
+        band_mass = compute_band_mass(language_data, low=20, high=50)
+        metrics = fam_medians.merge(band_mass[['family_name', 'mass_in_band']], on='family_name', how='left')
+        metrics["selection"] = selection
+        metrics["replicate"] = rep
+        all_metrics.append(metrics)
+
+        if selection == "largest" and rep == 0:
+            os.makedirs(OUT_DIR, exist_ok=True)
+            summary.to_csv(os.path.join(OUT_DIR, 'summary_tables.csv'), index=False)
+            print(f"[ridgelines] summary written to {os.path.join(OUT_DIR, 'summary_tables.csv')}")
+            make_ridgeline_plot(language_data, summary)
+
     os.makedirs(OUT_DIR, exist_ok=True)
-    summary.to_csv(os.path.join(OUT_DIR, 'summary_tables.csv'), index=False)
-    print(f"[ridgelines] summary written to {os.path.join(OUT_DIR, 'summary_tables.csv')}")
-    # Make plot
-    make_ridgeline_plot(language_data, summary)
+    metrics_df = pd.concat(all_metrics, ignore_index=True)
+    metrics_path = os.path.join(OUT_DIR, 'ridgeline_band_metrics.csv')
+    metrics_df.to_csv(metrics_path, index=False)
+    print(f"[ridgelines] band metrics written to {metrics_path}")
+
+    summaries_df = pd.concat(all_summaries, ignore_index=True)
+    summaries_path = os.path.join(OUT_DIR, 'summary_tables_selection.csv')
+    summaries_df.to_csv(summaries_path, index=False)
+    print(f"[ridgelines] selection summaries written to {summaries_path}")
 
 
 if __name__ == '__main__':

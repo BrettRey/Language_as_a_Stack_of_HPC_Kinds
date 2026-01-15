@@ -8,6 +8,7 @@ Outputs:
   out/word_drift_summary.tex
   out/word_drift_lexemes.tex
   out/word_drift_shuffle.csv
+  out/word_drift_jaccard_shuffle.csv
 """
 
 from __future__ import annotations
@@ -146,8 +147,19 @@ def drift_score(word: str, data: Dict[int, DecadeData]) -> float:
     return float(np.mean([1.0 - c for c in cosines]))
 
 
-def neighbor_set(word: str, decade: int, data: Dict[int, DecadeData], k: int) -> List[str]:
+def neighbor_set(
+    word: str,
+    decade: int,
+    data: Dict[int, DecadeData],
+    k: int,
+    cache: Dict[Tuple[str, int], List[str]] | None = None,
+) -> List[str]:
     dd = data[decade]
+    if cache is not None:
+        key = (word, decade)
+        cached = cache.get(key)
+        if cached is not None:
+            return cached
     idx = dd.index[word]
     vec = dd.vectors[idx]
     sims = dd.vectors @ vec
@@ -157,18 +169,76 @@ def neighbor_set(word: str, decade: int, data: Dict[int, DecadeData], k: int) ->
     sims[idx] = -np.inf
     top_idx = np.argpartition(-sims, k)[:k]
     top_idx = top_idx[np.argsort(-sims[top_idx])]
-    return [dd.vocab[i] for i in top_idx]
+    neighbors = [dd.vocab[i] for i in top_idx]
+    if cache is not None:
+        cache[key] = neighbors
+    return neighbors
 
 
-def neighbor_overlap(word: str, data: Dict[int, DecadeData], k: int) -> float:
+def neighbor_overlap(word: str, data: Dict[int, DecadeData], k: int, cache: Dict[Tuple[str, int], List[str]] | None = None) -> float:
     overlaps = []
     prev = None
     for decade in DECADES:
-        current = set(neighbor_set(word, decade, data, k))
+        current = set(neighbor_set(word, decade, data, k, cache=cache))
         if prev is not None:
             overlaps.append(len(prev & current) / k)
         prev = current
     return float(np.mean(overlaps))
+
+
+def jaccard(a: set, b: set) -> float:
+    denom = len(a | b)
+    if denom == 0:
+        return 0.0
+    return len(a & b) / denom
+
+
+def build_neighbor_prototypes(
+    words: List[str],
+    data: Dict[int, DecadeData],
+    k: int,
+    cache: Dict[Tuple[str, int], List[str]] | None = None,
+) -> List[set]:
+    protos = []
+    for word in words:
+        union = set()
+        for d in TRAIN_DECADES:
+            union.update(neighbor_set(word, d, data, k, cache=cache))
+        protos.append(union)
+    return protos
+
+
+def classify_words_jaccard(
+    words: List[str],
+    data: Dict[int, DecadeData],
+    protos: List[set],
+    k: int,
+    cache: Dict[Tuple[str, int], List[str]] | None = None,
+) -> Tuple[pd.DataFrame, float]:
+    label_to_idx = {w: i for i, w in enumerate(words)}
+    y_true = []
+    y_pred = []
+    per_word_correct = {w: 0 for w in words}
+    per_word_total = {w: 0 for w in words}
+
+    for word in words:
+        for d in TEST_DECADES:
+            current = set(neighbor_set(word, d, data, k, cache=cache))
+            sims = [jaccard(current, proto) for proto in protos]
+            pred_idx = int(np.argmax(sims))
+            pred_word = words[pred_idx]
+            y_true.append(label_to_idx[word])
+            y_pred.append(pred_idx)
+            per_word_total[word] += 1
+            if pred_word == word:
+                per_word_correct[word] += 1
+
+    macro_f1 = float(f1_score(y_true, y_pred, average="macro"))
+    acc_rows = []
+    for word in words:
+        acc = per_word_correct[word] / max(1, per_word_total[word])
+        acc_rows.append({"word": word, "project_acc_jaccard": acc})
+    return pd.DataFrame(acc_rows), macro_f1
 
 
 def self_cosine_mean(word: str, data: Dict[int, DecadeData]) -> float:
@@ -356,8 +426,15 @@ def main() -> None:
 
     words = targets + controls
 
+    neighbor_cache: Dict[Tuple[str, int], List[str]] = {}
+
     protos = build_prototypes(words, data)
     acc_df, macro_f1 = classify_words(words, data, protos)
+
+    jaccard_protos = build_neighbor_prototypes(words, data, K_NEIGHBORS, cache=neighbor_cache)
+    jaccard_acc_df, macro_f1_jaccard = classify_words_jaccard(
+        words, data, jaccard_protos, K_NEIGHBORS, cache=neighbor_cache
+    )
 
     # Shuffle-label baseline
     shuffle_f1 = []
@@ -369,6 +446,16 @@ def main() -> None:
     shuffle_f1 = np.array(shuffle_f1)
     shuffle_df = pd.DataFrame({"f1": shuffle_f1})
     shuffle_df.to_csv(OUT_DIR / "word_drift_shuffle.csv", index=False)
+
+    jaccard_shuffle_f1 = []
+    for _ in range(200):
+        perm = rng.permutation(len(words))
+        shuffled = [jaccard_protos[i] for i in perm]
+        _, f1_val = classify_words_jaccard(words, data, shuffled, K_NEIGHBORS, cache=neighbor_cache)
+        jaccard_shuffle_f1.append(f1_val)
+    jaccard_shuffle_f1 = np.array(jaccard_shuffle_f1)
+    jaccard_shuffle_df = pd.DataFrame({"f1": jaccard_shuffle_f1})
+    jaccard_shuffle_df.to_csv(OUT_DIR / "word_drift_jaccard_shuffle.csv", index=False)
 
     rows = []
     for word in words:
@@ -383,18 +470,20 @@ def main() -> None:
                 "log_freq": row["log_freq"],
                 "pos": row["pos"],
                 "self_cosine": self_cosine_mean(word, data),
-                "neighbor_overlap": neighbor_overlap(word, data, K_NEIGHBORS),
+                "neighbor_overlap": neighbor_overlap(word, data, K_NEIGHBORS, cache=neighbor_cache),
                 "temporal_mae": temporal_mae(word, data),
             }
         )
-    metrics_df = pd.DataFrame(rows).merge(acc_df, on="word", how="left")
+    metrics_df = pd.DataFrame(rows).merge(acc_df, on="word", how="left").merge(
+        jaccard_acc_df, on="word", how="left"
+    )
     metrics_df["group"] = pd.Categorical(metrics_df["group"], categories=["target", "control"], ordered=True)
     metrics_df = metrics_df.sort_values(["group", "drift_score"], ascending=[True, False])
     metrics_df.to_csv(OUT_DIR / "word_drift_lexemes.csv", index=False)
 
     summary_rows = []
     for group, gdf in metrics_df.groupby("group", observed=True):
-        for metric in ["neighbor_overlap", "self_cosine", "project_acc", "temporal_mae"]:
+        for metric in ["neighbor_overlap", "self_cosine", "project_acc", "project_acc_jaccard", "temporal_mae"]:
             values = gdf[metric].to_numpy()
             lo, hi = bootstrap_ci(values, rng)
             summary_rows.append(
@@ -432,6 +521,7 @@ def main() -> None:
             "Neighbor overlap": [fmt("target", "neighbor_overlap"), fmt("control", "neighbor_overlap")],
             "Self cosine": [fmt("target", "self_cosine"), fmt("control", "self_cosine")],
             "Project acc": [fmt("target", "project_acc"), fmt("control", "project_acc")],
+            "Project acc (J)": [fmt("target", "project_acc_jaccard"), fmt("control", "project_acc_jaccard")],
             "Temporal MAE": [fmt("target", "temporal_mae"), fmt("control", "temporal_mae")],
         }
     )
@@ -439,13 +529,17 @@ def main() -> None:
     tex = summary_table.to_latex(index=False, escape=True)
     shuffle_mean = float(shuffle_f1.mean())
     shuffle_lo, shuffle_hi = np.quantile(shuffle_f1, [0.025, 0.975])
+    jaccard_shuffle_mean = float(jaccard_shuffle_f1.mean())
+    jaccard_shuffle_lo, jaccard_shuffle_hi = np.quantile(jaccard_shuffle_f1, [0.025, 0.975])
     caption = (
         "  \\caption{Word-level drift summary (COHA lemma SGNS, 1900--2000). "
         "Cells show mean with 95\\% bootstrap CI. "
         "Project acc is per-lexeme word-identity accuracy on held-out decades; "
-        f"macro-F1 = {macro_f1:.3f}; "
-        f"shuffled-label baseline mean = {shuffle_mean:.3f} "
-        f"(95\\% CI [{shuffle_lo:.3f}, {shuffle_hi:.3f}])."
+        f"macro-F1 (aligned) = {macro_f1:.3f}; "
+        f"macro-F1 (neighbor-jaccard) = {macro_f1_jaccard:.3f}; "
+        f"shuffled-label baselines mean = {shuffle_mean:.3f} "
+        f"(95\\% CI [{shuffle_lo:.3f}, {shuffle_hi:.3f}]) and "
+        f"{jaccard_shuffle_mean:.3f} (95\\% CI [{jaccard_shuffle_lo:.3f}, {jaccard_shuffle_hi:.3f}])."
         "}"
     )
     tex_lines = [
@@ -498,7 +592,9 @@ def main() -> None:
     print(f"[targets] {targets}")
     print(f"[controls] {controls}")
     print(f"[macro_f1] {macro_f1:.3f}")
+    print(f"[macro_f1_jaccard] {macro_f1_jaccard:.3f}")
     print(f"[shuffle_f1] mean={shuffle_f1.mean():.3f} ci=[{np.quantile(shuffle_f1,0.025):.3f},{np.quantile(shuffle_f1,0.975):.3f}]")
+    print(f"[shuffle_f1_jaccard] mean={jaccard_shuffle_f1.mean():.3f} ci=[{np.quantile(jaccard_shuffle_f1,0.025):.3f},{np.quantile(jaccard_shuffle_f1,0.975):.3f}]")
 
 
 if __name__ == "__main__":

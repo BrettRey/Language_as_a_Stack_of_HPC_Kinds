@@ -92,6 +92,12 @@ Python scripts in `python/`:
 - **2026-01-15**: Clarified Case B writeup (mixed evidence framing, removed egregious-specific illustration, updated summary phrasing)
 - **2026-01-15**: Normalized non-ASCII punctuation in manuscript and small output logs; left corpus-extracted candidate CSV untouched to preserve source fidelity
 - **2026-01-15**: Replaced em-dash usage with spaced en-dash style (word~-- word); updated house style guidance
+- **2026-01-15**: Case A recomputed with vowel inventory excluding target segments; added inventory-selection sensitivity (largest/smallest/random) and grouped CV by family; outputs in out/y_model_metrics.csv, out/y_model_sensitivity.csv, out/ridgeline_band_metrics.csv, out/summary_tables_selection.csv
+- **2026-01-15**: Added construction battery cue-leakage audit (single-cue predictiveness per candidate set) to out/cx_battery_cue_leakage.csv
+- **2026-01-15**: Regenerated phoneme ridgeline sensitivity with multiple random draws (10 reps); refreshed ridgeline figure and selection summaries
+- **2026-01-15**: Added alignment-free neighbor-set (Jaccard) classifier for word drift robustness; updated word drift summary outputs
+- **2026-01-15**: Confirmed HistWords COHA stats have no genre/register metadata; register contrasts not available for Case B
+- **2026-01-15**: Made explicit UD English register bins for construction register contrasts (edited vs informal; mixed excluded)
 
 ---
 
@@ -112,3 +118,7 @@ Python scripts in `python/`:
 - **2026-01-15**: Restrict word targets to high-drift adjectives from the non-stop, non-proper list; force-include nice/sick/gay/awful when available
 - **2026-01-15**: Exclude egregious and broadcast from multi-lexeme evaluation due to zero vectors in SGNS release
 - **2026-01-15**: Allow control matching to relax to POS-only if log-frequency matching fails; report group sizes explicitly
+- **2026-01-15**: Use two-bin register split for construction register contrasts (edited/formal vs informal/spoken); exclude mixed/ambiguous corpora from register contrasts
+- **2026-01-15**: No word-level register stratification for Case B because HistWords COHA metadata do not include genre/register
+- **2026-01-15**: Report inventory-selection sensitivity across largest/smallest/random draws; use 10 random draws for ridgeline sensitivity
+- **2026-01-15**: Add alignment-free neighbor-set (Jaccard) classifier as a robustness check for word-level projectibility

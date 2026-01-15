@@ -19,6 +19,7 @@ from sklearn.metrics import average_precision_score, precision_score, recall_sco
 IN_PATH = os.path.join("out", "cx_battery_candidates.csv")
 OUT_EVAL = os.path.join("out", "cx_battery_eval.csv")
 OUT_PREV = os.path.join("out", "cx_battery_prevalence.csv")
+OUT_LEAK = os.path.join("out", "cx_battery_cue_leakage.csv")
 
 FEATURE_SETS = {
     "full": ["cue1", "cue2", "cue3"],
@@ -48,6 +49,21 @@ def train_eval(train: pd.DataFrame, test: pd.DataFrame, features: List[str]) -> 
         "f1": float(f1_score(y_te, y_hat, zero_division=0)),
     }
 
+def single_cue_metrics(sub: pd.DataFrame, cue: str) -> Dict[str, float]:
+    y = sub["label"].astype(int).values
+    x = sub[cue].astype(int).values
+    if len(y) == 0:
+        return {"pr_auc": np.nan, "cue_rate": np.nan, "precision": np.nan, "recall": np.nan, "lift": np.nan}
+    prevalence = float(y.mean())
+    cue_rate = float(x.mean())
+    tp = int(((x == 1) & (y == 1)).sum())
+    cue_pos = int((x == 1).sum())
+    positives = int(y.sum())
+    precision = float(tp / cue_pos) if cue_pos > 0 else np.nan
+    recall = float(tp / positives) if positives > 0 else np.nan
+    lift = float(precision / prevalence) if prevalence > 0 and not np.isnan(precision) else np.nan
+    pr_auc = average_precision_score(y, x) if len(np.unique(y)) > 1 else np.nan
+    return {"pr_auc": float(pr_auc), "cue_rate": cue_rate, "precision": precision, "recall": recall, "lift": lift}
 
 def main() -> None:
     if not os.path.exists(IN_PATH):
@@ -65,6 +81,19 @@ def main() -> None:
         })
     os.makedirs(os.path.dirname(OUT_PREV), exist_ok=True)
     pd.DataFrame(prev_rows).to_csv(OUT_PREV, index=False)
+
+    leakage_rows = []
+    for (construction, corpus), sub in df.groupby(["construction", "corpus"]):
+        base = {
+            "construction": construction,
+            "corpus": corpus,
+            "n_candidates": int(len(sub)),
+            "n_positive": int(sub["label"].sum()),
+            "prevalence": float(sub["label"].mean()) if len(sub) else 0.0,
+        }
+        for cue in ["cue1", "cue2", "cue3"]:
+            metrics = single_cue_metrics(sub, cue)
+            leakage_rows.append({**base, "cue": cue, **metrics})
 
     rows: List[Dict[str, float]] = []
     corpora = sorted(df["corpus"].unique())
@@ -119,8 +148,10 @@ def main() -> None:
 
     os.makedirs(os.path.dirname(OUT_EVAL), exist_ok=True)
     pd.DataFrame(rows).to_csv(OUT_EVAL, index=False)
+    pd.DataFrame(leakage_rows).to_csv(OUT_LEAK, index=False)
     print(f"Saved evaluation metrics to {OUT_EVAL}")
     print(f"Saved prevalence summary to {OUT_PREV}")
+    print(f"Saved cue leakage audit to {OUT_LEAK}")
 
 
 if __name__ == "__main__":

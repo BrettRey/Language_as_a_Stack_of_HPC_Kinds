@@ -28,7 +28,12 @@ venv/
 # Generated session logs
 SESSION*.txt
 
+# Generated figures (intermediate)
+figs/
+
 # Large external datasets (downloaded)
+data/raw/
+data/raw/*.zip
 data/histwords/
 data/histwords*.zip
 data/histwords_full/

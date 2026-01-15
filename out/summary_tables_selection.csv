@@ -1,0 +1,2149 @@
+family_name,N,median_inventory,iqr_inventory,selection,replicate
+(Unknown),103,32.0,16.0,largest,0
+Abkhaz-Adyge,4,63.0,2.75,largest,0
+Afro-Asiatic,139,44.0,15.0,largest,0
+Ainu,2,17.0,0.0,largest,0
+Algic,8,28.0,9.5,largest,0
+Angan,1,21.0,0.0,largest,0
+Araucanian,3,28.0,0.0,largest,0
+Arawakan,58,26.0,7.0,largest,0
+Arawan,6,21.5,3.25,largest,0
+Athabaskan-Eyak-Tlingit,14,49.5,10.0,largest,0
+Atlantic-Congo,479,39.0,13.0,largest,0
+Austroasiatic,52,42.0,10.5,largest,0
+Austronesian,131,25.0,8.0,largest,0
+Aymaran,4,42.0,2.5,largest,0
+Baining,1,22.0,0.0,largest,0
+Barbacoan,9,26.0,2.0,largest,0
+Blue Nile Mao,1,36.0,0.0,largest,0
+Bookkeeping,4,32.5,15.0,largest,0
+Boran,4,29.5,5.5,largest,0
+Border,3,22.0,2.0,largest,0
+Bororoan,3,22.0,1.0,largest,0
+Bunaban,2,23.5,0.5,largest,0
+Caddoan,3,29.0,3.0,largest,0
+Cahuapanan,3,23.0,2.5,largest,0
+Cariban,30,23.0,4.75,largest,0
+Central Sudanic,25,45.0,7.0,largest,0
+Chapacuran,3,21.0,1.5,largest,0
+Chibchan,12,27.0,5.5,largest,0
+Chicham,6,24.0,0.75,largest,0
+Chimakuan,1,37.0,0.0,largest,0
+Chiquitano,1,26.0,0.0,largest,0
+Chocoan,7,33.0,4.0,largest,0
+Chonan,3,35.0,3.0,largest,0
+Chukotko-Kamchatkan,6,24.5,8.75,largest,0
+Chumashan,1,44.0,0.0,largest,0
+Cochimi-Yuman,3,34.0,2.0,largest,0
+Dajuic,1,30.0,0.0,largest,0
+Dizoid,1,30.0,0.0,largest,0
+Dogon,3,42.0,2.5,largest,0
+Dravidian,42,40.0,13.75,largest,0
+East Strickland,1,18.0,0.0,largest,0
+Eastern Daly,1,22.0,0.0,largest,0
+Eastern Jebel,2,49.0,0.0,largest,0
+Eleman,1,14.0,0.0,largest,0
+Eskimo-Aleut,7,36.0,5.5,largest,0
+Furan,1,30.0,0.0,largest,0
+Garrwan,4,22.0,0.5,largest,0
+Giimbiyu,3,23.0,0.0,largest,0
+Great Andamanese,2,35.0,0.0,largest,0
+Guahiboan,5,25.0,13.0,largest,0
+Guaicuruan,10,28.0,8.0,largest,0
+Gumuz,1,44.0,0.0,largest,0
+Gunwinyguan,19,27.0,2.0,largest,0
+Haida,2,50.0,0.0,largest,0
+Harakmbut,1,33.0,0.0,largest,0
+Heibanic,6,40.0,8.5,largest,0
+Hibito-Cholon,1,20.0,0.0,largest,0
+Hmong-Mien,4,52.5,8.25,largest,0
+Huavean,2,29.0,0.0,largest,0
+Huitotoan,5,26.0,14.0,largest,0
+Ijoid,6,40.0,5.5,largest,0
+Indo-European,192,44.5,14.0,largest,0
+Iroquoian,5,22.0,10.0,largest,0
+Iwaidjan Proper,7,24.0,0.0,largest,0
+Japonic,4,32.5,16.5,largest,0
+Jarawa-Onge,1,24.0,0.0,largest,0
+Jarrakan,2,22.0,2.0,largest,0
+Jicaquean,1,28.0,0.0,largest,0
+Kadugli-Krongo,11,63.0,4.0,largest,0
+Kakua-Nukak,3,26.0,1.0,largest,0
+Kartvelian,6,36.0,2.75,largest,0
+Kawesqar,3,24.0,0.0,largest,0
+Keresan,1,51.0,0.0,largest,0
+Khoe-Kwadi,3,33.0,6.0,largest,0
+Kiowa-Tanoan,5,42.0,16.0,largest,0
+Kiwaian,1,19.0,0.0,largest,0
+Koiarian,1,16.0,0.0,largest,0
+Kolopom,1,44.0,0.0,largest,0
+Koman,5,28.0,6.0,largest,0
+Konda-Yahadian,1,33.0,0.0,largest,0
+Koreanic,2,48.0,0.0,largest,0
+Kresh-Aja,2,52.0,4.0,largest,0
+Kru,11,39.0,10.0,largest,0
+Kuliak,3,28.0,9.5,largest,0
+Kunimaipan,2,20.0,0.0,largest,0
+Kxa,2,130.5,10.5,largest,0
+Limilngan-Wulna,1,25.0,0.0,largest,0
+Maban,2,37.0,8.0,largest,0
+Maiduan,2,24.0,0.0,largest,0
+Mande,54,39.5,13.75,largest,0
+Mangarrayi-Maran,6,24.0,4.5,largest,0
+Maningrida,5,26.0,1.0,largest,0
+Marrku-Wurrugu,2,24.5,1.5,largest,0
+Mataguayan,5,28.0,0.0,largest,0
+Mayan,14,32.0,5.75,largest,0
+Maybratic,1,16.0,0.0,largest,0
+Mirndi,8,21.0,2.5,largest,0
+Misumalpan,1,28.0,0.0,largest,0
+Miwok-Costanoan,2,30.0,9.0,largest,0
+Mixe-Zoque,7,29.0,6.5,largest,0
+Mongolic-Khitan,16,36.0,7.75,largest,0
+Muskogean,5,21.0,4.0,largest,0
+Naduhup,4,34.5,2.0,largest,0
+Nakh-Daghestanian,17,64.0,13.0,largest,0
+Nambiquaran,6,29.5,12.75,largest,0
+Narrow Talodi,5,27.0,9.0,largest,0
+Ndu,3,24.0,1.0,largest,0
+Nilotic,31,38.0,15.5,largest,0
+Nimboranic,1,18.0,0.0,largest,0
+Nivkh,3,44.0,0.0,largest,0
+North Bougainville,1,11.0,0.0,largest,0
+North Halmahera,2,24.0,1.0,largest,0
+Northern Daly,2,19.0,0.0,largest,0
+Nubian,2,45.0,0.0,largest,0
+Nuclear Torricelli,6,22.0,1.5,largest,0
+Nuclear Trans New Guinea,31,21.0,5.0,largest,0
+Nuclear-Macro-Je,26,27.0,7.25,largest,0
+Nyimang,2,25.5,0.5,largest,0
+Nyulnyulan,11,20.0,5.0,largest,0
+Otomanguean,20,38.0,17.5,largest,0
+Palaihnihan,1,23.0,0.0,largest,0
+Pama-Nyungan,324,23.0,5.0,largest,0
+Pano-Tacanan,34,22.0,2.75,largest,0
+Peba-Yagua,3,23.0,2.5,largest,0
+Pidgin,1,36.0,0.0,largest,0
+Pomoan,3,38.0,0.5,largest,0
+Puri-Coroado,1,18.0,0.0,largest,0
+Quechuan,27,25.0,7.0,largest,0
+Sahaptian,2,36.0,0.0,largest,0
+Saharan,5,35.0,2.0,largest,0
+Saliban,3,32.0,1.0,largest,0
+Salishan,11,43.0,5.0,largest,0
+Senagi,1,17.0,0.0,largest,0
+Sentanic,2,17.0,0.0,largest,0
+Sepik,8,19.0,10.0,largest,0
+Shastan,1,21.0,0.0,largest,0
+Sino-Tibetan,135,48.0,16.5,largest,0
+Siouan,4,29.5,13.75,largest,0
+Sko,3,23.0,5.0,largest,0
+Songhay,7,48.0,5.0,largest,0
+South Bird's Head,1,18.0,0.0,largest,0
+South Bougainville,2,18.0,0.0,largest,0
+South Omotic,3,36.0,19.0,largest,0
+Southern Daly,4,28.0,0.75,largest,0
+Speech Register,1,32.0,0.0,largest,0
+Surmic,6,34.0,6.75,largest,0
+Ta-Ne-Omotic,12,38.0,18.0,largest,0
+Tai-Kadai,25,38.0,11.0,largest,0
+Tamaic,1,30.0,0.0,largest,0
+Tangkic,4,24.0,0.25,largest,0
+Tarascan,2,39.0,0.0,largest,0
+Teberan,1,23.0,0.0,largest,0
+Temeinic,2,36.0,11.0,largest,0
+Ticuna-Yuri,2,38.0,0.0,largest,0
+Timor-Alor-Pantar,2,34.0,6.0,largest,0
+Totonacan,4,30.0,8.5,largest,0
+Tsimshian,2,41.5,0.5,largest,0
+Tucanoan,23,23.0,5.0,largest,0
+Tungusic,7,29.0,9.0,largest,0
+Tupian,61,26.0,6.0,largest,0
+Turkic,32,39.0,6.75,largest,0
+Tuu,1,161.0,0.0,largest,0
+Unclassifiable,1,21.0,0.0,largest,0
+Uralic,46,37.0,9.5,largest,0
+Uru-Chipaya,2,42.0,9.0,largest,0
+Uto-Aztecan,18,30.0,11.75,largest,0
+Wakashan,4,51.0,8.0,largest,0
+Western Daly,6,27.5,7.75,largest,0
+Wintuan,1,35.0,0.0,largest,0
+Worrorran,9,25.0,1.0,largest,0
+Yangmanic,2,22.0,0.0,largest,0
+Yanomamic,11,33.0,2.5,largest,0
+Yareban,1,18.0,0.0,largest,0
+Yawa-Saweru,1,19.0,0.0,largest,0
+Yeniseian,2,32.0,0.0,largest,0
+Yukaghir,5,39.0,3.0,largest,0
+Yuki-Wappo,2,32.5,2.5,largest,0
+Zamucoan,2,33.5,3.5,largest,0
+Zaparoan,5,25.0,7.0,largest,0
+(Unknown),103,27.0,12.5,smallest,0
+Abkhaz-Adyge,4,55.0,8.75,smallest,0
+Afro-Asiatic,139,38.0,11.0,smallest,0
+Ainu,2,16.0,0.0,smallest,0
+Algic,8,28.0,9.5,smallest,0
+Angan,1,21.0,0.0,smallest,0
+Araucanian,3,26.0,0.0,smallest,0
+Arawakan,58,24.0,6.0,smallest,0
+Arawan,6,21.5,6.25,smallest,0
+Athabaskan-Eyak-Tlingit,14,47.0,16.75,smallest,0
+Atlantic-Congo,479,37.0,13.5,smallest,0
+Austroasiatic,52,38.0,11.25,smallest,0
+Austronesian,131,24.0,6.0,smallest,0
+Aymaran,4,39.0,2.0,smallest,0
+Baining,1,22.0,0.0,smallest,0
+Barbacoan,9,25.0,3.0,smallest,0
+Blue Nile Mao,1,36.0,0.0,smallest,0
+Bookkeeping,4,32.5,15.0,smallest,0
+Boran,4,29.5,5.5,smallest,0
+Border,3,22.0,2.0,smallest,0
+Bororoan,3,20.0,0.0,smallest,0
+Bunaban,2,23.5,0.5,smallest,0
+Caddoan,3,29.0,3.0,smallest,0
+Cahuapanan,3,21.0,1.5,smallest,0
+Cariban,30,20.0,5.75,smallest,0
+Central Sudanic,25,45.0,11.0,smallest,0
+Chapacuran,3,20.0,1.0,smallest,0
+Chibchan,12,24.5,7.0,smallest,0
+Chicham,6,21.0,1.5,smallest,0
+Chimakuan,1,37.0,0.0,smallest,0
+Chiquitano,1,26.0,0.0,smallest,0
+Chocoan,7,31.0,1.5,smallest,0
+Chonan,3,31.0,1.0,smallest,0
+Chukotko-Kamchatkan,6,24.0,10.5,smallest,0
+Chumashan,1,40.0,0.0,smallest,0
+Cochimi-Yuman,3,34.0,2.0,smallest,0
+Dajuic,1,30.0,0.0,smallest,0
+Dizoid,1,30.0,0.0,smallest,0
+Dogon,3,28.0,9.5,smallest,0
+Dravidian,42,34.0,7.0,smallest,0
+East Strickland,1,18.0,0.0,smallest,0
+Eastern Daly,1,22.0,0.0,smallest,0
+Eastern Jebel,2,33.0,0.0,smallest,0
+Eleman,1,14.0,0.0,smallest,0
+Eskimo-Aleut,7,27.0,5.0,smallest,0
+Furan,1,30.0,0.0,smallest,0
+Garrwan,4,17.0,0.75,smallest,0
+Giimbiyu,3,23.0,0.0,smallest,0
+Great Andamanese,2,24.0,0.0,smallest,0
+Guahiboan,5,25.0,7.0,smallest,0
+Guaicuruan,10,26.0,7.0,smallest,0
+Gumuz,1,44.0,0.0,smallest,0
+Gunwinyguan,19,27.0,3.5,smallest,0
+Haida,2,49.0,0.0,smallest,0
+Harakmbut,1,33.0,0.0,smallest,0
+Heibanic,6,40.0,8.5,smallest,0
+Hibito-Cholon,1,20.0,0.0,smallest,0
+Hmong-Mien,4,48.5,16.25,smallest,0
+Huavean,2,24.0,0.0,smallest,0
+Huitotoan,5,26.0,10.0,smallest,0
+Ijoid,6,40.0,5.5,smallest,0
+Indo-European,192,39.0,11.0,smallest,0
+Iroquoian,5,19.0,2.0,smallest,0
+Iwaidjan Proper,7,23.0,2.0,smallest,0
+Japonic,4,20.0,1.5,smallest,0
+Jarawa-Onge,1,24.0,0.0,smallest,0
+Jarrakan,2,22.0,2.0,smallest,0
+Jicaquean,1,28.0,0.0,smallest,0
+Kadugli-Krongo,11,55.0,33.5,smallest,0
+Kakua-Nukak,3,22.0,1.0,smallest,0
+Kartvelian,6,33.0,1.5,smallest,0
+Kawesqar,3,19.0,0.0,smallest,0
+Keresan,1,51.0,0.0,smallest,0
+Khoe-Kwadi,3,33.0,6.0,smallest,0
+Kiowa-Tanoan,5,42.0,19.0,smallest,0
+Kiwaian,1,19.0,0.0,smallest,0
+Koiarian,1,16.0,0.0,smallest,0
+Kolopom,1,44.0,0.0,smallest,0
+Koman,5,28.0,3.0,smallest,0
+Konda-Yahadian,1,33.0,0.0,smallest,0
+Koreanic,2,32.0,0.0,smallest,0
+Kresh-Aja,2,52.0,4.0,smallest,0
+Kru,11,39.0,10.0,smallest,0
+Kuliak,3,28.0,9.5,smallest,0
+Kunimaipan,2,20.0,0.0,smallest,0
+Kxa,2,130.5,10.5,smallest,0
+Limilngan-Wulna,1,25.0,0.0,smallest,0
+Maban,2,37.0,8.0,smallest,0
+Maiduan,2,23.0,0.0,smallest,0
+Mande,54,36.0,5.0,smallest,0
+Mangarrayi-Maran,6,23.0,3.0,smallest,0
+Maningrida,5,21.0,4.0,smallest,0
+Marrku-Wurrugu,2,24.5,1.5,smallest,0
+Mataguayan,5,28.0,0.0,smallest,0
+Mayan,14,29.0,6.0,smallest,0
+Maybratic,1,16.0,0.0,smallest,0
+Mirndi,8,21.0,2.5,smallest,0
+Misumalpan,1,28.0,0.0,smallest,0
+Miwok-Costanoan,2,30.0,9.0,smallest,0
+Mixe-Zoque,7,25.0,5.0,smallest,0
+Mongolic-Khitan,16,33.5,10.0,smallest,0
+Muskogean,5,21.0,8.0,smallest,0
+Naduhup,4,34.5,3.25,smallest,0
+Nakh-Daghestanian,17,53.0,19.0,smallest,0
+Nambiquaran,6,29.5,14.25,smallest,0
+Narrow Talodi,5,27.0,9.0,smallest,0
+Ndu,3,24.0,1.0,smallest,0
+Nilotic,31,37.0,16.0,smallest,0
+Nimboranic,1,18.0,0.0,smallest,0
+Nivkh,3,34.0,0.0,smallest,0
+North Bougainville,1,11.0,0.0,smallest,0
+North Halmahera,2,24.0,1.0,smallest,0
+Northern Daly,2,19.0,0.0,smallest,0
+Nubian,2,21.0,0.0,smallest,0
+Nuclear Torricelli,6,22.0,1.5,smallest,0
+Nuclear Trans New Guinea,31,21.0,6.5,smallest,0
+Nuclear-Macro-Je,26,26.5,5.75,smallest,0
+Nyimang,2,25.5,0.5,smallest,0
+Nyulnyulan,11,20.0,4.0,smallest,0
+Otomanguean,20,36.0,19.5,smallest,0
+Palaihnihan,1,23.0,0.0,smallest,0
+Pama-Nyungan,324,23.0,5.0,smallest,0
+Pano-Tacanan,34,21.0,2.0,smallest,0
+Peba-Yagua,3,23.0,2.5,smallest,0
+Pidgin,1,36.0,0.0,smallest,0
+Pomoan,3,32.0,3.5,smallest,0
+Puri-Coroado,1,18.0,0.0,smallest,0
+Quechuan,27,23.0,5.0,smallest,0
+Sahaptian,2,30.0,0.0,smallest,0
+Saharan,5,32.0,8.0,smallest,0
+Saliban,3,30.0,0.0,smallest,0
+Salishan,11,40.0,6.5,smallest,0
+Senagi,1,17.0,0.0,smallest,0
+Sentanic,2,17.0,0.0,smallest,0
+Sepik,8,19.0,10.0,smallest,0
+Shastan,1,21.0,0.0,smallest,0
+Sino-Tibetan,135,41.0,17.5,smallest,0
+Siouan,4,29.5,13.75,smallest,0
+Sko,3,23.0,5.0,smallest,0
+Songhay,7,36.0,14.0,smallest,0
+South Bird's Head,1,18.0,0.0,smallest,0
+South Bougainville,2,13.0,0.0,smallest,0
+South Omotic,3,36.0,19.0,smallest,0
+Southern Daly,4,24.0,2.75,smallest,0
+Speech Register,1,32.0,0.0,smallest,0
+Surmic,6,34.0,6.75,smallest,0
+Ta-Ne-Omotic,12,38.0,13.5,smallest,0
+Tai-Kadai,25,33.0,4.0,smallest,0
+Tamaic,1,30.0,0.0,smallest,0
+Tangkic,4,23.5,1.25,smallest,0
+Tarascan,2,32.0,0.0,smallest,0
+Teberan,1,23.0,0.0,smallest,0
+Temeinic,2,36.0,11.0,smallest,0
+Ticuna-Yuri,2,29.0,0.0,smallest,0
+Timor-Alor-Pantar,2,34.0,6.0,smallest,0
+Totonacan,4,28.0,12.5,smallest,0
+Tsimshian,2,41.5,0.5,smallest,0
+Tucanoan,23,22.0,6.0,smallest,0
+Tungusic,7,25.0,2.0,smallest,0
+Tupian,61,26.0,5.0,smallest,0
+Turkic,32,33.5,8.0,smallest,0
+Tuu,1,161.0,0.0,smallest,0
+Unclassifiable,1,21.0,0.0,smallest,0
+Uralic,46,33.0,9.75,smallest,0
+Uru-Chipaya,2,42.0,9.0,smallest,0
+Uto-Aztecan,18,26.0,6.25,smallest,0
+Wakashan,4,45.0,6.0,smallest,0
+Western Daly,6,27.5,7.75,smallest,0
+Wintuan,1,35.0,0.0,smallest,0
+Worrorran,9,25.0,1.0,smallest,0
+Yangmanic,2,22.0,0.0,smallest,0
+Yanomamic,11,20.0,5.0,smallest,0
+Yareban,1,18.0,0.0,smallest,0
+Yawa-Saweru,1,19.0,0.0,smallest,0
+Yeniseian,2,25.0,0.0,smallest,0
+Yukaghir,5,26.0,7.0,smallest,0
+Yuki-Wappo,2,32.5,2.5,smallest,0
+Zamucoan,2,33.5,3.5,smallest,0
+Zaparoan,5,19.0,4.0,smallest,0
+(Unknown),103,30.0,13.0,random,1
+Abkhaz-Adyge,4,57.5,5.75,random,1
+Afro-Asiatic,139,40.0,12.0,random,1
+Ainu,2,17.0,0.0,random,1
+Algic,8,28.0,9.5,random,1
+Angan,1,21.0,0.0,random,1
+Araucanian,3,28.0,0.0,random,1
+Arawakan,58,25.0,7.0,random,1
+Arawan,6,21.5,3.25,random,1
+Athabaskan-Eyak-Tlingit,14,49.5,12.0,random,1
+Atlantic-Congo,479,38.0,13.0,random,1
+Austroasiatic,52,40.0,11.0,random,1
+Austronesian,131,25.0,7.0,random,1
+Aymaran,4,42.0,2.5,random,1
+Baining,1,22.0,0.0,random,1
+Barbacoan,9,26.0,3.0,random,1
+Blue Nile Mao,1,36.0,0.0,random,1
+Bookkeeping,4,32.5,15.0,random,1
+Boran,4,29.5,5.5,random,1
+Border,3,22.0,2.0,random,1
+Bororoan,3,22.0,1.0,random,1
+Bunaban,2,23.5,0.5,random,1
+Caddoan,3,29.0,3.0,random,1
+Cahuapanan,3,21.0,1.5,random,1
+Cariban,30,21.0,4.75,random,1
+Central Sudanic,25,45.0,10.0,random,1
+Chapacuran,3,21.0,1.5,random,1
+Chibchan,12,25.5,6.0,random,1
+Chicham,6,21.0,1.5,random,1
+Chimakuan,1,37.0,0.0,random,1
+Chiquitano,1,26.0,0.0,random,1
+Chocoan,7,33.0,4.0,random,1
+Chonan,3,35.0,3.0,random,1
+Chukotko-Kamchatkan,6,24.5,8.75,random,1
+Chumashan,1,44.0,0.0,random,1
+Cochimi-Yuman,3,34.0,2.0,random,1
+Dajuic,1,30.0,0.0,random,1
+Dizoid,1,30.0,0.0,random,1
+Dogon,3,28.0,9.5,random,1
+Dravidian,42,38.5,9.0,random,1
+East Strickland,1,18.0,0.0,random,1
+Eastern Daly,1,22.0,0.0,random,1
+Eastern Jebel,2,49.0,0.0,random,1
+Eleman,1,14.0,0.0,random,1
+Eskimo-Aleut,7,27.0,14.0,random,1
+Furan,1,30.0,0.0,random,1
+Garrwan,4,17.0,0.75,random,1
+Giimbiyu,3,23.0,0.0,random,1
+Great Andamanese,2,35.0,0.0,random,1
+Guahiboan,5,25.0,7.0,random,1
+Guaicuruan,10,26.0,8.0,random,1
+Gumuz,1,44.0,0.0,random,1
+Gunwinyguan,19,27.0,3.0,random,1
+Haida,2,50.0,0.0,random,1
+Harakmbut,1,33.0,0.0,random,1
+Heibanic,6,40.0,8.5,random,1
+Hibito-Cholon,1,20.0,0.0,random,1
+Hmong-Mien,4,52.5,8.25,random,1
+Huavean,2,24.0,0.0,random,1
+Huitotoan,5,26.0,11.0,random,1
+Ijoid,6,40.0,5.5,random,1
+Indo-European,192,41.0,13.25,random,1
+Iroquoian,5,19.0,2.0,random,1
+Iwaidjan Proper,7,24.0,0.0,random,1
+Japonic,4,32.5,16.5,random,1
+Jarawa-Onge,1,24.0,0.0,random,1
+Jarrakan,2,22.0,2.0,random,1
+Jicaquean,1,28.0,0.0,random,1
+Kadugli-Krongo,11,62.0,3.0,random,1
+Kakua-Nukak,3,22.0,1.0,random,1
+Kartvelian,6,35.5,3.75,random,1
+Kawesqar,3,24.0,0.0,random,1
+Keresan,1,51.0,0.0,random,1
+Khoe-Kwadi,3,33.0,6.0,random,1
+Kiowa-Tanoan,5,42.0,16.0,random,1
+Kiwaian,1,19.0,0.0,random,1
+Koiarian,1,16.0,0.0,random,1
+Kolopom,1,44.0,0.0,random,1
+Koman,5,28.0,3.0,random,1
+Konda-Yahadian,1,33.0,0.0,random,1
+Koreanic,2,48.0,0.0,random,1
+Kresh-Aja,2,52.0,4.0,random,1
+Kru,11,39.0,10.0,random,1
+Kuliak,3,28.0,9.5,random,1
+Kunimaipan,2,20.0,0.0,random,1
+Kxa,2,130.5,10.5,random,1
+Limilngan-Wulna,1,25.0,0.0,random,1
+Maban,2,37.0,8.0,random,1
+Maiduan,2,23.0,0.0,random,1
+Mande,54,37.0,10.25,random,1
+Mangarrayi-Maran,6,23.0,3.0,random,1
+Maningrida,5,26.0,1.0,random,1
+Marrku-Wurrugu,2,24.5,1.5,random,1
+Mataguayan,5,28.0,0.0,random,1
+Mayan,14,32.0,5.75,random,1
+Maybratic,1,16.0,0.0,random,1
+Mirndi,8,21.0,2.5,random,1
+Misumalpan,1,28.0,0.0,random,1
+Miwok-Costanoan,2,30.0,9.0,random,1
+Mixe-Zoque,7,29.0,6.5,random,1
+Mongolic-Khitan,16,36.0,8.0,random,1
+Muskogean,5,21.0,8.0,random,1
+Naduhup,4,34.5,2.0,random,1
+Nakh-Daghestanian,17,64.0,19.0,random,1
+Nambiquaran,6,29.5,14.25,random,1
+Narrow Talodi,5,27.0,9.0,random,1
+Ndu,3,24.0,1.0,random,1
+Nilotic,31,38.0,15.5,random,1
+Nimboranic,1,18.0,0.0,random,1
+Nivkh,3,34.0,0.0,random,1
+North Bougainville,1,11.0,0.0,random,1
+North Halmahera,2,24.0,1.0,random,1
+Northern Daly,2,19.0,0.0,random,1
+Nubian,2,21.0,0.0,random,1
+Nuclear Torricelli,6,22.0,1.5,random,1
+Nuclear Trans New Guinea,31,21.0,5.0,random,1
+Nuclear-Macro-Je,26,26.5,8.0,random,1
+Nyimang,2,25.5,0.5,random,1
+Nyulnyulan,11,20.0,5.0,random,1
+Otomanguean,20,38.0,19.5,random,1
+Palaihnihan,1,23.0,0.0,random,1
+Pama-Nyungan,324,23.0,5.0,random,1
+Pano-Tacanan,34,21.0,2.0,random,1
+Peba-Yagua,3,23.0,2.5,random,1
+Pidgin,1,36.0,0.0,random,1
+Pomoan,3,32.0,3.5,random,1
+Puri-Coroado,1,18.0,0.0,random,1
+Quechuan,27,24.0,7.0,random,1
+Sahaptian,2,36.0,0.0,random,1
+Saharan,5,32.0,4.0,random,1
+Saliban,3,30.0,0.0,random,1
+Salishan,11,43.0,5.0,random,1
+Senagi,1,17.0,0.0,random,1
+Sentanic,2,17.0,0.0,random,1
+Sepik,8,19.0,10.0,random,1
+Shastan,1,21.0,0.0,random,1
+Sino-Tibetan,135,45.0,17.0,random,1
+Siouan,4,29.5,13.75,random,1
+Sko,3,23.0,5.0,random,1
+Songhay,7,40.0,6.0,random,1
+South Bird's Head,1,18.0,0.0,random,1
+South Bougainville,2,13.0,0.0,random,1
+South Omotic,3,36.0,19.0,random,1
+Southern Daly,4,28.0,0.75,random,1
+Speech Register,1,32.0,0.0,random,1
+Surmic,6,34.0,6.75,random,1
+Ta-Ne-Omotic,12,38.0,13.5,random,1
+Tai-Kadai,25,34.0,11.0,random,1
+Tamaic,1,30.0,0.0,random,1
+Tangkic,4,23.5,1.25,random,1
+Tarascan,2,39.0,0.0,random,1
+Teberan,1,23.0,0.0,random,1
+Temeinic,2,36.0,11.0,random,1
+Ticuna-Yuri,2,33.0,0.0,random,1
+Timor-Alor-Pantar,2,34.0,6.0,random,1
+Totonacan,4,30.0,8.5,random,1
+Tsimshian,2,41.5,0.5,random,1
+Tucanoan,23,23.0,7.5,random,1
+Tungusic,7,25.0,2.0,random,1
+Tupian,61,26.0,4.0,random,1
+Turkic,32,39.0,7.75,random,1
+Tuu,1,161.0,0.0,random,1
+Unclassifiable,1,21.0,0.0,random,1
+Uralic,46,34.0,11.0,random,1
+Uru-Chipaya,2,42.0,9.0,random,1
+Uto-Aztecan,18,26.0,12.75,random,1
+Wakashan,4,51.0,8.0,random,1
+Western Daly,6,27.5,7.75,random,1
+Wintuan,1,35.0,0.0,random,1
+Worrorran,9,25.0,1.0,random,1
+Yangmanic,2,22.0,0.0,random,1
+Yanomamic,11,32.0,8.5,random,1
+Yareban,1,18.0,0.0,random,1
+Yawa-Saweru,1,19.0,0.0,random,1
+Yeniseian,2,32.0,0.0,random,1
+Yukaghir,5,39.0,3.0,random,1
+Yuki-Wappo,2,32.5,2.5,random,1
+Zamucoan,2,33.5,3.5,random,1
+Zaparoan,5,25.0,7.0,random,1
+(Unknown),103,29.0,14.5,random,2
+Abkhaz-Adyge,4,55.0,10.75,random,2
+Afro-Asiatic,139,41.0,10.5,random,2
+Ainu,2,17.0,0.0,random,2
+Algic,8,28.0,9.5,random,2
+Angan,1,21.0,0.0,random,2
+Araucanian,3,28.0,0.0,random,2
+Arawakan,58,25.0,8.0,random,2
+Arawan,6,21.5,6.25,random,2
+Athabaskan-Eyak-Tlingit,14,47.0,7.75,random,2
+Atlantic-Congo,479,38.0,14.5,random,2
+Austroasiatic,52,40.5,9.25,random,2
+Austronesian,131,25.0,6.5,random,2
+Aymaran,4,42.0,2.5,random,2
+Baining,1,22.0,0.0,random,2
+Barbacoan,9,26.0,4.0,random,2
+Blue Nile Mao,1,36.0,0.0,random,2
+Bookkeeping,4,32.5,15.0,random,2
+Boran,4,29.5,5.5,random,2
+Border,3,22.0,2.0,random,2
+Bororoan,3,22.0,1.0,random,2
+Bunaban,2,23.5,0.5,random,2
+Caddoan,3,29.0,3.0,random,2
+Cahuapanan,3,21.0,1.5,random,2
+Cariban,30,23.0,5.75,random,2
+Central Sudanic,25,45.0,10.0,random,2
+Chapacuran,3,21.0,1.5,random,2
+Chibchan,12,24.5,7.0,random,2
+Chicham,6,24.0,0.75,random,2
+Chimakuan,1,37.0,0.0,random,2
+Chiquitano,1,26.0,0.0,random,2
+Chocoan,7,31.0,1.5,random,2
+Chonan,3,35.0,3.0,random,2
+Chukotko-Kamchatkan,6,24.5,8.75,random,2
+Chumashan,1,44.0,0.0,random,2
+Cochimi-Yuman,3,34.0,2.0,random,2
+Dajuic,1,30.0,0.0,random,2
+Dizoid,1,30.0,0.0,random,2
+Dogon,3,42.0,2.5,random,2
+Dravidian,42,35.0,13.0,random,2
+East Strickland,1,18.0,0.0,random,2
+Eastern Daly,1,22.0,0.0,random,2
+Eastern Jebel,2,49.0,0.0,random,2
+Eleman,1,14.0,0.0,random,2
+Eskimo-Aleut,7,36.0,5.5,random,2
+Furan,1,30.0,0.0,random,2
+Garrwan,4,17.0,0.75,random,2
+Giimbiyu,3,23.0,0.0,random,2
+Great Andamanese,2,35.0,0.0,random,2
+Guahiboan,5,25.0,13.0,random,2
+Guaicuruan,10,28.0,6.0,random,2
+Gumuz,1,44.0,0.0,random,2
+Gunwinyguan,19,27.0,3.5,random,2
+Haida,2,50.0,0.0,random,2
+Harakmbut,1,33.0,0.0,random,2
+Heibanic,6,40.0,8.5,random,2
+Hibito-Cholon,1,20.0,0.0,random,2
+Hmong-Mien,4,52.5,8.25,random,2
+Huavean,2,29.0,0.0,random,2
+Huitotoan,5,26.0,11.0,random,2
+Ijoid,6,40.0,5.5,random,2
+Indo-European,192,41.5,12.25,random,2
+Iroquoian,5,19.0,2.0,random,2
+Iwaidjan Proper,7,23.0,2.0,random,2
+Japonic,4,32.5,16.5,random,2
+Jarawa-Onge,1,24.0,0.0,random,2
+Jarrakan,2,22.0,2.0,random,2
+Jicaquean,1,28.0,0.0,random,2
+Kadugli-Krongo,11,62.0,3.0,random,2
+Kakua-Nukak,3,22.0,1.0,random,2
+Kartvelian,6,34.5,4.5,random,2
+Kawesqar,3,19.0,0.0,random,2
+Keresan,1,51.0,0.0,random,2
+Khoe-Kwadi,3,33.0,6.0,random,2
+Kiowa-Tanoan,5,42.0,16.0,random,2
+Kiwaian,1,19.0,0.0,random,2
+Koiarian,1,16.0,0.0,random,2
+Kolopom,1,44.0,0.0,random,2
+Koman,5,28.0,6.0,random,2
+Konda-Yahadian,1,33.0,0.0,random,2
+Koreanic,2,40.0,0.0,random,2
+Kresh-Aja,2,52.0,4.0,random,2
+Kru,11,39.0,10.0,random,2
+Kuliak,3,28.0,9.5,random,2
+Kunimaipan,2,20.0,0.0,random,2
+Kxa,2,130.5,10.5,random,2
+Limilngan-Wulna,1,25.0,0.0,random,2
+Maban,2,37.0,8.0,random,2
+Maiduan,2,23.0,0.0,random,2
+Mande,54,38.0,13.25,random,2
+Mangarrayi-Maran,6,23.0,3.0,random,2
+Maningrida,5,21.0,4.0,random,2
+Marrku-Wurrugu,2,24.5,1.5,random,2
+Mataguayan,5,28.0,0.0,random,2
+Mayan,14,32.0,7.75,random,2
+Maybratic,1,16.0,0.0,random,2
+Mirndi,8,21.0,2.5,random,2
+Misumalpan,1,28.0,0.0,random,2
+Miwok-Costanoan,2,30.0,9.0,random,2
+Mixe-Zoque,7,25.0,5.0,random,2
+Mongolic-Khitan,16,36.0,10.0,random,2
+Muskogean,5,21.0,4.0,random,2
+Naduhup,4,34.5,2.0,random,2
+Nakh-Daghestanian,17,64.0,15.0,random,2
+Nambiquaran,6,29.5,12.75,random,2
+Narrow Talodi,5,27.0,9.0,random,2
+Ndu,3,24.0,1.0,random,2
+Nilotic,31,38.0,15.5,random,2
+Nimboranic,1,18.0,0.0,random,2
+Nivkh,3,34.0,0.0,random,2
+North Bougainville,1,11.0,0.0,random,2
+North Halmahera,2,24.0,1.0,random,2
+Northern Daly,2,19.0,0.0,random,2
+Nubian,2,45.0,0.0,random,2
+Nuclear Torricelli,6,22.0,1.5,random,2
+Nuclear Trans New Guinea,31,21.0,5.0,random,2
+Nuclear-Macro-Je,26,27.0,8.5,random,2
+Nyimang,2,25.5,0.5,random,2
+Nyulnyulan,11,20.0,5.0,random,2
+Otomanguean,20,36.0,19.5,random,2
+Palaihnihan,1,23.0,0.0,random,2
+Pama-Nyungan,324,23.0,5.0,random,2
+Pano-Tacanan,34,21.0,2.0,random,2
+Peba-Yagua,3,23.0,2.5,random,2
+Pidgin,1,36.0,0.0,random,2
+Pomoan,3,38.0,0.5,random,2
+Puri-Coroado,1,18.0,0.0,random,2
+Quechuan,27,24.0,5.5,random,2
+Sahaptian,2,30.0,0.0,random,2
+Saharan,5,32.0,4.0,random,2
+Saliban,3,32.0,1.0,random,2
+Salishan,11,40.0,6.5,random,2
+Senagi,1,17.0,0.0,random,2
+Sentanic,2,17.0,0.0,random,2
+Sepik,8,19.0,10.0,random,2
+Shastan,1,21.0,0.0,random,2
+Sino-Tibetan,135,43.0,17.0,random,2
+Siouan,4,29.5,13.75,random,2
+Sko,3,23.0,5.0,random,2
+Songhay,7,48.0,10.0,random,2
+South Bird's Head,1,18.0,0.0,random,2
+South Bougainville,2,18.0,0.0,random,2
+South Omotic,3,36.0,19.0,random,2
+Southern Daly,4,24.0,2.75,random,2
+Speech Register,1,32.0,0.0,random,2
+Surmic,6,34.0,6.75,random,2
+Ta-Ne-Omotic,12,38.0,21.5,random,2
+Tai-Kadai,25,35.0,13.0,random,2
+Tamaic,1,30.0,0.0,random,2
+Tangkic,4,24.0,0.25,random,2
+Tarascan,2,32.0,0.0,random,2
+Teberan,1,23.0,0.0,random,2
+Temeinic,2,36.0,11.0,random,2
+Ticuna-Yuri,2,29.0,0.0,random,2
+Timor-Alor-Pantar,2,34.0,6.0,random,2
+Totonacan,4,30.0,8.5,random,2
+Tsimshian,2,41.5,0.5,random,2
+Tucanoan,23,23.0,7.5,random,2
+Tungusic,7,25.0,2.0,random,2
+Tupian,61,26.0,4.0,random,2
+Turkic,32,38.0,10.0,random,2
+Tuu,1,161.0,0.0,random,2
+Unclassifiable,1,21.0,0.0,random,2
+Uralic,46,34.0,7.0,random,2
+Uru-Chipaya,2,42.0,9.0,random,2
+Uto-Aztecan,18,27.0,10.0,random,2
+Wakashan,4,51.0,8.0,random,2
+Western Daly,6,27.5,7.75,random,2
+Wintuan,1,35.0,0.0,random,2
+Worrorran,9,25.0,1.0,random,2
+Yangmanic,2,22.0,0.0,random,2
+Yanomamic,11,24.0,12.5,random,2
+Yareban,1,18.0,0.0,random,2
+Yawa-Saweru,1,19.0,0.0,random,2
+Yeniseian,2,25.0,0.0,random,2
+Yukaghir,5,32.0,4.0,random,2
+Yuki-Wappo,2,32.5,2.5,random,2
+Zamucoan,2,33.5,3.5,random,2
+Zaparoan,5,19.0,4.0,random,2
+(Unknown),103,30.0,12.0,random,3
+Abkhaz-Adyge,4,57.0,6.75,random,3
+Afro-Asiatic,139,38.0,10.5,random,3
+Ainu,2,17.0,0.0,random,3
+Algic,8,28.0,9.5,random,3
+Angan,1,21.0,0.0,random,3
+Araucanian,3,26.0,0.0,random,3
+Arawakan,58,25.0,7.0,random,3
+Arawan,6,21.5,6.25,random,3
+Athabaskan-Eyak-Tlingit,14,47.0,7.75,random,3
+Atlantic-Congo,479,38.0,14.0,random,3
+Austroasiatic,52,40.0,8.0,random,3
+Austronesian,131,25.0,6.0,random,3
+Aymaran,4,42.0,2.5,random,3
+Baining,1,22.0,0.0,random,3
+Barbacoan,9,26.0,2.0,random,3
+Blue Nile Mao,1,36.0,0.0,random,3
+Bookkeeping,4,32.5,15.0,random,3
+Boran,4,29.5,5.5,random,3
+Border,3,22.0,2.0,random,3
+Bororoan,3,20.0,0.0,random,3
+Bunaban,2,23.5,0.5,random,3
+Caddoan,3,29.0,3.0,random,3
+Cahuapanan,3,21.0,1.5,random,3
+Cariban,30,22.0,4.75,random,3
+Central Sudanic,25,45.0,10.0,random,3
+Chapacuran,3,21.0,1.5,random,3
+Chibchan,12,24.5,7.0,random,3
+Chicham,6,21.0,1.5,random,3
+Chimakuan,1,37.0,0.0,random,3
+Chiquitano,1,26.0,0.0,random,3
+Chocoan,7,31.0,1.5,random,3
+Chonan,3,31.0,1.0,random,3
+Chukotko-Kamchatkan,6,24.5,8.75,random,3
+Chumashan,1,44.0,0.0,random,3
+Cochimi-Yuman,3,34.0,2.0,random,3
+Dajuic,1,30.0,0.0,random,3
+Dizoid,1,30.0,0.0,random,3
+Dogon,3,42.0,2.5,random,3
+Dravidian,42,39.0,16.0,random,3
+East Strickland,1,18.0,0.0,random,3
+Eastern Daly,1,22.0,0.0,random,3
+Eastern Jebel,2,49.0,0.0,random,3
+Eleman,1,14.0,0.0,random,3
+Eskimo-Aleut,7,36.0,5.5,random,3
+Furan,1,30.0,0.0,random,3
+Garrwan,4,22.0,0.5,random,3
+Giimbiyu,3,23.0,0.0,random,3
+Great Andamanese,2,24.0,0.0,random,3
+Guahiboan,5,25.0,7.0,random,3
+Guaicuruan,10,28.0,9.0,random,3
+Gumuz,1,44.0,0.0,random,3
+Gunwinyguan,19,27.0,3.0,random,3
+Haida,2,49.0,0.0,random,3
+Harakmbut,1,33.0,0.0,random,3
+Heibanic,6,40.0,8.5,random,3
+Hibito-Cholon,1,20.0,0.0,random,3
+Hmong-Mien,4,48.5,16.25,random,3
+Huavean,2,29.0,0.0,random,3
+Huitotoan,5,26.0,14.0,random,3
+Ijoid,6,40.0,5.5,random,3
+Indo-European,192,41.0,14.25,random,3
+Iroquoian,5,22.0,10.0,random,3
+Iwaidjan Proper,7,23.0,2.0,random,3
+Japonic,4,21.0,1.5,random,3
+Jarawa-Onge,1,24.0,0.0,random,3
+Jarrakan,2,22.0,2.0,random,3
+Jicaquean,1,28.0,0.0,random,3
+Kadugli-Krongo,11,62.0,3.0,random,3
+Kakua-Nukak,3,22.0,1.0,random,3
+Kartvelian,6,35.0,2.75,random,3
+Kawesqar,3,19.0,0.0,random,3
+Keresan,1,51.0,0.0,random,3
+Khoe-Kwadi,3,33.0,6.0,random,3
+Kiowa-Tanoan,5,42.0,16.0,random,3
+Kiwaian,1,19.0,0.0,random,3
+Koiarian,1,16.0,0.0,random,3
+Kolopom,1,44.0,0.0,random,3
+Koman,5,28.0,6.0,random,3
+Konda-Yahadian,1,33.0,0.0,random,3
+Koreanic,2,32.0,0.0,random,3
+Kresh-Aja,2,52.0,4.0,random,3
+Kru,11,39.0,10.0,random,3
+Kuliak,3,28.0,9.5,random,3
+Kunimaipan,2,20.0,0.0,random,3
+Kxa,2,130.5,10.5,random,3
+Limilngan-Wulna,1,25.0,0.0,random,3
+Maban,2,37.0,8.0,random,3
+Maiduan,2,23.0,0.0,random,3
+Mande,54,38.0,15.5,random,3
+Mangarrayi-Maran,6,23.0,3.0,random,3
+Maningrida,5,26.0,1.0,random,3
+Marrku-Wurrugu,2,24.5,1.5,random,3
+Mataguayan,5,28.0,0.0,random,3
+Mayan,14,32.0,5.75,random,3
+Maybratic,1,16.0,0.0,random,3
+Mirndi,8,21.0,2.5,random,3
+Misumalpan,1,28.0,0.0,random,3
+Miwok-Costanoan,2,30.0,9.0,random,3
+Mixe-Zoque,7,29.0,6.5,random,3
+Mongolic-Khitan,16,33.5,8.0,random,3
+Muskogean,5,21.0,4.0,random,3
+Naduhup,4,34.5,3.25,random,3
+Nakh-Daghestanian,17,60.0,19.0,random,3
+Nambiquaran,6,29.5,12.75,random,3
+Narrow Talodi,5,27.0,9.0,random,3
+Ndu,3,24.0,1.0,random,3
+Nilotic,31,37.0,16.0,random,3
+Nimboranic,1,18.0,0.0,random,3
+Nivkh,3,44.0,0.0,random,3
+North Bougainville,1,11.0,0.0,random,3
+North Halmahera,2,24.0,1.0,random,3
+Northern Daly,2,19.0,0.0,random,3
+Nubian,2,45.0,0.0,random,3
+Nuclear Torricelli,6,22.0,1.5,random,3
+Nuclear Trans New Guinea,31,21.0,5.0,random,3
+Nuclear-Macro-Je,26,27.0,7.25,random,3
+Nyimang,2,25.5,0.5,random,3
+Nyulnyulan,11,20.0,5.0,random,3
+Otomanguean,20,38.0,17.5,random,3
+Palaihnihan,1,23.0,0.0,random,3
+Pama-Nyungan,324,23.0,5.0,random,3
+Pano-Tacanan,34,21.0,2.0,random,3
+Peba-Yagua,3,23.0,2.5,random,3
+Pidgin,1,36.0,0.0,random,3
+Pomoan,3,32.0,3.5,random,3
+Puri-Coroado,1,18.0,0.0,random,3
+Quechuan,27,23.0,7.0,random,3
+Sahaptian,2,30.0,0.0,random,3
+Saharan,5,32.0,8.0,random,3
+Saliban,3,30.0,0.0,random,3
+Salishan,11,43.0,5.0,random,3
+Senagi,1,17.0,0.0,random,3
+Sentanic,2,17.0,0.0,random,3
+Sepik,8,19.0,10.0,random,3
+Shastan,1,21.0,0.0,random,3
+Sino-Tibetan,135,43.0,16.5,random,3
+Siouan,4,29.5,13.75,random,3
+Sko,3,23.0,5.0,random,3
+Songhay,7,37.0,2.0,random,3
+South Bird's Head,1,18.0,0.0,random,3
+South Bougainville,2,13.0,0.0,random,3
+South Omotic,3,36.0,19.0,random,3
+Southern Daly,4,28.0,0.75,random,3
+Speech Register,1,32.0,0.0,random,3
+Surmic,6,34.0,6.75,random,3
+Ta-Ne-Omotic,12,38.0,18.0,random,3
+Tai-Kadai,25,35.0,11.0,random,3
+Tamaic,1,30.0,0.0,random,3
+Tangkic,4,24.0,0.25,random,3
+Tarascan,2,39.0,0.0,random,3
+Teberan,1,23.0,0.0,random,3
+Temeinic,2,36.0,11.0,random,3
+Ticuna-Yuri,2,33.0,0.0,random,3
+Timor-Alor-Pantar,2,34.0,6.0,random,3
+Totonacan,4,28.0,12.5,random,3
+Tsimshian,2,41.5,0.5,random,3
+Tucanoan,23,22.0,7.5,random,3
+Tungusic,7,29.0,9.0,random,3
+Tupian,61,26.0,4.0,random,3
+Turkic,32,39.0,8.5,random,3
+Tuu,1,161.0,0.0,random,3
+Unclassifiable,1,21.0,0.0,random,3
+Uralic,46,36.0,10.25,random,3
+Uru-Chipaya,2,42.0,9.0,random,3
+Uto-Aztecan,18,26.0,12.75,random,3
+Wakashan,4,47.5,1.0,random,3
+Western Daly,6,27.5,7.75,random,3
+Wintuan,1,35.0,0.0,random,3
+Worrorran,9,25.0,1.0,random,3
+Yangmanic,2,22.0,0.0,random,3
+Yanomamic,11,33.0,2.5,random,3
+Yareban,1,18.0,0.0,random,3
+Yawa-Saweru,1,19.0,0.0,random,3
+Yeniseian,2,32.0,0.0,random,3
+Yukaghir,5,32.0,1.0,random,3
+Yuki-Wappo,2,32.5,2.5,random,3
+Zamucoan,2,33.5,3.5,random,3
+Zaparoan,5,19.0,4.0,random,3
+(Unknown),103,29.0,12.5,random,4
+Abkhaz-Adyge,4,57.0,6.75,random,4
+Afro-Asiatic,139,40.0,11.0,random,4
+Ainu,2,17.0,0.0,random,4
+Algic,8,28.0,9.5,random,4
+Angan,1,21.0,0.0,random,4
+Araucanian,3,26.0,0.0,random,4
+Arawakan,58,25.0,8.0,random,4
+Arawan,6,21.5,6.25,random,4
+Athabaskan-Eyak-Tlingit,14,47.0,9.25,random,4
+Atlantic-Congo,479,38.0,13.0,random,4
+Austroasiatic,52,39.5,9.75,random,4
+Austronesian,131,25.0,7.0,random,4
+Aymaran,4,42.0,2.5,random,4
+Baining,1,22.0,0.0,random,4
+Barbacoan,9,26.0,4.0,random,4
+Blue Nile Mao,1,36.0,0.0,random,4
+Bookkeeping,4,32.5,15.0,random,4
+Boran,4,29.5,5.5,random,4
+Border,3,22.0,2.0,random,4
+Bororoan,3,20.0,0.0,random,4
+Bunaban,2,23.5,0.5,random,4
+Caddoan,3,29.0,3.0,random,4
+Cahuapanan,3,21.0,1.5,random,4
+Cariban,30,21.5,5.75,random,4
+Central Sudanic,25,45.0,11.0,random,4
+Chapacuran,3,21.0,1.5,random,4
+Chibchan,12,25.5,6.0,random,4
+Chicham,6,24.0,0.75,random,4
+Chimakuan,1,37.0,0.0,random,4
+Chiquitano,1,26.0,0.0,random,4
+Chocoan,7,31.0,1.5,random,4
+Chonan,3,35.0,3.0,random,4
+Chukotko-Kamchatkan,6,24.5,8.75,random,4
+Chumashan,1,44.0,0.0,random,4
+Cochimi-Yuman,3,34.0,2.0,random,4
+Dajuic,1,30.0,0.0,random,4
+Dizoid,1,30.0,0.0,random,4
+Dogon,3,28.0,9.5,random,4
+Dravidian,42,37.0,11.0,random,4
+East Strickland,1,18.0,0.0,random,4
+Eastern Daly,1,22.0,0.0,random,4
+Eastern Jebel,2,33.0,0.0,random,4
+Eleman,1,14.0,0.0,random,4
+Eskimo-Aleut,7,27.0,14.0,random,4
+Furan,1,30.0,0.0,random,4
+Garrwan,4,17.0,0.75,random,4
+Giimbiyu,3,23.0,0.0,random,4
+Great Andamanese,2,35.0,0.0,random,4
+Guahiboan,5,25.0,7.0,random,4
+Guaicuruan,10,28.0,6.0,random,4
+Gumuz,1,44.0,0.0,random,4
+Gunwinyguan,19,27.0,3.0,random,4
+Haida,2,50.0,0.0,random,4
+Harakmbut,1,33.0,0.0,random,4
+Heibanic,6,40.0,8.5,random,4
+Hibito-Cholon,1,20.0,0.0,random,4
+Hmong-Mien,4,52.5,8.25,random,4
+Huavean,2,29.0,0.0,random,4
+Huitotoan,5,26.0,10.0,random,4
+Ijoid,6,40.0,5.5,random,4
+Indo-European,192,40.0,13.0,random,4
+Iroquoian,5,22.0,10.0,random,4
+Iwaidjan Proper,7,23.0,2.0,random,4
+Japonic,4,21.0,1.5,random,4
+Jarawa-Onge,1,24.0,0.0,random,4
+Jarrakan,2,22.0,2.0,random,4
+Jicaquean,1,28.0,0.0,random,4
+Kadugli-Krongo,11,55.0,33.5,random,4
+Kakua-Nukak,3,22.0,1.0,random,4
+Kartvelian,6,34.0,2.75,random,4
+Kawesqar,3,24.0,0.0,random,4
+Keresan,1,51.0,0.0,random,4
+Khoe-Kwadi,3,33.0,6.0,random,4
+Kiowa-Tanoan,5,42.0,16.0,random,4
+Kiwaian,1,19.0,0.0,random,4
+Koiarian,1,16.0,0.0,random,4
+Kolopom,1,44.0,0.0,random,4
+Koman,5,28.0,6.0,random,4
+Konda-Yahadian,1,33.0,0.0,random,4
+Koreanic,2,48.0,0.0,random,4
+Kresh-Aja,2,52.0,4.0,random,4
+Kru,11,39.0,10.0,random,4
+Kuliak,3,28.0,9.5,random,4
+Kunimaipan,2,20.0,0.0,random,4
+Kxa,2,130.5,10.5,random,4
+Limilngan-Wulna,1,25.0,0.0,random,4
+Maban,2,37.0,8.0,random,4
+Maiduan,2,23.0,0.0,random,4
+Mande,54,39.0,9.0,random,4
+Mangarrayi-Maran,6,23.0,3.0,random,4
+Maningrida,5,26.0,1.0,random,4
+Marrku-Wurrugu,2,24.5,1.5,random,4
+Mataguayan,5,28.0,0.0,random,4
+Mayan,14,29.0,6.0,random,4
+Maybratic,1,16.0,0.0,random,4
+Mirndi,8,21.0,2.5,random,4
+Misumalpan,1,28.0,0.0,random,4
+Miwok-Costanoan,2,30.0,9.0,random,4
+Mixe-Zoque,7,29.0,6.5,random,4
+Mongolic-Khitan,16,35.0,6.0,random,4
+Muskogean,5,21.0,4.0,random,4
+Naduhup,4,34.5,3.25,random,4
+Nakh-Daghestanian,17,64.0,17.0,random,4
+Nambiquaran,6,29.5,12.75,random,4
+Narrow Talodi,5,27.0,9.0,random,4
+Ndu,3,24.0,1.0,random,4
+Nilotic,31,38.0,15.5,random,4
+Nimboranic,1,18.0,0.0,random,4
+Nivkh,3,35.0,0.0,random,4
+North Bougainville,1,11.0,0.0,random,4
+North Halmahera,2,24.0,1.0,random,4
+Northern Daly,2,19.0,0.0,random,4
+Nubian,2,45.0,0.0,random,4
+Nuclear Torricelli,6,22.0,1.5,random,4
+Nuclear Trans New Guinea,31,21.0,6.5,random,4
+Nuclear-Macro-Je,26,26.5,8.0,random,4
+Nyimang,2,25.5,0.5,random,4
+Nyulnyulan,11,20.0,4.0,random,4
+Otomanguean,20,36.0,19.5,random,4
+Palaihnihan,1,23.0,0.0,random,4
+Pama-Nyungan,324,23.0,5.0,random,4
+Pano-Tacanan,34,21.0,3.0,random,4
+Peba-Yagua,3,23.0,2.5,random,4
+Pidgin,1,36.0,0.0,random,4
+Pomoan,3,32.0,3.5,random,4
+Puri-Coroado,1,18.0,0.0,random,4
+Quechuan,27,23.0,5.0,random,4
+Sahaptian,2,36.0,0.0,random,4
+Saharan,5,32.0,8.0,random,4
+Saliban,3,30.0,0.0,random,4
+Salishan,11,40.0,6.5,random,4
+Senagi,1,17.0,0.0,random,4
+Sentanic,2,17.0,0.0,random,4
+Sepik,8,19.0,10.0,random,4
+Shastan,1,21.0,0.0,random,4
+Sino-Tibetan,135,43.0,16.0,random,4
+Siouan,4,29.5,13.75,random,4
+Sko,3,23.0,5.0,random,4
+Songhay,7,40.0,6.0,random,4
+South Bird's Head,1,18.0,0.0,random,4
+South Bougainville,2,13.0,0.0,random,4
+South Omotic,3,36.0,19.0,random,4
+Southern Daly,4,28.0,0.75,random,4
+Speech Register,1,32.0,0.0,random,4
+Surmic,6,34.0,6.75,random,4
+Ta-Ne-Omotic,12,38.0,21.5,random,4
+Tai-Kadai,25,35.0,8.0,random,4
+Tamaic,1,30.0,0.0,random,4
+Tangkic,4,24.0,0.25,random,4
+Tarascan,2,39.0,0.0,random,4
+Teberan,1,23.0,0.0,random,4
+Temeinic,2,36.0,11.0,random,4
+Ticuna-Yuri,2,33.0,0.0,random,4
+Timor-Alor-Pantar,2,34.0,6.0,random,4
+Totonacan,4,30.0,8.5,random,4
+Tsimshian,2,41.5,0.5,random,4
+Tucanoan,23,22.0,7.5,random,4
+Tungusic,7,25.0,11.0,random,4
+Tupian,61,26.0,4.0,random,4
+Turkic,32,39.0,6.75,random,4
+Tuu,1,161.0,0.0,random,4
+Unclassifiable,1,21.0,0.0,random,4
+Uralic,46,35.0,10.75,random,4
+Uru-Chipaya,2,42.0,9.0,random,4
+Uto-Aztecan,18,27.5,11.75,random,4
+Wakashan,4,51.0,8.0,random,4
+Western Daly,6,27.5,7.75,random,4
+Wintuan,1,35.0,0.0,random,4
+Worrorran,9,25.0,1.0,random,4
+Yangmanic,2,22.0,0.0,random,4
+Yanomamic,11,32.0,8.5,random,4
+Yareban,1,18.0,0.0,random,4
+Yawa-Saweru,1,19.0,0.0,random,4
+Yeniseian,2,25.0,0.0,random,4
+Yukaghir,5,32.0,1.0,random,4
+Yuki-Wappo,2,32.5,2.5,random,4
+Zamucoan,2,33.5,3.5,random,4
+Zaparoan,5,19.0,4.0,random,4
+(Unknown),103,27.0,14.5,random,5
+Abkhaz-Adyge,4,62.5,1.75,random,5
+Afro-Asiatic,139,41.0,14.0,random,5
+Ainu,2,17.0,0.0,random,5
+Algic,8,28.0,9.5,random,5
+Angan,1,21.0,0.0,random,5
+Araucanian,3,26.0,0.0,random,5
+Arawakan,58,25.0,8.0,random,5
+Arawan,6,21.5,6.25,random,5
+Athabaskan-Eyak-Tlingit,14,47.0,18.25,random,5
+Atlantic-Congo,479,38.0,14.0,random,5
+Austroasiatic,52,39.5,11.0,random,5
+Austronesian,131,25.0,8.0,random,5
+Aymaran,4,42.0,2.75,random,5
+Baining,1,22.0,0.0,random,5
+Barbacoan,9,26.0,2.0,random,5
+Blue Nile Mao,1,36.0,0.0,random,5
+Bookkeeping,4,32.5,15.0,random,5
+Boran,4,29.5,5.5,random,5
+Border,3,22.0,2.0,random,5
+Bororoan,3,20.0,0.0,random,5
+Bunaban,2,23.5,0.5,random,5
+Caddoan,3,29.0,3.0,random,5
+Cahuapanan,3,21.0,1.5,random,5
+Cariban,30,23.0,4.75,random,5
+Central Sudanic,25,45.0,7.0,random,5
+Chapacuran,3,20.0,1.0,random,5
+Chibchan,12,25.5,6.0,random,5
+Chicham,6,23.0,0.0,random,5
+Chimakuan,1,37.0,0.0,random,5
+Chiquitano,1,26.0,0.0,random,5
+Chocoan,7,31.0,1.5,random,5
+Chonan,3,31.0,1.0,random,5
+Chukotko-Kamchatkan,6,24.5,8.75,random,5
+Chumashan,1,40.0,0.0,random,5
+Cochimi-Yuman,3,34.0,2.0,random,5
+Dajuic,1,30.0,0.0,random,5
+Dizoid,1,30.0,0.0,random,5
+Dogon,3,42.0,2.5,random,5
+Dravidian,42,37.0,10.0,random,5
+East Strickland,1,18.0,0.0,random,5
+Eastern Daly,1,22.0,0.0,random,5
+Eastern Jebel,2,49.0,0.0,random,5
+Eleman,1,14.0,0.0,random,5
+Eskimo-Aleut,7,36.0,5.5,random,5
+Furan,1,30.0,0.0,random,5
+Garrwan,4,22.0,0.5,random,5
+Giimbiyu,3,23.0,0.0,random,5
+Great Andamanese,2,35.0,0.0,random,5
+Guahiboan,5,25.0,13.0,random,5
+Guaicuruan,10,26.0,7.0,random,5
+Gumuz,1,44.0,0.0,random,5
+Gunwinyguan,19,27.0,3.5,random,5
+Haida,2,50.0,0.0,random,5
+Harakmbut,1,33.0,0.0,random,5
+Heibanic,6,40.0,8.5,random,5
+Hibito-Cholon,1,20.0,0.0,random,5
+Hmong-Mien,4,48.5,16.25,random,5
+Huavean,2,29.0,0.0,random,5
+Huitotoan,5,26.0,11.0,random,5
+Ijoid,6,40.0,5.5,random,5
+Indo-European,192,40.0,11.0,random,5
+Iroquoian,5,19.0,2.0,random,5
+Iwaidjan Proper,7,23.0,2.0,random,5
+Japonic,4,32.5,16.5,random,5
+Jarawa-Onge,1,24.0,0.0,random,5
+Jarrakan,2,22.0,2.0,random,5
+Jicaquean,1,28.0,0.0,random,5
+Kadugli-Krongo,11,61.0,2.5,random,5
+Kakua-Nukak,3,26.0,1.0,random,5
+Kartvelian,6,35.5,3.75,random,5
+Kawesqar,3,19.0,0.0,random,5
+Keresan,1,51.0,0.0,random,5
+Khoe-Kwadi,3,33.0,6.0,random,5
+Kiowa-Tanoan,5,42.0,19.0,random,5
+Kiwaian,1,19.0,0.0,random,5
+Koiarian,1,16.0,0.0,random,5
+Kolopom,1,44.0,0.0,random,5
+Koman,5,28.0,3.0,random,5
+Konda-Yahadian,1,33.0,0.0,random,5
+Koreanic,2,38.0,0.0,random,5
+Kresh-Aja,2,52.0,4.0,random,5
+Kru,11,39.0,10.0,random,5
+Kuliak,3,28.0,9.5,random,5
+Kunimaipan,2,20.0,0.0,random,5
+Kxa,2,130.5,10.5,random,5
+Limilngan-Wulna,1,25.0,0.0,random,5
+Maban,2,37.0,8.0,random,5
+Maiduan,2,23.0,0.0,random,5
+Mande,54,37.5,8.5,random,5
+Mangarrayi-Maran,6,23.0,3.0,random,5
+Maningrida,5,21.0,4.0,random,5
+Marrku-Wurrugu,2,24.5,1.5,random,5
+Mataguayan,5,28.0,0.0,random,5
+Mayan,14,30.0,6.0,random,5
+Maybratic,1,16.0,0.0,random,5
+Mirndi,8,21.0,2.5,random,5
+Misumalpan,1,28.0,0.0,random,5
+Miwok-Costanoan,2,30.0,9.0,random,5
+Mixe-Zoque,7,25.0,5.0,random,5
+Mongolic-Khitan,16,33.5,10.0,random,5
+Muskogean,5,21.0,4.0,random,5
+Naduhup,4,34.5,2.0,random,5
+Nakh-Daghestanian,17,64.0,16.0,random,5
+Nambiquaran,6,29.5,12.75,random,5
+Narrow Talodi,5,27.0,9.0,random,5
+Ndu,3,24.0,1.0,random,5
+Nilotic,31,37.0,16.0,random,5
+Nimboranic,1,18.0,0.0,random,5
+Nivkh,3,35.0,0.0,random,5
+North Bougainville,1,11.0,0.0,random,5
+North Halmahera,2,24.0,1.0,random,5
+Northern Daly,2,19.0,0.0,random,5
+Nubian,2,45.0,0.0,random,5
+Nuclear Torricelli,6,22.0,1.5,random,5
+Nuclear Trans New Guinea,31,21.0,5.0,random,5
+Nuclear-Macro-Je,26,27.0,8.5,random,5
+Nyimang,2,25.5,0.5,random,5
+Nyulnyulan,11,20.0,5.0,random,5
+Otomanguean,20,36.0,19.5,random,5
+Palaihnihan,1,23.0,0.0,random,5
+Pama-Nyungan,324,23.0,5.0,random,5
+Pano-Tacanan,34,22.0,2.0,random,5
+Peba-Yagua,3,23.0,2.5,random,5
+Pidgin,1,36.0,0.0,random,5
+Pomoan,3,38.0,0.5,random,5
+Puri-Coroado,1,18.0,0.0,random,5
+Quechuan,27,25.0,7.0,random,5
+Sahaptian,2,36.0,0.0,random,5
+Saharan,5,32.0,4.0,random,5
+Saliban,3,30.0,0.0,random,5
+Salishan,11,43.0,5.0,random,5
+Senagi,1,17.0,0.0,random,5
+Sentanic,2,17.0,0.0,random,5
+Sepik,8,19.0,10.0,random,5
+Shastan,1,21.0,0.0,random,5
+Sino-Tibetan,135,43.0,14.5,random,5
+Siouan,4,29.5,13.75,random,5
+Sko,3,23.0,5.0,random,5
+Songhay,7,37.0,2.0,random,5
+South Bird's Head,1,18.0,0.0,random,5
+South Bougainville,2,13.0,0.0,random,5
+South Omotic,3,36.0,19.0,random,5
+Southern Daly,4,24.0,2.75,random,5
+Speech Register,1,32.0,0.0,random,5
+Surmic,6,34.0,6.75,random,5
+Ta-Ne-Omotic,12,38.0,18.0,random,5
+Tai-Kadai,25,35.0,12.0,random,5
+Tamaic,1,30.0,0.0,random,5
+Tangkic,4,24.0,0.25,random,5
+Tarascan,2,39.0,0.0,random,5
+Teberan,1,23.0,0.0,random,5
+Temeinic,2,36.0,11.0,random,5
+Ticuna-Yuri,2,33.0,0.0,random,5
+Timor-Alor-Pantar,2,34.0,6.0,random,5
+Totonacan,4,30.0,8.5,random,5
+Tsimshian,2,41.5,0.5,random,5
+Tucanoan,23,23.0,4.5,random,5
+Tungusic,7,25.0,2.0,random,5
+Tupian,61,26.0,5.0,random,5
+Turkic,32,37.0,6.0,random,5
+Tuu,1,161.0,0.0,random,5
+Unclassifiable,1,21.0,0.0,random,5
+Uralic,46,35.0,8.5,random,5
+Uru-Chipaya,2,42.0,9.0,random,5
+Uto-Aztecan,18,27.0,5.5,random,5
+Wakashan,4,51.0,8.0,random,5
+Western Daly,6,27.5,7.75,random,5
+Wintuan,1,35.0,0.0,random,5
+Worrorran,9,25.0,1.0,random,5
+Yangmanic,2,22.0,0.0,random,5
+Yanomamic,11,33.0,2.0,random,5
+Yareban,1,18.0,0.0,random,5
+Yawa-Saweru,1,19.0,0.0,random,5
+Yeniseian,2,25.0,0.0,random,5
+Yukaghir,5,32.0,4.0,random,5
+Yuki-Wappo,2,32.5,2.5,random,5
+Zamucoan,2,33.5,3.5,random,5
+Zaparoan,5,19.0,4.0,random,5
+(Unknown),103,27.0,14.0,random,6
+Abkhaz-Adyge,4,63.0,2.75,random,6
+Afro-Asiatic,139,41.0,13.0,random,6
+Ainu,2,16.0,0.0,random,6
+Algic,8,28.0,9.5,random,6
+Angan,1,21.0,0.0,random,6
+Araucanian,3,26.0,0.0,random,6
+Arawakan,58,25.0,4.75,random,6
+Arawan,6,21.5,5.5,random,6
+Athabaskan-Eyak-Tlingit,14,47.0,18.25,random,6
+Atlantic-Congo,479,38.0,13.0,random,6
+Austroasiatic,52,40.0,11.5,random,6
+Austronesian,131,25.0,8.5,random,6
+Aymaran,4,42.0,2.5,random,6
+Baining,1,22.0,0.0,random,6
+Barbacoan,9,26.0,2.0,random,6
+Blue Nile Mao,1,36.0,0.0,random,6
+Bookkeeping,4,32.5,15.0,random,6
+Boran,4,29.5,5.5,random,6
+Border,3,22.0,2.0,random,6
+Bororoan,3,20.0,0.0,random,6
+Bunaban,2,23.5,0.5,random,6
+Caddoan,3,29.0,3.0,random,6
+Cahuapanan,3,23.0,2.5,random,6
+Cariban,30,21.5,5.0,random,6
+Central Sudanic,25,45.0,7.0,random,6
+Chapacuran,3,21.0,1.5,random,6
+Chibchan,12,27.0,5.5,random,6
+Chicham,6,21.0,1.5,random,6
+Chimakuan,1,37.0,0.0,random,6
+Chiquitano,1,26.0,0.0,random,6
+Chocoan,7,33.0,4.0,random,6
+Chonan,3,31.0,1.0,random,6
+Chukotko-Kamchatkan,6,24.5,8.75,random,6
+Chumashan,1,44.0,0.0,random,6
+Cochimi-Yuman,3,34.0,2.0,random,6
+Dajuic,1,30.0,0.0,random,6
+Dizoid,1,30.0,0.0,random,6
+Dogon,3,42.0,2.5,random,6
+Dravidian,42,37.0,13.75,random,6
+East Strickland,1,18.0,0.0,random,6
+Eastern Daly,1,22.0,0.0,random,6
+Eastern Jebel,2,49.0,0.0,random,6
+Eleman,1,14.0,0.0,random,6
+Eskimo-Aleut,7,27.0,14.0,random,6
+Furan,1,30.0,0.0,random,6
+Garrwan,4,17.0,0.75,random,6
+Giimbiyu,3,23.0,0.0,random,6
+Great Andamanese,2,35.0,0.0,random,6
+Guahiboan,5,25.0,13.0,random,6
+Guaicuruan,10,28.0,6.0,random,6
+Gumuz,1,44.0,0.0,random,6
+Gunwinyguan,19,27.0,3.5,random,6
+Haida,2,50.0,0.0,random,6
+Harakmbut,1,33.0,0.0,random,6
+Heibanic,6,40.0,8.5,random,6
+Hibito-Cholon,1,20.0,0.0,random,6
+Hmong-Mien,4,48.5,16.25,random,6
+Huavean,2,29.0,0.0,random,6
+Huitotoan,5,26.0,10.0,random,6
+Ijoid,6,40.0,5.5,random,6
+Indo-European,192,42.0,13.0,random,6
+Iroquoian,5,22.0,10.0,random,6
+Iwaidjan Proper,7,24.0,0.0,random,6
+Japonic,4,21.0,1.5,random,6
+Jarawa-Onge,1,24.0,0.0,random,6
+Jarrakan,2,22.0,2.0,random,6
+Jicaquean,1,28.0,0.0,random,6
+Kadugli-Krongo,11,62.0,3.0,random,6
+Kakua-Nukak,3,22.0,1.0,random,6
+Kartvelian,6,34.0,4.25,random,6
+Kawesqar,3,24.0,0.0,random,6
+Keresan,1,51.0,0.0,random,6
+Khoe-Kwadi,3,33.0,6.0,random,6
+Kiowa-Tanoan,5,42.0,19.0,random,6
+Kiwaian,1,19.0,0.0,random,6
+Koiarian,1,16.0,0.0,random,6
+Kolopom,1,44.0,0.0,random,6
+Koman,5,28.0,3.0,random,6
+Konda-Yahadian,1,33.0,0.0,random,6
+Koreanic,2,38.0,0.0,random,6
+Kresh-Aja,2,52.0,4.0,random,6
+Kru,11,39.0,10.0,random,6
+Kuliak,3,28.0,9.5,random,6
+Kunimaipan,2,20.0,0.0,random,6
+Kxa,2,130.5,10.5,random,6
+Limilngan-Wulna,1,25.0,0.0,random,6
+Maban,2,37.0,8.0,random,6
+Maiduan,2,23.0,0.0,random,6
+Mande,54,38.0,8.75,random,6
+Mangarrayi-Maran,6,24.0,4.5,random,6
+Maningrida,5,21.0,4.0,random,6
+Marrku-Wurrugu,2,24.5,1.5,random,6
+Mataguayan,5,28.0,0.0,random,6
+Mayan,14,30.0,6.0,random,6
+Maybratic,1,16.0,0.0,random,6
+Mirndi,8,21.0,2.5,random,6
+Misumalpan,1,28.0,0.0,random,6
+Miwok-Costanoan,2,30.0,9.0,random,6
+Mixe-Zoque,7,25.0,5.0,random,6
+Mongolic-Khitan,16,33.5,10.0,random,6
+Muskogean,5,21.0,4.0,random,6
+Naduhup,4,34.5,3.25,random,6
+Nakh-Daghestanian,17,56.0,19.0,random,6
+Nambiquaran,6,29.5,14.25,random,6
+Narrow Talodi,5,27.0,9.0,random,6
+Ndu,3,24.0,1.0,random,6
+Nilotic,31,38.0,16.0,random,6
+Nimboranic,1,18.0,0.0,random,6
+Nivkh,3,44.0,0.0,random,6
+North Bougainville,1,11.0,0.0,random,6
+North Halmahera,2,24.0,1.0,random,6
+Northern Daly,2,19.0,0.0,random,6
+Nubian,2,21.0,0.0,random,6
+Nuclear Torricelli,6,22.0,1.5,random,6
+Nuclear Trans New Guinea,31,21.0,5.0,random,6
+Nuclear-Macro-Je,26,27.0,8.0,random,6
+Nyimang,2,25.5,0.5,random,6
+Nyulnyulan,11,20.0,5.0,random,6
+Otomanguean,20,36.0,17.5,random,6
+Palaihnihan,1,23.0,0.0,random,6
+Pama-Nyungan,324,23.0,5.0,random,6
+Pano-Tacanan,34,21.0,1.75,random,6
+Peba-Yagua,3,23.0,2.5,random,6
+Pidgin,1,36.0,0.0,random,6
+Pomoan,3,32.0,3.5,random,6
+Puri-Coroado,1,18.0,0.0,random,6
+Quechuan,27,23.0,5.0,random,6
+Sahaptian,2,36.0,0.0,random,6
+Saharan,5,32.0,8.0,random,6
+Saliban,3,32.0,1.0,random,6
+Salishan,11,40.0,6.5,random,6
+Senagi,1,17.0,0.0,random,6
+Sentanic,2,17.0,0.0,random,6
+Sepik,8,19.0,10.0,random,6
+Shastan,1,21.0,0.0,random,6
+Sino-Tibetan,135,45.0,17.5,random,6
+Siouan,4,29.5,13.75,random,6
+Sko,3,23.0,5.0,random,6
+Songhay,7,40.0,6.0,random,6
+South Bird's Head,1,18.0,0.0,random,6
+South Bougainville,2,18.0,0.0,random,6
+South Omotic,3,36.0,19.0,random,6
+Southern Daly,4,24.0,2.75,random,6
+Speech Register,1,32.0,0.0,random,6
+Surmic,6,34.0,6.75,random,6
+Ta-Ne-Omotic,12,38.0,18.0,random,6
+Tai-Kadai,25,34.0,11.0,random,6
+Tamaic,1,30.0,0.0,random,6
+Tangkic,4,23.5,1.25,random,6
+Tarascan,2,32.0,0.0,random,6
+Teberan,1,23.0,0.0,random,6
+Temeinic,2,36.0,11.0,random,6
+Ticuna-Yuri,2,33.0,0.0,random,6
+Timor-Alor-Pantar,2,34.0,6.0,random,6
+Totonacan,4,30.0,8.5,random,6
+Tsimshian,2,41.5,0.5,random,6
+Tucanoan,23,23.0,4.5,random,6
+Tungusic,7,27.0,3.0,random,6
+Tupian,61,26.0,5.0,random,6
+Turkic,32,37.0,5.5,random,6
+Tuu,1,161.0,0.0,random,6
+Unclassifiable,1,21.0,0.0,random,6
+Uralic,46,34.0,10.0,random,6
+Uru-Chipaya,2,42.0,9.0,random,6
+Uto-Aztecan,18,30.0,11.75,random,6
+Wakashan,4,47.5,1.0,random,6
+Western Daly,6,27.5,7.75,random,6
+Wintuan,1,35.0,0.0,random,6
+Worrorran,9,25.0,1.0,random,6
+Yangmanic,2,22.0,0.0,random,6
+Yanomamic,11,24.0,10.5,random,6
+Yareban,1,18.0,0.0,random,6
+Yawa-Saweru,1,19.0,0.0,random,6
+Yeniseian,2,25.0,0.0,random,6
+Yukaghir,5,26.0,7.0,random,6
+Yuki-Wappo,2,32.5,2.5,random,6
+Zamucoan,2,33.5,3.5,random,6
+Zaparoan,5,19.0,4.0,random,6
+(Unknown),103,29.0,14.0,random,7
+Abkhaz-Adyge,4,57.5,3.75,random,7
+Afro-Asiatic,139,41.0,10.5,random,7
+Ainu,2,16.0,0.0,random,7
+Algic,8,28.0,9.5,random,7
+Angan,1,21.0,0.0,random,7
+Araucanian,3,28.0,0.0,random,7
+Arawakan,58,26.0,6.0,random,7
+Arawan,6,21.5,5.5,random,7
+Athabaskan-Eyak-Tlingit,14,49.5,10.0,random,7
+Atlantic-Congo,479,38.0,13.0,random,7
+Austroasiatic,52,39.0,8.0,random,7
+Austronesian,131,25.0,9.0,random,7
+Aymaran,4,39.0,2.0,random,7
+Baining,1,22.0,0.0,random,7
+Barbacoan,9,26.0,3.0,random,7
+Blue Nile Mao,1,36.0,0.0,random,7
+Bookkeeping,4,32.5,15.0,random,7
+Boran,4,29.5,5.5,random,7
+Border,3,22.0,2.0,random,7
+Bororoan,3,22.0,1.0,random,7
+Bunaban,2,23.5,0.5,random,7
+Caddoan,3,29.0,3.0,random,7
+Cahuapanan,3,21.0,1.5,random,7
+Cariban,30,21.0,6.0,random,7
+Central Sudanic,25,45.0,10.0,random,7
+Chapacuran,3,20.0,1.0,random,7
+Chibchan,12,27.0,5.5,random,7
+Chicham,6,24.0,0.75,random,7
+Chimakuan,1,37.0,0.0,random,7
+Chiquitano,1,26.0,0.0,random,7
+Chocoan,7,33.0,4.0,random,7
+Chonan,3,35.0,3.0,random,7
+Chukotko-Kamchatkan,6,24.5,8.75,random,7
+Chumashan,1,40.0,0.0,random,7
+Cochimi-Yuman,3,34.0,2.0,random,7
+Dajuic,1,30.0,0.0,random,7
+Dizoid,1,30.0,0.0,random,7
+Dogon,3,42.0,2.5,random,7
+Dravidian,42,39.0,10.75,random,7
+East Strickland,1,18.0,0.0,random,7
+Eastern Daly,1,22.0,0.0,random,7
+Eastern Jebel,2,49.0,0.0,random,7
+Eleman,1,14.0,0.0,random,7
+Eskimo-Aleut,7,27.0,10.0,random,7
+Furan,1,30.0,0.0,random,7
+Garrwan,4,22.0,0.5,random,7
+Giimbiyu,3,23.0,0.0,random,7
+Great Andamanese,2,35.0,0.0,random,7
+Guahiboan,5,25.0,7.0,random,7
+Guaicuruan,10,28.0,9.0,random,7
+Gumuz,1,44.0,0.0,random,7
+Gunwinyguan,19,27.0,3.5,random,7
+Haida,2,49.0,0.0,random,7
+Harakmbut,1,33.0,0.0,random,7
+Heibanic,6,40.0,8.5,random,7
+Hibito-Cholon,1,20.0,0.0,random,7
+Hmong-Mien,4,52.5,8.25,random,7
+Huavean,2,24.0,0.0,random,7
+Huitotoan,5,26.0,14.0,random,7
+Ijoid,6,40.0,5.5,random,7
+Indo-European,192,40.0,12.0,random,7
+Iroquoian,5,19.0,2.0,random,7
+Iwaidjan Proper,7,24.0,0.0,random,7
+Japonic,4,21.0,1.5,random,7
+Jarawa-Onge,1,24.0,0.0,random,7
+Jarrakan,2,22.0,2.0,random,7
+Jicaquean,1,28.0,0.0,random,7
+Kadugli-Krongo,11,62.0,3.0,random,7
+Kakua-Nukak,3,22.0,1.0,random,7
+Kartvelian,6,35.0,2.25,random,7
+Kawesqar,3,19.0,0.0,random,7
+Keresan,1,51.0,0.0,random,7
+Khoe-Kwadi,3,33.0,6.0,random,7
+Kiowa-Tanoan,5,42.0,16.0,random,7
+Kiwaian,1,19.0,0.0,random,7
+Koiarian,1,16.0,0.0,random,7
+Kolopom,1,44.0,0.0,random,7
+Koman,5,28.0,3.0,random,7
+Konda-Yahadian,1,33.0,0.0,random,7
+Koreanic,2,32.0,0.0,random,7
+Kresh-Aja,2,52.0,4.0,random,7
+Kru,11,39.0,10.0,random,7
+Kuliak,3,28.0,9.5,random,7
+Kunimaipan,2,20.0,0.0,random,7
+Kxa,2,130.5,10.5,random,7
+Limilngan-Wulna,1,25.0,0.0,random,7
+Maban,2,37.0,8.0,random,7
+Maiduan,2,23.0,0.0,random,7
+Mande,54,39.0,9.5,random,7
+Mangarrayi-Maran,6,23.0,3.0,random,7
+Maningrida,5,21.0,4.0,random,7
+Marrku-Wurrugu,2,24.5,1.5,random,7
+Mataguayan,5,28.0,0.0,random,7
+Mayan,14,29.0,6.0,random,7
+Maybratic,1,16.0,0.0,random,7
+Mirndi,8,21.0,2.5,random,7
+Misumalpan,1,28.0,0.0,random,7
+Miwok-Costanoan,2,30.0,9.0,random,7
+Mixe-Zoque,7,25.0,5.0,random,7
+Mongolic-Khitan,16,35.0,6.0,random,7
+Muskogean,5,21.0,8.0,random,7
+Naduhup,4,34.5,2.0,random,7
+Nakh-Daghestanian,17,64.0,20.0,random,7
+Nambiquaran,6,29.5,12.75,random,7
+Narrow Talodi,5,27.0,9.0,random,7
+Ndu,3,24.0,1.0,random,7
+Nilotic,31,38.0,16.0,random,7
+Nimboranic,1,18.0,0.0,random,7
+Nivkh,3,35.0,0.0,random,7
+North Bougainville,1,11.0,0.0,random,7
+North Halmahera,2,24.0,1.0,random,7
+Northern Daly,2,19.0,0.0,random,7
+Nubian,2,21.0,0.0,random,7
+Nuclear Torricelli,6,22.0,1.5,random,7
+Nuclear Trans New Guinea,31,21.0,5.0,random,7
+Nuclear-Macro-Je,26,26.5,8.5,random,7
+Nyimang,2,25.5,0.5,random,7
+Nyulnyulan,11,20.0,4.0,random,7
+Otomanguean,20,38.0,17.5,random,7
+Palaihnihan,1,23.0,0.0,random,7
+Pama-Nyungan,324,23.0,5.0,random,7
+Pano-Tacanan,34,21.0,2.0,random,7
+Peba-Yagua,3,23.0,2.5,random,7
+Pidgin,1,36.0,0.0,random,7
+Pomoan,3,32.0,3.5,random,7
+Puri-Coroado,1,18.0,0.0,random,7
+Quechuan,27,24.0,5.5,random,7
+Sahaptian,2,30.0,0.0,random,7
+Saharan,5,35.0,2.0,random,7
+Saliban,3,32.0,1.0,random,7
+Salishan,11,40.0,6.5,random,7
+Senagi,1,17.0,0.0,random,7
+Sentanic,2,17.0,0.0,random,7
+Sepik,8,19.0,10.0,random,7
+Shastan,1,21.0,0.0,random,7
+Sino-Tibetan,135,43.0,19.5,random,7
+Siouan,4,29.5,13.75,random,7
+Sko,3,23.0,5.0,random,7
+Songhay,7,40.0,19.0,random,7
+South Bird's Head,1,18.0,0.0,random,7
+South Bougainville,2,18.0,0.0,random,7
+South Omotic,3,36.0,19.0,random,7
+Southern Daly,4,28.0,0.75,random,7
+Speech Register,1,32.0,0.0,random,7
+Surmic,6,34.0,6.75,random,7
+Ta-Ne-Omotic,12,38.0,21.5,random,7
+Tai-Kadai,25,34.0,7.0,random,7
+Tamaic,1,30.0,0.0,random,7
+Tangkic,4,24.0,0.25,random,7
+Tarascan,2,39.0,0.0,random,7
+Teberan,1,23.0,0.0,random,7
+Temeinic,2,36.0,11.0,random,7
+Ticuna-Yuri,2,33.0,0.0,random,7
+Timor-Alor-Pantar,2,34.0,6.0,random,7
+Totonacan,4,30.0,8.5,random,7
+Tsimshian,2,41.5,0.5,random,7
+Tucanoan,23,23.0,7.5,random,7
+Tungusic,7,29.0,9.0,random,7
+Tupian,61,26.0,6.0,random,7
+Turkic,32,38.0,8.5,random,7
+Tuu,1,161.0,0.0,random,7
+Unclassifiable,1,21.0,0.0,random,7
+Uralic,46,34.0,9.0,random,7
+Uru-Chipaya,2,42.0,9.0,random,7
+Uto-Aztecan,18,26.0,6.25,random,7
+Wakashan,4,48.5,13.0,random,7
+Western Daly,6,27.5,7.75,random,7
+Wintuan,1,35.0,0.0,random,7
+Worrorran,9,25.0,1.0,random,7
+Yangmanic,2,22.0,0.0,random,7
+Yanomamic,11,31.0,13.5,random,7
+Yareban,1,18.0,0.0,random,7
+Yawa-Saweru,1,19.0,0.0,random,7
+Yeniseian,2,25.0,0.0,random,7
+Yukaghir,5,26.0,10.0,random,7
+Yuki-Wappo,2,32.5,2.5,random,7
+Zamucoan,2,33.5,3.5,random,7
+Zaparoan,5,25.0,7.0,random,7
+(Unknown),103,29.0,11.5,random,8
+Abkhaz-Adyge,4,57.5,5.75,random,8
+Afro-Asiatic,139,41.0,13.0,random,8
+Ainu,2,16.0,0.0,random,8
+Algic,8,28.0,9.5,random,8
+Angan,1,21.0,0.0,random,8
+Araucanian,3,26.0,0.0,random,8
+Arawakan,58,25.0,8.0,random,8
+Arawan,6,21.5,6.25,random,8
+Athabaskan-Eyak-Tlingit,14,49.5,10.0,random,8
+Atlantic-Congo,479,38.0,13.0,random,8
+Austroasiatic,52,40.0,10.25,random,8
+Austronesian,131,25.0,7.0,random,8
+Aymaran,4,42.0,2.75,random,8
+Baining,1,22.0,0.0,random,8
+Barbacoan,9,25.0,3.0,random,8
+Blue Nile Mao,1,36.0,0.0,random,8
+Bookkeeping,4,32.5,15.0,random,8
+Boran,4,29.5,5.5,random,8
+Border,3,22.0,2.0,random,8
+Bororoan,3,20.0,0.0,random,8
+Bunaban,2,23.5,0.5,random,8
+Caddoan,3,29.0,3.0,random,8
+Cahuapanan,3,21.0,1.5,random,8
+Cariban,30,23.0,5.75,random,8
+Central Sudanic,25,45.0,10.0,random,8
+Chapacuran,3,20.0,1.0,random,8
+Chibchan,12,27.0,5.5,random,8
+Chicham,6,24.0,0.75,random,8
+Chimakuan,1,37.0,0.0,random,8
+Chiquitano,1,26.0,0.0,random,8
+Chocoan,7,31.0,1.5,random,8
+Chonan,3,35.0,3.0,random,8
+Chukotko-Kamchatkan,6,24.0,10.5,random,8
+Chumashan,1,40.0,0.0,random,8
+Cochimi-Yuman,3,34.0,2.0,random,8
+Dajuic,1,30.0,0.0,random,8
+Dizoid,1,30.0,0.0,random,8
+Dogon,3,42.0,2.5,random,8
+Dravidian,42,37.5,13.0,random,8
+East Strickland,1,18.0,0.0,random,8
+Eastern Daly,1,22.0,0.0,random,8
+Eastern Jebel,2,33.0,0.0,random,8
+Eleman,1,14.0,0.0,random,8
+Eskimo-Aleut,7,27.0,5.0,random,8
+Furan,1,30.0,0.0,random,8
+Garrwan,4,17.0,0.75,random,8
+Giimbiyu,3,23.0,0.0,random,8
+Great Andamanese,2,35.0,0.0,random,8
+Guahiboan,5,25.0,13.0,random,8
+Guaicuruan,10,28.0,9.0,random,8
+Gumuz,1,44.0,0.0,random,8
+Gunwinyguan,19,27.0,3.5,random,8
+Haida,2,49.0,0.0,random,8
+Harakmbut,1,33.0,0.0,random,8
+Heibanic,6,40.0,8.5,random,8
+Hibito-Cholon,1,20.0,0.0,random,8
+Hmong-Mien,4,52.5,8.25,random,8
+Huavean,2,29.0,0.0,random,8
+Huitotoan,5,26.0,14.0,random,8
+Ijoid,6,40.0,5.5,random,8
+Indo-European,192,40.0,13.0,random,8
+Iroquoian,5,22.0,10.0,random,8
+Iwaidjan Proper,7,23.0,2.0,random,8
+Japonic,4,32.5,16.5,random,8
+Jarawa-Onge,1,24.0,0.0,random,8
+Jarrakan,2,22.0,2.0,random,8
+Jicaquean,1,28.0,0.0,random,8
+Kadugli-Krongo,11,55.0,33.5,random,8
+Kakua-Nukak,3,26.0,1.0,random,8
+Kartvelian,6,34.5,1.75,random,8
+Kawesqar,3,24.0,0.0,random,8
+Keresan,1,51.0,0.0,random,8
+Khoe-Kwadi,3,33.0,6.0,random,8
+Kiowa-Tanoan,5,42.0,16.0,random,8
+Kiwaian,1,19.0,0.0,random,8
+Koiarian,1,16.0,0.0,random,8
+Kolopom,1,44.0,0.0,random,8
+Koman,5,28.0,6.0,random,8
+Konda-Yahadian,1,33.0,0.0,random,8
+Koreanic,2,40.0,0.0,random,8
+Kresh-Aja,2,52.0,4.0,random,8
+Kru,11,39.0,10.0,random,8
+Kuliak,3,28.0,9.5,random,8
+Kunimaipan,2,20.0,0.0,random,8
+Kxa,2,130.5,10.5,random,8
+Limilngan-Wulna,1,25.0,0.0,random,8
+Maban,2,37.0,8.0,random,8
+Maiduan,2,23.0,0.0,random,8
+Mande,54,38.5,9.0,random,8
+Mangarrayi-Maran,6,24.0,3.0,random,8
+Maningrida,5,21.0,4.0,random,8
+Marrku-Wurrugu,2,24.5,1.5,random,8
+Mataguayan,5,28.0,0.0,random,8
+Mayan,14,32.0,7.75,random,8
+Maybratic,1,16.0,0.0,random,8
+Mirndi,8,21.0,2.5,random,8
+Misumalpan,1,28.0,0.0,random,8
+Miwok-Costanoan,2,30.0,9.0,random,8
+Mixe-Zoque,7,29.0,6.5,random,8
+Mongolic-Khitan,16,33.5,10.0,random,8
+Muskogean,5,21.0,4.0,random,8
+Naduhup,4,34.5,2.0,random,8
+Nakh-Daghestanian,17,64.0,17.0,random,8
+Nambiquaran,6,29.5,14.25,random,8
+Narrow Talodi,5,27.0,9.0,random,8
+Ndu,3,24.0,1.0,random,8
+Nilotic,31,38.0,16.0,random,8
+Nimboranic,1,18.0,0.0,random,8
+Nivkh,3,35.0,0.0,random,8
+North Bougainville,1,11.0,0.0,random,8
+North Halmahera,2,24.0,1.0,random,8
+Northern Daly,2,19.0,0.0,random,8
+Nubian,2,45.0,0.0,random,8
+Nuclear Torricelli,6,22.0,1.5,random,8
+Nuclear Trans New Guinea,31,21.0,6.5,random,8
+Nuclear-Macro-Je,26,26.5,8.5,random,8
+Nyimang,2,25.5,0.5,random,8
+Nyulnyulan,11,20.0,4.0,random,8
+Otomanguean,20,38.0,17.5,random,8
+Palaihnihan,1,23.0,0.0,random,8
+Pama-Nyungan,324,23.0,5.0,random,8
+Pano-Tacanan,34,21.0,2.0,random,8
+Peba-Yagua,3,23.0,2.5,random,8
+Pidgin,1,36.0,0.0,random,8
+Pomoan,3,32.0,3.5,random,8
+Puri-Coroado,1,18.0,0.0,random,8
+Quechuan,27,25.0,7.0,random,8
+Sahaptian,2,30.0,0.0,random,8
+Saharan,5,35.0,2.0,random,8
+Saliban,3,32.0,1.0,random,8
+Salishan,11,40.0,6.5,random,8
+Senagi,1,17.0,0.0,random,8
+Sentanic,2,17.0,0.0,random,8
+Sepik,8,19.0,10.0,random,8
+Shastan,1,21.0,0.0,random,8
+Sino-Tibetan,135,43.0,16.5,random,8
+Siouan,4,29.5,13.75,random,8
+Sko,3,23.0,5.0,random,8
+Songhay,7,40.0,19.0,random,8
+South Bird's Head,1,18.0,0.0,random,8
+South Bougainville,2,13.0,0.0,random,8
+South Omotic,3,36.0,19.0,random,8
+Southern Daly,4,28.0,0.75,random,8
+Speech Register,1,32.0,0.0,random,8
+Surmic,6,34.0,6.75,random,8
+Ta-Ne-Omotic,12,38.0,13.5,random,8
+Tai-Kadai,25,33.0,4.0,random,8
+Tamaic,1,30.0,0.0,random,8
+Tangkic,4,24.0,0.25,random,8
+Tarascan,2,39.0,0.0,random,8
+Teberan,1,23.0,0.0,random,8
+Temeinic,2,36.0,11.0,random,8
+Ticuna-Yuri,2,33.0,0.0,random,8
+Timor-Alor-Pantar,2,34.0,6.0,random,8
+Totonacan,4,28.0,12.5,random,8
+Tsimshian,2,41.5,0.5,random,8
+Tucanoan,23,23.0,4.5,random,8
+Tungusic,7,25.0,2.0,random,8
+Tupian,61,26.0,4.0,random,8
+Turkic,32,37.0,6.25,random,8
+Tuu,1,161.0,0.0,random,8
+Unclassifiable,1,21.0,0.0,random,8
+Uralic,46,36.0,9.0,random,8
+Uru-Chipaya,2,42.0,9.0,random,8
+Uto-Aztecan,18,30.0,11.75,random,8
+Wakashan,4,51.0,8.0,random,8
+Western Daly,6,27.5,7.75,random,8
+Wintuan,1,35.0,0.0,random,8
+Worrorran,9,25.0,1.0,random,8
+Yangmanic,2,22.0,0.0,random,8
+Yanomamic,11,31.0,12.0,random,8
+Yareban,1,18.0,0.0,random,8
+Yawa-Saweru,1,19.0,0.0,random,8
+Yeniseian,2,25.0,0.0,random,8
+Yukaghir,5,39.0,3.0,random,8
+Yuki-Wappo,2,32.5,2.5,random,8
+Zamucoan,2,33.5,3.5,random,8
+Zaparoan,5,19.0,4.0,random,8
+(Unknown),103,30.0,14.0,random,9
+Abkhaz-Adyge,4,57.5,5.75,random,9
+Afro-Asiatic,139,40.0,12.0,random,9
+Ainu,2,17.0,0.0,random,9
+Algic,8,28.0,9.5,random,9
+Angan,1,21.0,0.0,random,9
+Araucanian,3,26.0,0.0,random,9
+Arawakan,58,25.0,6.75,random,9
+Arawan,6,21.5,5.5,random,9
+Athabaskan-Eyak-Tlingit,14,49.5,10.0,random,9
+Atlantic-Congo,479,38.0,13.0,random,9
+Austroasiatic,52,38.5,10.25,random,9
+Austronesian,131,24.0,7.5,random,9
+Aymaran,4,39.0,1.75,random,9
+Baining,1,22.0,0.0,random,9
+Barbacoan,9,25.0,3.0,random,9
+Blue Nile Mao,1,36.0,0.0,random,9
+Bookkeeping,4,32.5,15.0,random,9
+Boran,4,29.5,5.5,random,9
+Border,3,22.0,2.0,random,9
+Bororoan,3,20.0,0.0,random,9
+Bunaban,2,23.5,0.5,random,9
+Caddoan,3,29.0,3.0,random,9
+Cahuapanan,3,23.0,2.5,random,9
+Cariban,30,23.0,5.0,random,9
+Central Sudanic,25,45.0,10.0,random,9
+Chapacuran,3,21.0,1.5,random,9
+Chibchan,12,25.5,6.0,random,9
+Chicham,6,23.0,0.0,random,9
+Chimakuan,1,37.0,0.0,random,9
+Chiquitano,1,26.0,0.0,random,9
+Chocoan,7,31.0,1.5,random,9
+Chonan,3,31.0,1.0,random,9
+Chukotko-Kamchatkan,6,24.5,8.75,random,9
+Chumashan,1,44.0,0.0,random,9
+Cochimi-Yuman,3,34.0,2.0,random,9
+Dajuic,1,30.0,0.0,random,9
+Dizoid,1,30.0,0.0,random,9
+Dogon,3,42.0,2.5,random,9
+Dravidian,42,39.0,13.5,random,9
+East Strickland,1,18.0,0.0,random,9
+Eastern Daly,1,22.0,0.0,random,9
+Eastern Jebel,2,33.0,0.0,random,9
+Eleman,1,14.0,0.0,random,9
+Eskimo-Aleut,7,27.0,10.0,random,9
+Furan,1,30.0,0.0,random,9
+Garrwan,4,17.0,0.75,random,9
+Giimbiyu,3,23.0,0.0,random,9
+Great Andamanese,2,35.0,0.0,random,9
+Guahiboan,5,25.0,7.0,random,9
+Guaicuruan,10,26.0,6.0,random,9
+Gumuz,1,44.0,0.0,random,9
+Gunwinyguan,19,27.0,3.5,random,9
+Haida,2,50.0,0.0,random,9
+Harakmbut,1,33.0,0.0,random,9
+Heibanic,6,40.0,8.5,random,9
+Hibito-Cholon,1,20.0,0.0,random,9
+Hmong-Mien,4,48.5,16.25,random,9
+Huavean,2,24.0,0.0,random,9
+Huitotoan,5,26.0,14.0,random,9
+Ijoid,6,40.0,5.5,random,9
+Indo-European,192,39.5,12.0,random,9
+Iroquoian,5,22.0,10.0,random,9
+Iwaidjan Proper,7,24.0,0.0,random,9
+Japonic,4,32.5,16.5,random,9
+Jarawa-Onge,1,24.0,0.0,random,9
+Jarrakan,2,22.0,2.0,random,9
+Jicaquean,1,28.0,0.0,random,9
+Kadugli-Krongo,11,55.0,33.5,random,9
+Kakua-Nukak,3,26.0,1.0,random,9
+Kartvelian,6,33.0,1.5,random,9
+Kawesqar,3,19.0,0.0,random,9
+Keresan,1,51.0,0.0,random,9
+Khoe-Kwadi,3,33.0,6.0,random,9
+Kiowa-Tanoan,5,42.0,16.0,random,9
+Kiwaian,1,19.0,0.0,random,9
+Koiarian,1,16.0,0.0,random,9
+Kolopom,1,44.0,0.0,random,9
+Koman,5,28.0,3.0,random,9
+Konda-Yahadian,1,33.0,0.0,random,9
+Koreanic,2,38.0,0.0,random,9
+Kresh-Aja,2,52.0,4.0,random,9
+Kru,11,39.0,10.0,random,9
+Kuliak,3,28.0,9.5,random,9
+Kunimaipan,2,20.0,0.0,random,9
+Kxa,2,130.5,10.5,random,9
+Limilngan-Wulna,1,25.0,0.0,random,9
+Maban,2,37.0,8.0,random,9
+Maiduan,2,23.0,0.0,random,9
+Mande,54,36.0,9.0,random,9
+Mangarrayi-Maran,6,24.0,3.0,random,9
+Maningrida,5,26.0,1.0,random,9
+Marrku-Wurrugu,2,24.5,1.5,random,9
+Mataguayan,5,28.0,0.0,random,9
+Mayan,14,29.0,6.0,random,9
+Maybratic,1,16.0,0.0,random,9
+Mirndi,8,21.0,2.5,random,9
+Misumalpan,1,28.0,0.0,random,9
+Miwok-Costanoan,2,30.0,9.0,random,9
+Mixe-Zoque,7,29.0,6.5,random,9
+Mongolic-Khitan,16,36.0,10.75,random,9
+Muskogean,5,21.0,8.0,random,9
+Naduhup,4,34.5,2.0,random,9
+Nakh-Daghestanian,17,60.0,17.0,random,9
+Nambiquaran,6,29.5,12.75,random,9
+Narrow Talodi,5,27.0,9.0,random,9
+Ndu,3,24.0,1.0,random,9
+Nilotic,31,38.0,15.5,random,9
+Nimboranic,1,18.0,0.0,random,9
+Nivkh,3,35.0,0.0,random,9
+North Bougainville,1,11.0,0.0,random,9
+North Halmahera,2,24.0,1.0,random,9
+Northern Daly,2,19.0,0.0,random,9
+Nubian,2,45.0,0.0,random,9
+Nuclear Torricelli,6,22.0,1.5,random,9
+Nuclear Trans New Guinea,31,21.0,5.0,random,9
+Nuclear-Macro-Je,26,26.5,8.0,random,9
+Nyimang,2,25.5,0.5,random,9
+Nyulnyulan,11,20.0,5.0,random,9
+Otomanguean,20,36.0,19.5,random,9
+Palaihnihan,1,23.0,0.0,random,9
+Pama-Nyungan,324,23.0,5.0,random,9
+Pano-Tacanan,34,22.0,2.0,random,9
+Peba-Yagua,3,23.0,2.5,random,9
+Pidgin,1,36.0,0.0,random,9
+Pomoan,3,38.0,0.5,random,9
+Puri-Coroado,1,18.0,0.0,random,9
+Quechuan,27,24.0,5.0,random,9
+Sahaptian,2,30.0,0.0,random,9
+Saharan,5,32.0,8.0,random,9
+Saliban,3,30.0,0.0,random,9
+Salishan,11,40.0,6.5,random,9
+Senagi,1,17.0,0.0,random,9
+Sentanic,2,17.0,0.0,random,9
+Sepik,8,19.0,10.0,random,9
+Shastan,1,21.0,0.0,random,9
+Sino-Tibetan,135,46.0,17.0,random,9
+Siouan,4,29.5,13.75,random,9
+Sko,3,23.0,5.0,random,9
+Songhay,7,36.0,14.0,random,9
+South Bird's Head,1,18.0,0.0,random,9
+South Bougainville,2,18.0,0.0,random,9
+South Omotic,3,36.0,19.0,random,9
+Southern Daly,4,24.0,2.75,random,9
+Speech Register,1,32.0,0.0,random,9
+Surmic,6,34.0,6.75,random,9
+Ta-Ne-Omotic,12,38.0,13.5,random,9
+Tai-Kadai,25,35.0,12.0,random,9
+Tamaic,1,30.0,0.0,random,9
+Tangkic,4,23.5,1.25,random,9
+Tarascan,2,32.0,0.0,random,9
+Teberan,1,23.0,0.0,random,9
+Temeinic,2,36.0,11.0,random,9
+Ticuna-Yuri,2,38.0,0.0,random,9
+Timor-Alor-Pantar,2,34.0,6.0,random,9
+Totonacan,4,28.0,12.5,random,9
+Tsimshian,2,41.5,0.5,random,9
+Tucanoan,23,23.0,7.5,random,9
+Tungusic,7,27.0,3.0,random,9
+Tupian,61,26.0,6.0,random,9
+Turkic,32,38.0,6.25,random,9
+Tuu,1,161.0,0.0,random,9
+Unclassifiable,1,21.0,0.0,random,9
+Uralic,46,33.5,7.75,random,9
+Uru-Chipaya,2,42.0,9.0,random,9
+Uto-Aztecan,18,26.0,6.25,random,9
+Wakashan,4,45.0,6.0,random,9
+Western Daly,6,27.5,7.75,random,9
+Wintuan,1,35.0,0.0,random,9
+Worrorran,9,25.0,1.0,random,9
+Yangmanic,2,22.0,0.0,random,9
+Yanomamic,11,33.0,9.5,random,9
+Yareban,1,18.0,0.0,random,9
+Yawa-Saweru,1,19.0,0.0,random,9
+Yeniseian,2,32.0,0.0,random,9
+Yukaghir,5,32.0,4.0,random,9
+Yuki-Wappo,2,32.5,2.5,random,9
+Zamucoan,2,33.5,3.5,random,9
+Zaparoan,5,25.0,7.0,random,9
+(Unknown),103,29.0,12.0,random,10
+Abkhaz-Adyge,4,62.5,1.75,random,10
+Afro-Asiatic,139,41.0,10.5,random,10
+Ainu,2,16.0,0.0,random,10
+Algic,8,28.0,9.5,random,10
+Angan,1,21.0,0.0,random,10
+Araucanian,3,26.0,0.0,random,10
+Arawakan,58,25.0,6.0,random,10
+Arawan,6,21.5,6.25,random,10
+Athabaskan-Eyak-Tlingit,14,49.5,10.0,random,10
+Atlantic-Congo,479,38.0,13.0,random,10
+Austroasiatic,52,40.0,10.25,random,10
+Austronesian,131,25.0,8.0,random,10
+Aymaran,4,42.0,2.75,random,10
+Baining,1,22.0,0.0,random,10
+Barbacoan,9,26.0,3.0,random,10
+Blue Nile Mao,1,36.0,0.0,random,10
+Bookkeeping,4,32.5,15.0,random,10
+Boran,4,29.5,5.5,random,10
+Border,3,22.0,2.0,random,10
+Bororoan,3,22.0,1.0,random,10
+Bunaban,2,23.5,0.5,random,10
+Caddoan,3,29.0,3.0,random,10
+Cahuapanan,3,21.0,1.5,random,10
+Cariban,30,23.0,4.75,random,10
+Central Sudanic,25,45.0,11.0,random,10
+Chapacuran,3,20.0,1.0,random,10
+Chibchan,12,24.5,7.0,random,10
+Chicham,6,21.0,1.5,random,10
+Chimakuan,1,37.0,0.0,random,10
+Chiquitano,1,26.0,0.0,random,10
+Chocoan,7,31.0,1.5,random,10
+Chonan,3,31.0,1.0,random,10
+Chukotko-Kamchatkan,6,24.5,8.75,random,10
+Chumashan,1,40.0,0.0,random,10
+Cochimi-Yuman,3,34.0,2.0,random,10
+Dajuic,1,30.0,0.0,random,10
+Dizoid,1,30.0,0.0,random,10
+Dogon,3,42.0,2.5,random,10
+Dravidian,42,38.0,10.75,random,10
+East Strickland,1,18.0,0.0,random,10
+Eastern Daly,1,22.0,0.0,random,10
+Eastern Jebel,2,49.0,0.0,random,10
+Eleman,1,14.0,0.0,random,10
+Eskimo-Aleut,7,27.0,10.0,random,10
+Furan,1,30.0,0.0,random,10
+Garrwan,4,17.0,0.75,random,10
+Giimbiyu,3,23.0,0.0,random,10
+Great Andamanese,2,35.0,0.0,random,10
+Guahiboan,5,25.0,13.0,random,10
+Guaicuruan,10,28.0,7.0,random,10
+Gumuz,1,44.0,0.0,random,10
+Gunwinyguan,19,27.0,3.5,random,10
+Haida,2,49.0,0.0,random,10
+Harakmbut,1,33.0,0.0,random,10
+Heibanic,6,40.0,8.5,random,10
+Hibito-Cholon,1,20.0,0.0,random,10
+Hmong-Mien,4,52.5,8.25,random,10
+Huavean,2,24.0,0.0,random,10
+Huitotoan,5,26.0,14.0,random,10
+Ijoid,6,40.0,5.5,random,10
+Indo-European,192,41.0,12.0,random,10
+Iroquoian,5,19.0,2.0,random,10
+Iwaidjan Proper,7,23.0,2.0,random,10
+Japonic,4,21.0,1.5,random,10
+Jarawa-Onge,1,24.0,0.0,random,10
+Jarrakan,2,22.0,2.0,random,10
+Jicaquean,1,28.0,0.0,random,10
+Kadugli-Krongo,11,61.0,2.5,random,10
+Kakua-Nukak,3,22.0,1.0,random,10
+Kartvelian,6,35.0,0.0,random,10
+Kawesqar,3,19.0,0.0,random,10
+Keresan,1,51.0,0.0,random,10
+Khoe-Kwadi,3,33.0,6.0,random,10
+Kiowa-Tanoan,5,42.0,16.0,random,10
+Kiwaian,1,19.0,0.0,random,10
+Koiarian,1,16.0,0.0,random,10
+Kolopom,1,44.0,0.0,random,10
+Koman,5,28.0,6.0,random,10
+Konda-Yahadian,1,33.0,0.0,random,10
+Koreanic,2,32.0,0.0,random,10
+Kresh-Aja,2,52.0,4.0,random,10
+Kru,11,39.0,10.0,random,10
+Kuliak,3,28.0,9.5,random,10
+Kunimaipan,2,20.0,0.0,random,10
+Kxa,2,130.5,10.5,random,10
+Limilngan-Wulna,1,25.0,0.0,random,10
+Maban,2,37.0,8.0,random,10
+Maiduan,2,23.0,0.0,random,10
+Mande,54,39.0,9.5,random,10
+Mangarrayi-Maran,6,24.0,3.0,random,10
+Maningrida,5,21.0,4.0,random,10
+Marrku-Wurrugu,2,24.5,1.5,random,10
+Mataguayan,5,28.0,0.0,random,10
+Mayan,14,30.0,6.0,random,10
+Maybratic,1,16.0,0.0,random,10
+Mirndi,8,21.0,2.5,random,10
+Misumalpan,1,28.0,0.0,random,10
+Miwok-Costanoan,2,30.0,9.0,random,10
+Mixe-Zoque,7,25.0,5.0,random,10
+Mongolic-Khitan,16,36.0,10.25,random,10
+Muskogean,5,21.0,8.0,random,10
+Naduhup,4,34.5,3.25,random,10
+Nakh-Daghestanian,17,64.0,13.0,random,10
+Nambiquaran,6,29.5,12.75,random,10
+Narrow Talodi,5,27.0,9.0,random,10
+Ndu,3,24.0,1.0,random,10
+Nilotic,31,38.0,15.5,random,10
+Nimboranic,1,18.0,0.0,random,10
+Nivkh,3,34.0,0.0,random,10
+North Bougainville,1,11.0,0.0,random,10
+North Halmahera,2,24.0,1.0,random,10
+Northern Daly,2,19.0,0.0,random,10
+Nubian,2,45.0,0.0,random,10
+Nuclear Torricelli,6,22.0,1.5,random,10
+Nuclear Trans New Guinea,31,21.0,5.0,random,10
+Nuclear-Macro-Je,26,27.0,8.0,random,10
+Nyimang,2,25.5,0.5,random,10
+Nyulnyulan,11,20.0,4.0,random,10
+Otomanguean,20,38.0,19.5,random,10
+Palaihnihan,1,23.0,0.0,random,10
+Pama-Nyungan,324,23.0,5.0,random,10
+Pano-Tacanan,34,21.0,2.0,random,10
+Peba-Yagua,3,23.0,2.5,random,10
+Pidgin,1,36.0,0.0,random,10
+Pomoan,3,38.0,0.5,random,10
+Puri-Coroado,1,18.0,0.0,random,10
+Quechuan,27,25.0,5.5,random,10
+Sahaptian,2,30.0,0.0,random,10
+Saharan,5,32.0,4.0,random,10
+Saliban,3,32.0,1.0,random,10
+Salishan,11,43.0,5.0,random,10
+Senagi,1,17.0,0.0,random,10
+Sentanic,2,17.0,0.0,random,10
+Sepik,8,19.0,10.0,random,10
+Shastan,1,21.0,0.0,random,10
+Sino-Tibetan,135,46.0,19.0,random,10
+Siouan,4,29.5,13.75,random,10
+Sko,3,23.0,5.0,random,10
+Songhay,7,48.0,10.0,random,10
+South Bird's Head,1,18.0,0.0,random,10
+South Bougainville,2,13.0,0.0,random,10
+South Omotic,3,36.0,19.0,random,10
+Southern Daly,4,24.0,2.75,random,10
+Speech Register,1,32.0,0.0,random,10
+Surmic,6,34.0,6.75,random,10
+Ta-Ne-Omotic,12,38.0,18.0,random,10
+Tai-Kadai,25,35.0,11.0,random,10
+Tamaic,1,30.0,0.0,random,10
+Tangkic,4,24.0,0.25,random,10
+Tarascan,2,32.0,0.0,random,10
+Teberan,1,23.0,0.0,random,10
+Temeinic,2,36.0,11.0,random,10
+Ticuna-Yuri,2,33.0,0.0,random,10
+Timor-Alor-Pantar,2,34.0,6.0,random,10
+Totonacan,4,28.0,12.5,random,10
+Tsimshian,2,41.5,0.5,random,10
+Tucanoan,23,23.0,6.0,random,10
+Tungusic,7,27.0,3.0,random,10
+Tupian,61,26.0,4.0,random,10
+Turkic,32,37.0,7.0,random,10
+Tuu,1,161.0,0.0,random,10
+Unclassifiable,1,21.0,0.0,random,10
+Uralic,46,36.0,9.75,random,10
+Uru-Chipaya,2,42.0,9.0,random,10
+Uto-Aztecan,18,28.5,9.0,random,10
+Wakashan,4,48.5,13.0,random,10
+Western Daly,6,27.5,7.75,random,10
+Wintuan,1,35.0,0.0,random,10
+Worrorran,9,25.0,1.0,random,10
+Yangmanic,2,22.0,0.0,random,10
+Yanomamic,11,24.0,12.5,random,10
+Yareban,1,18.0,0.0,random,10
+Yawa-Saweru,1,19.0,0.0,random,10
+Yeniseian,2,32.0,0.0,random,10
+Yukaghir,5,39.0,3.0,random,10
+Yuki-Wappo,2,32.5,2.5,random,10
+Zamucoan,2,33.5,3.5,random,10
+Zaparoan,5,19.0,4.0,random,10
