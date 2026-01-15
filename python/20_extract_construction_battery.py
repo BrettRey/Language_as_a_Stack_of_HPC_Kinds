@@ -44,11 +44,19 @@ EVAL_NOUNS = {
     "beauty", "brute", "nerd", "dork", "ass", "bitch", "pain", "trash",
     "saint", "criminal", "clown"
 }
+HUMAN_NOUNS = {
+    "man", "woman", "guy", "girl", "boy", "person", "people", "child", "kid",
+    "doctor", "teacher", "student", "friend", "brother", "sister", "mother",
+    "father", "husband", "wife", "employee", "boss", "officer", "cop",
+    "neighbor", "stranger", "chef", "driver", "nurse", "lawyer"
+}
 NPN_PREPS = {"by", "to", "after", "upon", "over", "for", "with", "on", "in"}
+NPN_STRICT_PREPS = {"by", "after", "upon", "over"}
 RESULTATIVE_MARKERS = {
     "up", "open", "shut", "closed", "clean", "flat", "dry", "dead", "free",
     "awake", "solid", "empty", "full", "off", "out"
 }
+RESULTATIVE_LOOSE = RESULTATIVE_MARKERS | {"away", "back", "down", "in", "on", "into", "onto"}
 
 
 def iter_sentences(corpus: str) -> List[Dict[str, Any]]:
@@ -138,7 +146,7 @@ def extract_way_construction(sent: Dict[str, Any], idx: Dict[str, Any]) -> List[
         cue1 = 1
         cue2 = 1 if any(forms[j] in PATH_PREPS for j in range(i + 1, min(len(tokens), i + 8))) else 0
         cue3 = 1 if any(t["upos"] == "VERB" and t["form"].lower() not in {"be"} for t in tokens) else 0
-        label = int(cue1 and cue2 and cue3)
+        label = int(cue1 and cue3 and forms[i + 1] in NPN_STRICT_PREPS)
         add_row(rows, "way_construction", "", sent, cue1, cue2, cue3, label, f"way@{i+1}")
     return rows
 
@@ -181,7 +189,9 @@ def extract_comparative_correlative(sent: Dict[str, Any], idx: Dict[str, Any]) -
             cue1 = 1
             cue2 = 1
             cue3 = 1 if any(tokens[k]["upos"] == "PUNCT" and tokens[k]["form"] in {",", ";"} for k in range(left, right)) else 0
-            label = int(cue1 and cue2 and cue3)
+            left_verb = any(tokens[k]["upos"] == "VERB" for k in range(left + 1, min(left + 7, len(tokens))))
+            right_verb = any(tokens[k]["upos"] == "VERB" for k in range(right + 1, min(right + 7, len(tokens))))
+            label = int(cue1 and cue2 and cue3 and left_verb and right_verb)
             add_row(rows, "comparative_correlative", "", sent, cue1, cue2, cue3, label, f"the@{left+1}-{right+1}")
             return rows
     return rows
@@ -242,9 +252,11 @@ def extract_all_cleft(sent: Dict[str, Any], idx: Dict[str, Any]) -> List[Dict[st
     if copula_idx is None:
         return rows
     cue1 = 1
-    cue2 = 1 if tokens[all_idx]["deprel"] == "nsubj" and tokens[all_idx]["head"] == tokens[copula_idx]["id"] else 0
+    cue2 = 1
     cue3 = 1 if all_idx == 0 or (all_idx > 0 and tokens[all_idx - 1]["upos"] == "PUNCT") else 0
-    label = int(cue1 and cue3)
+    strict_head = tokens[all_idx]["deprel"] == "nsubj" and tokens[all_idx]["head"] == tokens[copula_idx]["id"]
+    strict_root = tokens[copula_idx]["deprel"] in {"root", "ccomp"}
+    label = int(strict_head and strict_root)
     add_row(rows, "all_cleft", "", sent, cue1, cue2, cue3, label, f"all@{all_idx+1}")
     return rows
 
@@ -270,7 +282,8 @@ def extract_binominal_of_a(sent: Dict[str, Any], idx: Dict[str, Any]) -> List[Di
         if cue2 == 0:
             cue2 = 1 if any(tokens[c]["deprel"] == "amod" for c in children.get(i, [])) else 0
         cue3 = 1 if tokens[i]["head"] == tokens[i + 3]["id"] or tokens[i + 3]["head"] == tokens[i]["id"] else 0
-        label = int(cue1 and (cue2 or cue3))
+        human_n2 = lemmas[i + 3] in HUMAN_NOUNS
+        label = int(cue1 and cue2 and human_n2)
         add_row(rows, "binominal_of_a", "", sent, cue1, cue2, cue3, label, f"of_a@{i+1}")
     return rows
 
@@ -318,9 +331,10 @@ def extract_resultative(sent: Dict[str, Any], idx: Dict[str, Any]) -> List[Dict[
                 cue2 = 1
                 xp_idx = c
                 break
-        if xp_idx is not None and lemmas[xp_idx] in RESULTATIVE_MARKERS:
+        if xp_idx is not None and lemmas[xp_idx] in RESULTATIVE_LOOSE:
             cue3 = 1
-        label = int(cue1 and cue2 and cue3)
+        strict_marker = xp_idx is not None and lemmas[xp_idx] in RESULTATIVE_MARKERS
+        label = int(cue1 and cue2 and strict_marker)
         add_row(rows, "resultative_pooled", "", sent, cue1, cue2, cue3, label, f"verb@{i+1}")
         if xp_idx is not None:
             xp_pos = tokens[xp_idx]["upos"]

@@ -1,10 +1,10 @@
 construction,corpus,n_candidates,n_positive,prevalence
-all_cleft,ewt,150,41,0.2733333333333333
-all_cleft,gum,142,32,0.22535211267605634
-binominal_of_a,ewt,60,45,0.75
-binominal_of_a,gum,82,69,0.8414634146341463
-comparative_correlative,ewt,20,11,0.55
-comparative_correlative,gum,20,14,0.7
+all_cleft,ewt,150,0,0.0
+all_cleft,gum,142,2,0.014084507042253521
+binominal_of_a,ewt,60,1,0.016666666666666666
+binominal_of_a,gum,82,0,0.0
+comparative_correlative,ewt,20,2,0.1
+comparative_correlative,gum,20,2,0.1
 just_because_doesnt_mean,ewt,1,1,1.0
 npn,ewt,24,18,0.75
 npn,gum,23,19,0.8260869565217391
@@ -21,7 +21,7 @@ resultative_pp,gum,15,0,0.0
 resultative_pp,gumreddit,2,0,0.0
 time_away,ewt,93,6,0.06451612903225806
 time_away,gum,86,1,0.011627906976744186
-way_construction,ewt,28,17,0.6071428571428571
-way_construction,gum,11,7,0.6363636363636364
+way_construction,ewt,28,1,0.03571428571428571
+way_construction,gum,11,0,0.0
 x_much,ewt,14,2,0.14285714285714285
 x_much,gum,8,2,0.25
