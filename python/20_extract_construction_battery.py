@@ -322,6 +322,12 @@ def extract_resultative(sent: Dict[str, Any], idx: Dict[str, Any]) -> List[Dict[
             cue3 = 1
         label = int(cue1 and cue2 and cue3)
         add_row(rows, "resultative_pooled", "", sent, cue1, cue2, cue3, label, f"verb@{i+1}")
+        if xp_idx is not None:
+            xp_pos = tokens[xp_idx]["upos"]
+            if xp_pos == "ADJ":
+                add_row(rows, "resultative_adj", "", sent, cue1, cue2, cue3, label, f"verb@{i+1}")
+            elif xp_pos == "ADP":
+                add_row(rows, "resultative_pp", "", sent, cue1, cue2, cue3, label, f"verb@{i+1}")
     return rows
 
 

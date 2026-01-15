@@ -13,6 +13,7 @@
 - [x] Case A: Phonemes (PHOIBLE, /y/ scaling) - preliminary
 - [x] Case B: Words (semantic drift, egregious) - preliminary
 - [x] Case C: Constructions (or even, cross-corpus transfer) - preliminary
+- [x] Construction homeostasis diagnostics (cue covariance + downsampling) - preliminary
 - [x] Failure modes taxonomy (thin/fat/negative)
 - [x] Python analysis code
 - [ ] Full verification of empirical results

@@ -10,9 +10,15 @@ npn,ewt,24,18,0.75
 npn,gum,23,19,0.8260869565217391
 or_even,ewt,18,10,0.5555555555555556
 or_even,gum,12,5,0.4166666666666667
+resultative_adj,ewt,315,28,0.08888888888888889
+resultative_adj,gum,272,17,0.0625
+resultative_adj,gumreddit,31,0,0.0
 resultative_pooled,ewt,12226,29,0.0023719941109111727
 resultative_pooled,gum,10407,17,0.0016335159027577593
 resultative_pooled,gumreddit,842,0,0.0
+resultative_pp,ewt,22,1,0.045454545454545456
+resultative_pp,gum,15,0,0.0
+resultative_pp,gumreddit,2,0,0.0
 time_away,ewt,93,6,0.06451612903225806
 time_away,gum,86,1,0.011627906976744186
 way_construction,ewt,28,17,0.6071428571428571
