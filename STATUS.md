@@ -3,7 +3,7 @@
 **Status:** Preprint published (LingBuzz + Zenodo); conceptual claims ready, empirical sections preliminary
 **Type:** Article
 **Target journal:** TBD
-**Last updated:** 2026-01-08
+**Last updated:** 2026-01-15
 
 ---
 
@@ -14,6 +14,7 @@
 - [x] Case B: Words (semantic drift, egregious) - preliminary
 - [x] Case C: Constructions (or even, cross-corpus transfer) - preliminary
 - [x] Construction homeostasis diagnostics (cue covariance + downsampling) - preliminary
+- [x] Construction labeling decoupled from cues (reduced PR--AUC saturation) - preliminary
 - [x] Failure modes taxonomy (thin/fat/negative)
 - [x] Python analysis code
 - [ ] Full verification of empirical results
@@ -37,7 +38,7 @@
 |------|------|--------|-------|
 | Phonemes | PHOIBLE 2.0 | Preliminary | /y/ scaling, inventory ridgelines |
 | Words | Historical corpora | Preliminary | Egregious drift; needs multi-lexeme expansion |
-| Constructions | UD GUM + EWT (+ broader UD set) | Preliminary | or even cross-corpus; anchor-present counts modest |
+| Constructions | UD GUM + EWT (+ broader UD set) | Preliminary | Cue proxies decoupled from labels; estimable set now N--P--N + resultatives; homeostasis tables added |
 
 ---
 
@@ -71,3 +72,4 @@ Python scripts in `python/`:
 
 - **2026-01-08**: Imported from Overleaf; STATUS.md created
 - **2026-01-14**: Switched flagship construction to *or even* due to low *let alone* counts in UD
+- **2026-01-15**: Relaxed construction heuristics so cues predict (not define) labels; added cue covariance + downsampling tables and stratified resultatives
