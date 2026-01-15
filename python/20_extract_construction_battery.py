@@ -59,21 +59,36 @@ CONTRAST_MARKERS = {"but", "yet", "still", "however", "though", "although"}
 EVAL_NOUNS = {
     "idiot", "fool", "bastard", "jerk", "angel", "gem", "monster", "devil",
     "beauty", "brute", "nerd", "dork", "ass", "bitch", "pain", "trash",
-    "saint", "criminal", "clown"
+    "saint", "criminal", "clown", "genius", "loser", "hero", "champ",
+    "legend", "sweetheart", "darling", "moron", "asshole", "freak",
+    "weirdo", "psycho"
 }
 HUMAN_NOUNS = {
     "man", "woman", "guy", "girl", "boy", "person", "people", "child", "kid",
     "doctor", "teacher", "student", "friend", "brother", "sister", "mother",
     "father", "husband", "wife", "employee", "boss", "officer", "cop",
-    "neighbor", "stranger", "chef", "driver", "nurse", "lawyer"
+    "neighbor", "stranger", "chef", "driver", "nurse", "lawyer", "adult",
+    "teen", "teenager", "gentleman", "lady", "ladies", "sir", "madam",
+    "men", "women", "guys", "girls", "boys", "kids", "children", "worker",
+    "soldier", "pilot", "judge", "scientist", "professor"
 }
+HUMAN_PRONOUNS = {"he", "she", "him", "her", "they", "them", "you", "me", "us"}
 NPN_PREPS = {"by", "to", "after", "upon", "over", "for", "with", "on", "in"}
 NPN_STRICT_PREPS = {"by", "after", "upon", "over"}
 RESULTATIVE_MARKERS = {
     "up", "open", "shut", "closed", "clean", "flat", "dry", "dead", "free",
-    "awake", "solid", "empty", "full", "off", "out"
+    "awake", "solid", "empty", "full", "off", "out", "into", "onto", "away",
+    "back", "down"
 }
 RESULTATIVE_LOOSE = RESULTATIVE_MARKERS | {"away", "back", "down", "in", "on", "into", "onto"}
+MOTION_VERBS = {
+    "make", "find", "work", "push", "fight", "force", "edge", "inch", "worm",
+    "wind", "pick", "cut"
+}
+
+
+def has_child(tokens: List[Dict[str, Any]], children: Dict[int, List[int]], idx: int, rels: set[str]) -> bool:
+    return any(tokens[c]["deprel"] in rels for c in children.get(idx, []))
 
 
 def iter_sentences(corpus: str) -> List[Dict[str, Any]]:
@@ -158,12 +173,16 @@ def extract_way_construction(sent: Dict[str, Any], idx: Dict[str, Any]) -> List[
             if deprel == "det" and forms[child] in POSSESSIVE_FORMS:
                 poss = True
                 break
-        if not poss:
-            continue
-        cue1 = 1
+        cue1 = 1 if poss else 0
         cue2 = 1 if any(forms[j] in PATH_PREPS for j in range(i + 1, min(len(tokens), i + 8))) else 0
-        cue3 = 1 if any(t["upos"] == "VERB" and t["form"].lower() not in {"be"} for t in tokens) else 0
-        label = int(cue1 and cue3 and forms[i + 1] in NPN_STRICT_PREPS)
+        motion_near = any(
+            tokens[j]["upos"] == "VERB" and idx["lemmas"][j] in MOTION_VERBS
+            for j in range(max(0, i - 5), min(len(tokens), i + 6))
+        )
+        cue3 = 1 if motion_near else 0
+        head_idx = tokens[i]["head"] - 1 if tokens[i]["head"] and tokens[i]["head"] > 0 else -1
+        way_head_is_verb = head_idx >= 0 and tokens[head_idx]["upos"] == "VERB"
+        label = int(cue1 and cue2 and way_head_is_verb)
         add_row(rows, "way_construction", "", sent, cue1, cue2, cue3, label, f"way@{i+1}")
     return rows
 
@@ -173,14 +192,18 @@ def extract_time_away(sent: Dict[str, Any], idx: Dict[str, Any]) -> List[Dict[st
     tokens = sent["tokens"]
     forms = idx["forms"]
     lemmas = idx["lemmas"]
+    children = idx["children"]
     for i, lemma in enumerate(lemmas):
         if lemma != "away":
             continue
         cue1 = 1
-        cue2 = 1 if any(l in TIME_NOUNS for l in lemmas) else 0
+        time_near = any(lemmas[j] in TIME_NOUNS for j in range(max(0, i - 5), min(len(tokens), i + 6)))
+        cue2 = 1 if time_near else 0
         verb_lemmas = [lemmas[j] for j, t in enumerate(tokens) if t["upos"] == "VERB"]
         cue3 = 1 if any(v in ACTIVITY_VERBS for v in verb_lemmas) else 0
-        label = int(cue1 and cue2 and cue3)
+        head_idx = tokens[i]["head"] - 1 if tokens[i]["head"] and tokens[i]["head"] > 0 else -1
+        away_head_is_verb = head_idx >= 0 and tokens[head_idx]["upos"] == "VERB"
+        label = int(cue2 and away_head_is_verb)
         add_row(rows, "time_away", "", sent, cue1, cue2, cue3, label, f"away@{i+1}")
     return rows
 
@@ -199,16 +222,16 @@ def extract_comparative_correlative(sent: Dict[str, Any], idx: Dict[str, Any]) -
         for j in range(i + 1, len(the_positions)):
             left = the_positions[i]
             right = the_positions[j]
-            left_comp = any(k in comparatives for k in range(left + 1, min(left + 4, len(tokens))))
-            right_comp = any(k in comparatives for k in range(right + 1, min(right + 4, len(tokens))))
+            left_comp = any(k in comparatives for k in range(left + 1, min(left + 6, len(tokens))))
+            right_comp = any(k in comparatives for k in range(right + 1, min(right + 6, len(tokens))))
             if not (left_comp and right_comp):
                 continue
-            cue1 = 1
-            cue2 = 1
+            cue1 = 1 if left_comp else 0
+            cue2 = 1 if right_comp else 0
             cue3 = 1 if any(tokens[k]["upos"] == "PUNCT" and tokens[k]["form"] in {",", ";"} for k in range(left, right)) else 0
-            left_verb = any(tokens[k]["upos"] == "VERB" for k in range(left + 1, min(left + 7, len(tokens))))
-            right_verb = any(tokens[k]["upos"] == "VERB" for k in range(right + 1, min(right + 7, len(tokens))))
-            label = int(cue1 and cue2 and cue3 and left_verb and right_verb)
+            left_verb = any(tokens[k]["upos"] == "VERB" for k in range(left + 1, min(left + 9, len(tokens))))
+            right_verb = any(tokens[k]["upos"] == "VERB" for k in range(right + 1, min(right + 9, len(tokens))))
+            label = int(left_comp and right_comp and left_verb and right_verb)
             add_row(rows, "comparative_correlative", "", sent, cue1, cue2, cue3, label, f"the@{left+1}-{right+1}")
             return rows
     return rows
@@ -218,28 +241,38 @@ def extract_just_because(sent: Dict[str, Any], idx: Dict[str, Any]) -> List[Dict
     rows: List[Dict[str, Any]] = []
     tokens = sent["tokens"]
     forms = idx["forms"]
-    because_idx = None
-    just_because = None
-    for i in range(len(forms)):
-        if forms[i] == "because":
-            because_idx = i
-            if i > 0 and forms[i - 1] == "just":
-                just_because = i - 1
-            break
-    if because_idx is None:
+    children = idx["children"]
+    because_positions = [i for i, f in enumerate(forms) if f == "because"]
+    if not because_positions:
         return rows
     mean_idx = None
     neg_present = False
     for i in range(len(forms)):
-        if forms[i] == "mean":
-            # look for doesn't / does not within 2 tokens to the left
-            window = forms[max(0, i - 3):i]
-            if "does" in window or "do" in window or "did" in window:
-                if "not" in window or "n't" in window:
-                    mean_idx = i
-                    neg_present = True
-                    break
-    if mean_idx is None or because_idx > mean_idx:
+        if forms[i] != "mean":
+            continue
+        neg_child = has_child(tokens, children, i, {"neg"})
+        aux_neg = False
+        for c in children.get(i, []):
+            if tokens[c]["upos"] == "AUX" and has_child(tokens, children, c, {"neg"}):
+                aux_neg = True
+                break
+        window = forms[max(0, i - 5):i]
+        neg_window = "not" in window or "n't" in window or "never" in window
+        if neg_child or aux_neg or neg_window:
+            mean_idx = i
+            neg_present = True
+            break
+    if mean_idx is None:
+        return rows
+    because_idx = None
+    just_because = None
+    for b_idx in because_positions:
+        if b_idx < mean_idx:
+            because_idx = b_idx
+            if b_idx > 0 and forms[b_idx - 1] == "just":
+                just_because = b_idx - 1
+            break
+    if because_idx is None:
         return rows
     cue1 = 1 if just_because is not None else 0
     cue2 = 1 if neg_present else 0
@@ -254,27 +287,27 @@ def extract_all_cleft(sent: Dict[str, Any], idx: Dict[str, Any]) -> List[Dict[st
     rows: List[Dict[str, Any]] = []
     tokens = sent["tokens"]
     forms = idx["forms"]
-    all_idx = None
-    for i, f in enumerate(forms):
-        if f == "all":
-            all_idx = i
-            break
-    if all_idx is None:
+    children = idx["children"]
+    all_indices = [i for i, f in enumerate(forms) if f == "all"]
+    if not all_indices:
         return rows
-    copula_idx = None
-    for i, f in enumerate(forms):
-        if f in {"is", "are", "was", "were"} and i > all_idx:
-            copula_idx = i
-            break
-    if copula_idx is None:
-        return rows
-    cue1 = 1
-    cue2 = 1
-    cue3 = 1 if all_idx == 0 or (all_idx > 0 and tokens[all_idx - 1]["upos"] == "PUNCT") else 0
-    strict_head = tokens[all_idx]["deprel"] == "nsubj" and tokens[all_idx]["head"] == tokens[copula_idx]["id"]
-    strict_root = tokens[copula_idx]["deprel"] in {"root", "ccomp"}
-    label = int(strict_head and strict_root)
-    add_row(rows, "all_cleft", "", sent, cue1, cue2, cue3, label, f"all@{all_idx+1}")
+    for all_idx in all_indices:
+        copula_idx = None
+        for i, f in enumerate(forms):
+            if f in {"is", "are", "was", "were", "am"} and i > all_idx:
+                copula_idx = i
+                break
+        if copula_idx is None:
+            continue
+        cue1 = 1 if all_idx == 0 or (all_idx > 0 and tokens[all_idx - 1]["upos"] == "PUNCT") else 0
+        cue2 = 1
+        relcl_cue = has_child(tokens, children, all_idx, {"acl:relcl", "acl"})
+        complement_cue = any(f in {"that", "to"} for f in forms[all_idx:copula_idx + 1])
+        cue3 = 1 if relcl_cue or complement_cue else 0
+        all_role = tokens[all_idx]["deprel"] in {"nsubj", "obj", "obl", "nmod"}
+        head_is_copula = tokens[all_idx]["head"] == tokens[copula_idx]["id"]
+        label = int(cue2 and (relcl_cue or (all_role and head_is_copula)))
+        add_row(rows, "all_cleft", "", sent, cue1, cue2, cue3, label, f"all@{all_idx+1}")
     return rows
 
 
@@ -291,7 +324,7 @@ def extract_binominal_of_a(sent: Dict[str, Any], idx: Dict[str, Any]) -> List[Di
             continue
         if forms[i + 2] not in {"a", "an"}:
             continue
-        if tokens[i + 3]["upos"] != "NOUN":
+        if tokens[i + 3]["upos"] not in {"NOUN", "PROPN", "PRON"}:
             continue
         cue1 = 1
         cue2 = 1 if lemmas[i] in EVAL_NOUNS else 0
@@ -299,7 +332,7 @@ def extract_binominal_of_a(sent: Dict[str, Any], idx: Dict[str, Any]) -> List[Di
         if cue2 == 0:
             cue2 = 1 if any(tokens[c]["deprel"] == "amod" for c in children.get(i, [])) else 0
         cue3 = 1 if tokens[i]["head"] == tokens[i + 3]["id"] or tokens[i + 3]["head"] == tokens[i]["id"] else 0
-        human_n2 = lemmas[i + 3] in HUMAN_NOUNS
+        human_n2 = lemmas[i + 3] in HUMAN_NOUNS or forms[i + 3] in HUMAN_PRONOUNS or tokens[i + 3]["upos"] == "PROPN"
         label = int(cue1 and cue2 and human_n2)
         add_row(rows, "binominal_of_a", "", sent, cue1, cue2, cue3, label, f"of_a@{i+1}")
     return rows

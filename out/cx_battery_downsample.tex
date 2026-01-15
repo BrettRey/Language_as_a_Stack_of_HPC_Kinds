@@ -8,6 +8,14 @@
     \toprule
     Construction & Direction & $n_{tr}$ & $n_{te}$ & PR--AUC & $\Delta$ down \\
     \midrule
+    all\_cleft & childes\ensuremath{\to}ewt & 64(15) & 164(29) & 0.614 & 0.030 \\
+    all\_cleft & childes\ensuremath{\to}gum & 64(15) & 152(25) & 0.580 & 0.038 \\
+    all\_cleft & ewt\ensuremath{\to}childes & 164(29) & 64(15) & 0.830 & 0.003 \\
+    all\_cleft & ewt\ensuremath{\to}gum & 164(29) & 152(25) & 0.580 & 0.007 \\
+    all\_cleft & gum\ensuremath{\to}childes & 152(25) & 64(15) & 0.830 & 0.011 \\
+    all\_cleft & gum\ensuremath{\to}ewt & 152(25) & 164(29) & 0.614 & 0.023 \\
+    comparative\_correlative & ewt\ensuremath{\to}lines & 40(15) & 30(11) & 0.308 & -0.081 \\
+    comparative\_correlative & lines\ensuremath{\to}ewt & 30(11) & 40(15) & 0.351 & -0.005 \\
     npn & ewt\ensuremath{\to}gum & 24(18) & 23(19) & 1.000 & 0.000 \\
     npn & gum\ensuremath{\to}ewt & 23(19) & 24(18) & 1.000 & 0.000 \\
     resultative\_adj & childes\ensuremath{\to}ewt & 144(16) & 315(28) & 0.933 & -0.000 \\
@@ -34,6 +42,8 @@
     resultative\_pooled & lines\ensuremath{\to}childes & 4857(10) & 14645(19) & 0.905 & 0.000 \\
     resultative\_pooled & lines\ensuremath{\to}ewt & 4857(10) & 12226(29) & 0.879 & 0.000 \\
     resultative\_pooled & lines\ensuremath{\to}gum & 4857(10) & 10407(17) & 0.680 & -0.000 \\
+    way\_construction & ewt\ensuremath{\to}lines & 268(14) & 121(20) & 1.000 & 0.002 \\
+    way\_construction & lines\ensuremath{\to}ewt & 121(20) & 268(14) & 0.887 & 0.002 \\
     \bottomrule
   \end{tabular}
 \end{table}
