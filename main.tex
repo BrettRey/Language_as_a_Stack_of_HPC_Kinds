@@ -46,6 +46,7 @@
 \usepackage{tipa}
 \usepackage{setspace}
 \usepackage{booktabs}
+\usepackage{longtable}
 \usepackage[normalem]{ulem}
 \usepackage{csquotes}
 \usepackage{linguex}
@@ -399,58 +400,65 @@ The selected constructions span four cue regimes (Table~\ref{tab:cx-battery}). S
 
 Two additional targets are included explicitly to discipline the ontology. The first is \emph{resultative} as a pooled analyst's umbrella. Run naively as a single category, it's predicted to behave as \enquote{too fat}: heterogeneous subtypes should erode cross-corpus projection and wash out ablation signatures. The second is a register-local format construction (\mention{X much?}), included to make locality concrete: the framework predicts that projectibility can succeed in the appropriate population--genre slice while failing (trivially, by sparsity) outside it. In both cases the point isn't to \enquote{rescue} a kind claim, but to show that the same diagnostics (and the same thresholds) yield informative failure modes rather than producing an \enquote{HPC} verdict by default.
 
-\begin{table}[t]
-  \centering
+\small
+\begin{longtable}{p{3.0cm}p{3.6cm}p{8.0cm}}
   \caption{Constructional battery for the confirmatory extension of Case~C. Each target is specified by a candidate-generation heuristic (to define the evaluation universe), a minimally sufficient cue bundle (for ablation), and a predicted stabilizer profile. Eight are treated as positive candidates; two are designed \emph{brakes} cases (\enquote{too fat}; register-local).}
-  \label{tab:cx-battery}
-  \small
-  \begin{tabular}{p{3.0cm}p{3.6cm}p{8.0cm}}
-    \toprule
-    Target & Candidate set (heuristic) & Cue bundle (illustrative) and predicted stabilizers \\
-    \midrule
-    \mention{or even} &
-    Anchor-present strings containing \mention{or even} &
-    Anchor string; syntactic parallelism of contrasted heads; scalar/contrast cues in left context. Redundancy and norming predict cross-corpus stability and ablation sensitivity. \\
-    \addlinespace
-    \mention{way}-construction &
-    Tokens of \mention{way} with a possessive dependent (\mention{my/your/his \dots way}) &
-    Possessor+\mention{way} frame; PP path; eventive verb profile (often effortful traversal). Stabilizers: entrenchment of a schematic template, plus cue redundancy between the nominal frame and path syntax \citep{Goldberg1995,Goldberg2006}. \\
-    \addlinespace
-    \mention{time-away} &
-    Verb + object time-NP + particle \mention{away} &
-    Particle \mention{away}; object is a time-denoting NP; activity predicate tendency and durative packaging. Stabilizers: conventional aspectual packaging reinforced by editorial norms and high token frequency. \\
-    \addlinespace
-    Comparative correlative &
-    Two-clause strings with repeated \mention{the} preceding comparative morphology &
-    Paired \mention{the} markers; comparative morphology in both clauses; clause adjacency/parallelism (often punctuation-delimited). Stabilizers: processing and parallelism pressures on a rigid template (cue dependence predicted to be high). \\
-    \addlinespace
-    \mention{Just because} $\dots$ \mention{doesn't mean} $\dots$ &
-    Strings containing \mention{just because} or \mention{doesn't mean} with clausal complements &
-    Two-part operator packaging; polarity/negation; discourse contrast markers. Stabilizers: discourse function plus redundant lexical packaging (two-part spine predicts robust ablation deltas). \\
-    \addlinespace
-    All-cleft (\mention{All S is NP}) &
-    \mention{all} + clausal dependent + copula (\mention{is/was}) &
-    Cleft-like packaging; copular spine; exhaustivity cues (often reinforced by punctuation and discourse framing). Stabilizers: focus packaging and editorial regularisation of canonical phrasing. \\
-    \addlinespace
-    Binominal \mention{N of a N} (\mention{that idiot of a doctor}) &
-    \mention{N$_1$ of a N$_2$} nominal frame &
-    Fixed \mention{of a} frame; evaluative N$_1$ tendency; agreement/selectional asymmetries (N$_2$ as semantic head). Stabilizers: frame entrenchment plus conventional evaluative usage patterns. \\
-    \addlinespace
-    N--P--N (\mention{day by day}) &
-    Identical noun lemma repeated with a preposition between &
-    Lexical identity; restricted P inventory; distributive/reciprocal semantics proxied by local syntactic environment. Stabilizers: strong formal rigidity with modest lexical productivity (predicted to split into subfamilies under \enquote{too fat} pressure if pooled indiscriminately). \\
-    \addlinespace
-    \midrule
-    Resultative (pooled) \emph{brakes} &
-    Broad [V Obj XP] frames with XP as AP/PP &
-    Predicted \enquote{too fat}: pooling distinct subtypes (AP-resultatives; PP/path-like; verb-class specific patterns) should weaken projection and blur ablation signatures. Stratified subkinds are predicted to restore projectibility if (and only if) mechanisms are genuinely local. \\
-    \addlinespace
-    \mention{X much?} \emph{brakes} &
-    Utterances ending in \mention{much} with fragment-like syntax &
-    Sentence-final \mention{much}; predicate fragment; stance punctuation. Predicted register-local homeostasis: strong within informal dialogue/web-like text, weak or absent elsewhere (locality as a positive prediction, not a nuisance). \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+  \label{tab:cx-battery} \\
+  \toprule
+  Target & Candidate set (heuristic) & Cue bundle (illustrative) and predicted stabilizers \\
+  \midrule
+  \endfirsthead
+  \toprule
+  Target & Candidate set (heuristic) & Cue bundle (illustrative) and predicted stabilizers \\
+  \midrule
+  \endhead
+  \midrule
+  \multicolumn{3}{r}{\emph{Continued on next page}} \\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  \mention{or even} &
+  Anchor-present strings containing \mention{or even} &
+  Anchor string; syntactic parallelism of contrasted heads; scalar/contrast cues in left context. Redundancy and norming predict cross-corpus stability and ablation sensitivity. \\
+  \addlinespace
+  \mention{way}-construction &
+  Tokens of \mention{way} with a possessive dependent (\mention{my/your/his \dots way}) &
+  Possessor+\mention{way} frame; PP path; eventive verb profile (often effortful traversal). Stabilizers: entrenchment of a schematic template, plus cue redundancy between the nominal frame and path syntax \citep{Goldberg1995,Goldberg2006}. \\
+  \addlinespace
+  \mention{time-away} &
+  Verb + object time-NP + particle \mention{away} &
+  Particle \mention{away}; object is a time-denoting NP; activity predicate tendency and durative packaging. Stabilizers: conventional aspectual packaging reinforced by editorial norms and high token frequency. \\
+  \addlinespace
+  Comparative correlative &
+  Two-clause strings with repeated \mention{the} preceding comparative morphology &
+  Paired \mention{the} markers; comparative morphology in both clauses; clause adjacency/parallelism (often punctuation-delimited). Stabilizers: processing and parallelism pressures on a rigid template (cue dependence predicted to be high). \\
+  \addlinespace
+  \mention{Just because} $\dots$ \mention{doesn't mean} $\dots$ &
+  Strings containing \mention{just because} or \mention{doesn't mean} with clausal complements &
+  Two-part operator packaging; polarity/negation; discourse contrast markers. Stabilizers: discourse function plus redundant lexical packaging (two-part spine predicts robust ablation deltas). \\
+  \addlinespace
+  All-cleft (\mention{All S is NP}) &
+  \mention{all} + clausal dependent + copula (\mention{is/was}) &
+  Cleft-like packaging; copular spine; exhaustivity cues (often reinforced by punctuation and discourse framing). Stabilizers: focus packaging and editorial regularisation of canonical phrasing. \\
+  \addlinespace
+  Binominal \mention{N of a N} (\mention{that idiot of a doctor}) &
+  \mention{N$_1$ of a N$_2$} nominal frame &
+  Fixed \mention{of a} frame; evaluative N$_1$ tendency; agreement/selectional asymmetries (N$_2$ as semantic head). Stabilizers: frame entrenchment plus conventional evaluative usage patterns. \\
+  \addlinespace
+  N--P--N (\mention{day by day}) &
+  Identical noun lemma repeated with a preposition between &
+  Lexical identity; restricted P inventory; distributive/reciprocal semantics proxied by local syntactic environment. Stabilizers: strong formal rigidity with modest lexical productivity (predicted to split into subfamilies under \enquote{too fat} pressure if pooled indiscriminately). \\
+  \addlinespace
+  \midrule
+  Resultative (pooled) \emph{brakes} &
+  Broad [V Obj XP] frames with XP as AP/PP &
+  Predicted \enquote{too fat}: pooling distinct subtypes (AP-resultatives; PP/path-like; verb-class specific patterns) should weaken projection and blur ablation signatures. Stratified subkinds are predicted to restore projectibility if (and only if) mechanisms are genuinely local. \\
+  \addlinespace
+  \mention{X much?} \emph{brakes} &
+  Utterances ending in \mention{much} with fragment-like syntax &
+  Sentence-final \mention{much}; predicate fragment; stance punctuation. Predicted register-local homeostasis: strong within informal dialogue/web-like text, weak or absent elsewhere (locality as a positive prediction, not a nuisance). \\
+\end{longtable}
+\normalsize
 
 \subsection{Candidate sets, decoys, and cue ablations}\label{sec:cx-candidates}
 
