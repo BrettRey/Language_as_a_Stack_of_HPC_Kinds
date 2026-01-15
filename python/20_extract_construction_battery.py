@@ -55,6 +55,8 @@ ACTIVITY_VERBS = {
     "study", "sleep", "party", "play", "sit", "chat", "talk", "walk"
 }
 COMPARATIVE_MARKERS = {"more", "less", "fewer"}
+COMPARATIVE_IRREGULAR = {"better", "worse", "further", "farther"}
+NON_COMPARATIVE_ER = {"other", "another", "either", "neither", "rather", "former", "latter", "inner", "outer", "upper"}
 CONTRAST_MARKERS = {"but", "yet", "still", "however", "though", "although"}
 EVAL_NOUNS = {
     "idiot", "fool", "bastard", "jerk", "angel", "gem", "monster", "devil",
@@ -89,6 +91,19 @@ MOTION_VERBS = {
 
 def has_child(tokens: List[Dict[str, Any]], children: Dict[int, List[int]], idx: int, rels: set[str]) -> bool:
     return any(tokens[c]["deprel"] in rels for c in children.get(idx, []))
+
+
+def is_comparative_token(tok: Dict[str, Any], form: str, lemma: str) -> bool:
+    feats = tok.get("feats") or ""
+    if "Degree=Cmp" in feats:
+        return True
+    if lemma in COMPARATIVE_MARKERS or form in COMPARATIVE_MARKERS:
+        return True
+    if lemma in COMPARATIVE_IRREGULAR or form in COMPARATIVE_IRREGULAR:
+        return True
+    if tok["upos"] in {"ADJ", "ADV"} and form.endswith("er") and lemma not in NON_COMPARATIVE_ER:
+        return True
+    return False
 
 
 def iter_sentences(corpus: str) -> List[Dict[str, Any]]:
@@ -212,26 +227,38 @@ def extract_comparative_correlative(sent: Dict[str, Any], idx: Dict[str, Any]) -
     rows: List[Dict[str, Any]] = []
     tokens = sent["tokens"]
     forms = idx["forms"]
-    comparatives = set()
-    for i, tok in enumerate(tokens):
-        form = forms[i]
-        if form in COMPARATIVE_MARKERS or (tok["upos"] in {"ADJ", "ADV"} and form.endswith("er")):
-            comparatives.add(i)
+    lemmas = idx["lemmas"]
+
+    def comp_after(the_idx: int) -> int | None:
+        for k in range(the_idx + 1, min(len(tokens), the_idx + 4)):
+            if is_comparative_token(tokens[k], forms[k], lemmas[k]):
+                # Prefer syntactic attachment if available.
+                if tokens[the_idx]["deprel"] == "det" and tokens[the_idx]["head"] == tokens[k]["id"]:
+                    return k
+                if k == the_idx + 1:
+                    return k
+        return None
+
     the_positions = [i for i, f in enumerate(forms) if f == "the"]
-    for i in range(len(the_positions)):
-        for j in range(i + 1, len(the_positions)):
-            left = the_positions[i]
-            right = the_positions[j]
-            left_comp = any(k in comparatives for k in range(left + 1, min(left + 6, len(tokens))))
-            right_comp = any(k in comparatives for k in range(right + 1, min(right + 6, len(tokens))))
-            if not (left_comp and right_comp):
+    the_comps = [(i, comp_after(i)) for i in the_positions]
+    for i in range(len(the_comps)):
+        left, left_comp = the_comps[i]
+        if left_comp is None:
+            continue
+        for j in range(i + 1, len(the_comps)):
+            right, right_comp = the_comps[j]
+            if right_comp is None:
                 continue
-            cue1 = 1 if left_comp else 0
-            cue2 = 1 if right_comp else 0
+            cue1 = 1 if forms[left_comp] in COMPARATIVE_MARKERS or lemmas[left_comp] in COMPARATIVE_IRREGULAR else 0
+            cue2 = 1 if forms[right_comp] in COMPARATIVE_MARKERS or lemmas[right_comp] in COMPARATIVE_IRREGULAR else 0
             cue3 = 1 if any(tokens[k]["upos"] == "PUNCT" and tokens[k]["form"] in {",", ";"} for k in range(left, right)) else 0
-            left_verb = any(tokens[k]["upos"] == "VERB" for k in range(left + 1, min(left + 9, len(tokens))))
-            right_verb = any(tokens[k]["upos"] == "VERB" for k in range(right + 1, min(right + 9, len(tokens))))
-            label = int(left_comp and right_comp and left_verb and right_verb)
+            has_than = any(forms[k] == "than" for k in range(left_comp, right))
+            if has_than:
+                continue
+            left_verb = any(tokens[k]["upos"] == "VERB" for k in range(left_comp + 1, right))
+            right_verb = any(tokens[k]["upos"] == "VERB" for k in range(right_comp + 1, min(right_comp + 10, len(tokens))))
+            right_tail = right_comp >= len(tokens) - 4
+            label = int(left_verb and (right_verb or right_tail))
             add_row(rows, "comparative_correlative", "", sent, cue1, cue2, cue3, label, f"the@{left+1}-{right+1}")
             return rows
     return rows

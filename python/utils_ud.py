@@ -109,6 +109,7 @@ def parse_conllu(content: str) -> List[Dict[str, Any]]:
         form = cols[1] if len(cols) > 1 else "_"
         lemma = cols[2] if len(cols) > 2 else "_"
         upos = cols[3] if len(cols) > 3 else "_"
+        feats = cols[5] if len(cols) > 5 else "_"
         head_str = cols[6] if len(cols) > 6 else "_"
         deprel = cols[7] if len(cols) > 7 else "_"
         misc = cols[9] if len(cols) > 9 else "_"
@@ -123,6 +124,7 @@ def parse_conllu(content: str) -> List[Dict[str, Any]]:
             "upos": upos,
             "head": head,
             "deprel": deprel,
+            "feats": feats,
             "misc": misc,
         })
     # append last sentence if any
