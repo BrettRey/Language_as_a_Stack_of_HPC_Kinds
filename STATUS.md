@@ -17,6 +17,7 @@
 - [x] Construction labeling decoupled from cues (reduced PR--AUC saturation) - preliminary
 - [x] Expanded UD English palette for construction battery - preliminary
 - [x] Construction heuristics broadened to increase estimable pairs - preliminary
+- [x] Gelman-style checks (bootstrap CIs + shuffled-label baselines) - preliminary
 - [x] Failure modes taxonomy (thin/fat/negative)
 - [x] Python analysis code
 - [ ] Full verification of empirical results
@@ -77,6 +78,7 @@ Python scripts in `python/`:
 - **2026-01-15**: Relaxed construction heuristics so cues predict (not define) labels; added cue covariance + downsampling tables and stratified resultatives
 - **2026-01-15**: Expanded construction battery to additional UD English treebanks; recomputed prevalence and transfer tables
 - **2026-01-15**: Broadened construction heuristics to increase estimable pairs (all-cleft, comparative correlative, way now estimable)
+- **2026-01-15**: Added Gelman-style robustness checks (bootstrap CIs, shuffled-label baselines) for construction battery
 
 ---
 
@@ -88,3 +90,4 @@ Python scripts in `python/`:
 - **2026-01-15**: Restrict corpora expansion to English only (no non-English UD)
 - **2026-01-15**: No additional corpora for now; keep current UD English palette
 - **2026-01-15**: Broaden cue/label heuristics to raise estimable construction counts before adding new corpora
+- **2026-01-15**: Run Gelman-style model checks before further construction expansion
