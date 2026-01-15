@@ -36,6 +36,16 @@ python python/13_or_even_prcurve.py
 
 Outputs land in `out/`, `images/`, or `figs/` depending on the script.
 
+Word-level drift pipeline (HistWords COHA lemma SGNS):
+
+```bash
+python python/04_download_histwords.py
+python python/04_download_histwords_stats.py
+python python/05_word_drift_multilexeme.py
+```
+
+Outputs land in `out/word_drift_*` and Appendix~A tables.
+
 ## License
 - Paper, figures, and data: CC BY 4.0 (see `LICENSE`)
 - Code: MIT (see `python/LICENSE`)

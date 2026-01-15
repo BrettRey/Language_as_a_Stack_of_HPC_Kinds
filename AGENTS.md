@@ -24,7 +24,7 @@
 - No automated test suite. Validate changes by re-running the relevant scripts and rebuilding `main.pdf`, then spot-check the referenced figures/tables.
 
 ## Commit & Pull Request Guidelines
-- This directory is not a Git repo, so no commit-message convention is established. If you add Git history, use short, imperative summaries (e.g., `analysis: update let_alone features`).
+- Commit messages follow short, imperative summaries (e.g., `Add Gelman-style checks for construction battery`, `Fix construction battery LaTeX tables`). Keep them concise and action-led.
 - In PRs, describe the analytical change, list regenerated outputs (tables/figures), and note any dataset version updates.
 
 ## Data & Reproducibility Notes

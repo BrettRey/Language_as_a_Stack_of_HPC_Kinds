@@ -5,17 +5,17 @@
 
 \documentclass[12pt]{article}
 
-% --- Layout & language ---
+% == Layout & language ==
 \usepackage[margin=1in]{geometry}
 \usepackage[british]{babel}            % British conventions; use -ize spellings in prose
 \usepackage{fontspec}                  % Xe/LuaLaTeX
 \setmainfont{Charis SIL}
 \usepackage[final]{microtype}
 
-% --- Quotation marks ---
+% == Quotation marks ==
 \usepackage{csquotes}                  % \enquote{\ldots{}} with locale-aware quoting
 
-% --- Hyperlinks ---
+% == Hyperlinks ==
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
@@ -26,11 +26,11 @@
   pdftitle={House Style \& Preamble}
 }
 
-% --- Numbered linguistic examples (LangSci/gb4e wrapper, no 'exe' env) ---
+% == Numbered linguistic examples (LangSci/gb4e wrapper, no 'exe' env) ==
 \usepackage{langsci-gb4e}
 \noautomath
 
-% --- Lists & small utilities ---
+% == Lists & small utilities ==
 \usepackage{enumitem}
 \setlist{itemsep=0.3\baselineskip, topsep=0.3\baselineskip}
 \usepackage{xspace}
@@ -81,7 +81,7 @@ Quotation (with \verb|\enquote|): As \enquote{going forward} spread in business 
 Nested quotes: \enquote{Outer with an \enquote{inner} quote}.
 
 \section{Dashes, ranges, hyphens}
-Use an em dash (\textemdash) without surrounding spaces for parenthetical asides: the category is stable---within limits---across registers.
+Use an en dash with a nonbreaking space before it: the category is stable~-- within limits~-- across registers.
 Use an en dash for ranges and relations: 2001--2025; pp.\ 113--127; the form--function distinction.
 Use hyphens only for compounds: corpus-based study, task-specific rubric.
 

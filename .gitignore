@@ -27,3 +27,9 @@ venv/
 
 # Generated session logs
 SESSION*.txt
+
+# Large external datasets (downloaded)
+data/histwords/
+data/histwords*.zip
+data/histwords_full/
+data/histwords_full*.zip

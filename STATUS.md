@@ -11,7 +11,7 @@
 
 - [x] Conceptual framework (projectibility + homeostasis diagnostics)
 - [x] Case A: Phonemes (PHOIBLE, /y/ scaling) - preliminary
-- [x] Case B: Words (semantic drift, egregious) - preliminary
+- [x] Case B: Words (semantic drift, mixed outcomes) - preliminary
 - [x] Case C: Constructions (or even, cross-corpus transfer) - preliminary
 - [x] Construction homeostasis diagnostics (cue covariance + downsampling) - preliminary
 - [x] Construction labeling decoupled from cues (reduced PR--AUC saturation) - preliminary
@@ -25,7 +25,7 @@
 - [x] Failure modes taxonomy (thin/fat/negative)
 - [x] Python analysis code
 - [ ] Full verification of empirical results
-- [ ] Word-level multi-lexeme evaluation
+- [x] Word-level multi-lexeme evaluation (HistWords COHA lemma SGNS; high-drift adjectives + matched controls)
 - [ ] Target journal identified
 - [ ] Final submission
 
@@ -44,7 +44,7 @@
 | Case | Data | Status | Notes |
 |------|------|--------|-------|
 | Phonemes | PHOIBLE 2.0 | Preliminary | /y/ scaling, inventory ridgelines |
-| Words | Historical corpora | Preliminary | Egregious drift; needs multi-lexeme expansion |
+| Words | Historical corpora (HistWords COHA lemma SGNS) | Preliminary | Multi-lexeme adjectives + matched controls; egregious excluded (zero vectors) |
 | Constructions | UD English palette (GUM, EWT, GUMReddit, ESL/ESLSpok, GENTLE, CHILDES, LinES, PUD, ParTUT, UniDive, ATIS, LittlePrince, Pronouns, CTeTex, PCEDT) | Preliminary | Cue proxies decoupled from labels; estimable set now N--P--N + resultatives; homeostasis tables added |
 
 ---
@@ -87,6 +87,11 @@ Python scripts in `python/`:
 - **2026-01-15**: Tightened comparative-correlative heuristic (comparative detection + than filter); remains below evaluability thresholds
 - **2026-01-15**: Froze construction heuristics after Gelman-style checks; comparative correlatives recorded as non-evaluable at this grain
 - **2026-01-15**: Declared construction tier complete for this round; no further heuristic tweaks without new task design
+- **2026-01-15**: Downloaded HistWords COHA lemma SGNS + stats; ran multi-lexeme drift evaluation for high-drift adjectives with matched controls
+- **2026-01-15**: Added word-level summary and per-lexeme tables to Appendix A; updated Case B narrative to reflect mixed pass/fail outcomes
+- **2026-01-15**: Clarified Case B writeup (mixed evidence framing, removed egregious-specific illustration, updated summary phrasing)
+- **2026-01-15**: Normalized non-ASCII punctuation in manuscript and small output logs; left corpus-extracted candidate CSV untouched to preserve source fidelity
+- **2026-01-15**: Replaced em-dash usage with spaced en-dash style (word~-- word); updated house style guidance
 
 ---
 
@@ -103,3 +108,7 @@ Python scripts in `python/`:
 - **2026-01-15**: Prioritize precision over recall for comparative correlatives to avoid false positives
 - **2026-01-15**: Stop further heuristic tweaking; treat comparative correlatives as a failure mode unless a new task design is introduced
 - **2026-01-15**: Treat construction tier as closed for now; move effort to other sections
+- **2026-01-15**: Use HistWords COHA lemma SGNS embeddings + stats (volstats/freqs/pos) for word-level drift evaluation
+- **2026-01-15**: Restrict word targets to high-drift adjectives from the non-stop, non-proper list; force-include nice/sick/gay/awful when available
+- **2026-01-15**: Exclude egregious and broadcast from multi-lexeme evaluation due to zero vectors in SGNS release
+- **2026-01-15**: Allow control matching to relax to POS-only if log-frequency matching fails; report group sizes explicitly

@@ -8,7 +8,7 @@ This file provides guidance to Claude Code when working in this repository.
 **Author:** Brett Reynolds
 **Status:** Preprint published; empirical sections preliminary
 
-This paper develops two operational diagnostics (projectibility and homeostasis) for deciding when linguistic categories warrant treatment as HPC kinds. It applies these to three levels: phonemes (PHOIBLE), words (semantic drift), and constructions (let alone).
+This paper develops two operational diagnostics (projectibility and homeostasis) for deciding when linguistic categories warrant treatment as HPC kinds. It applies these to three levels: phonemes (PHOIBLE), words (semantic drift), and constructions (or even).
 
 ## Build
 
@@ -38,10 +38,14 @@ python 01_download_phoible.py   # Get PHOIBLE data
 python 02_make_ridgelines.py    # Inventory size visualization
 python 03_model_y.py            # /y/ scaling model
 
+python 04_download_histwords.py        # HistWords COHA embeddings
+python 04_download_histwords_stats.py  # HistWords COHA stats
+python 05_word_drift_multilexeme.py    # Word drift evaluation
+
 python 10_download_ud.py        # Universal Dependencies
-python 11_extract_let_alone.py  # Extract construction instances
-python 12_profile_plot.py       # Cue profile visualization
-python 13_predict_prcurve.py    # Cross-corpus evaluation
+python 11_extract_or_even.py    # Extract construction instances
+python 12_or_even_profile_plot.py # Cue profile visualization
+python 13_or_even_prcurve.py    # Cross-corpus evaluation
 ```
 
 ## Key Concepts
@@ -59,7 +63,7 @@ python 13_predict_prcurve.py    # Cross-corpus evaluation
 ## Cautions
 
 - Small sample sizes for construction case (GUM n=12, EWT n=15)
-- Word-level analysis uses single lexeme (egregious); needs expansion
+- Word-level analysis uses multi-lexeme adjectives; results are mixed and still preliminary
 - Results marked as preliminary pending full verification
 
 ## Multi-Agent Dispatch
