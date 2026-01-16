@@ -18,6 +18,7 @@ import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from plot_style import MODEL_COLORS, set_plot_style
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import average_precision_score, precision_recall_curve, precision_score, recall_score, f1_score
 
@@ -83,9 +84,11 @@ def compute_metrics(y_true: np.ndarray, y_prob: np.ndarray) -> Dict[str, float]:
 
 
 def plot_curves(curves: Dict[str, Tuple[np.ndarray, np.ndarray]], path: str, title: str) -> None:
+    set_plot_style()
     plt.figure(figsize=(6, 4))
     for label, (rec, prec) in curves.items():
-        plt.plot(rec, prec, label=label)
+        color = MODEL_COLORS.get(label)
+        plt.plot(rec, prec, label=label, color=color)
     plt.xlabel("Recall")
     plt.ylabel("Precision")
     plt.title(title)

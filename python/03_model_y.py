@@ -18,6 +18,7 @@ import pandas as pd
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from plot_style import PALETTE, set_plot_style
 import unicodedata
 import re
 
@@ -260,6 +261,7 @@ def main() -> None:
 
     data = primary_data
     model_y, model_i, cv_auc = primary_models
+    set_plot_style()
     vmin = min(data["vowel_inv_excl_y"].min(), data["vowel_inv_excl_i"].min())
     vmax = max(data["vowel_inv_excl_y"].max(), data["vowel_inv_excl_i"].max())
     vowel_seq = np.linspace(vmin, vmax, 100)
@@ -267,18 +269,32 @@ def main() -> None:
     i_pred = generate_predictions(model_i, data, vowel_seq, "vowel_inv_excl_i")
     fig, ax = plt.subplots(figsize=(8, 5))
     jitter = np.random.default_rng(RANDOM_SEED).uniform(-0.02, 0.02, size=len(data))
-    ax.scatter(data["vowel_inv_excl_y"], data["y_present"] + jitter,
-               color="black", alpha=0.5, s=10, label="Languages (/y/ present = 1)")
-    ax.plot(vowel_seq, y_mean, color="#0072B2", lw=2, label="Predicted P(/y/)")
-    ax.fill_between(vowel_seq, y_lower, y_upper, color="#0072B2", alpha=0.2)
-    ax.plot(vowel_seq, i_pred, color="#D55E00", lw=1.5, ls="--", label="Predicted P(/i/)", alpha=0.8)
+    ax.scatter(
+        data["vowel_inv_excl_y"],
+        data["y_present"] + jitter,
+        color=PALETTE["black"],
+        alpha=0.5,
+        s=10,
+        label="Languages (/y/ present = 1)",
+    )
+    ax.plot(vowel_seq, y_mean, color=PALETTE["blue"], lw=2, label="Predicted P(/y/)")
+    ax.fill_between(vowel_seq, y_lower, y_upper, color=PALETTE["blue"], alpha=0.2)
+    ax.plot(
+        vowel_seq,
+        i_pred,
+        color=PALETTE["vermillion"],
+        lw=1.5,
+        ls="--",
+        label="Predicted P(/i/)",
+        alpha=0.8,
+    )
     ax.set_xlabel("Vowel inventory size (excluding target segment)")
     ax.set_ylabel("Probability of vowel in inventory")
     ax.set_ylim(-0.05, 1.05)
     ax.set_title("Probability of /y/ vs vowel inventory size")
-    ax.legend(loc="upper left")
     ax.text(vmax * 0.97, 0.9, f"10-fold CV AUC (/y/): {cv_auc:.3f}",
             ha="right", va="center", fontsize=9)
+    ax.legend(loc="upper left", bbox_to_anchor=(0.02, 0.88), frameon=False)
     fig.tight_layout()
     os.makedirs(FIG_DIR, exist_ok=True)
     fig.savefig(os.path.join(FIG_DIR, "y_vs_vowel_inventory.pdf"))

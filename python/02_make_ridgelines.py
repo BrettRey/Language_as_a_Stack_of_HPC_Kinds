@@ -24,6 +24,7 @@ import matplotlib
 matplotlib.use('Agg')  # ensure non-interactive backend
 import matplotlib.pyplot as plt
 from scipy.stats import gaussian_kde
+from plot_style import RIDGELINE_CMAP, PALETTE, set_plot_style
 
 RAW_DIR = os.path.join('data', 'raw')
 OUT_DIR = 'out'
@@ -155,6 +156,7 @@ def prepare_language_data(selected: pd.DataFrame, phoible: pd.DataFrame, languoi
 
 def make_ridgeline_plot(language_data: pd.DataFrame, summary: pd.DataFrame) -> None:
     """Create and save the ridgeline density plot."""
+    set_plot_style()
     # Filter to families with at least MIN_N languages
     valid_fams = summary[summary['N'] >= MIN_N]['family_name']
     df = language_data[language_data['family_name'].isin(valid_fams)].copy()
@@ -166,9 +168,9 @@ def make_ridgeline_plot(language_data: pd.DataFrame, summary: pd.DataFrame) -> N
     q75 = np.percentile(language_data['total_inventory_size'], 75)
     print(f"[ridgelines] global IQR: {q25:.1f}--{q75:.1f}")
     # Set up figure
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(8, 9))
     # Colour map
-    cmap = plt.get_cmap('viridis')
+    cmap = RIDGELINE_CMAP
     # Determine x range
     x_min = language_data['total_inventory_size'].min() - 5
     x_max = language_data['total_inventory_size'].max() + 5
@@ -185,7 +187,7 @@ def make_ridgeline_plot(language_data: pd.DataFrame, summary: pd.DataFrame) -> N
         ax.fill_between(xs, offset, ys + offset, color=cmap(idx / max(len(fam_order)-1, 1)), alpha=0.7)
         ax.text(x_min + 1, offset + 0.1, fam, va='bottom', ha='left', fontsize=9)
     # Draw global IQR band
-    ax.axvspan(q25, q75, ymin=0, ymax=1, color='grey', alpha=0.1)
+    ax.axvspan(q25, q75, ymin=0, ymax=1, color=PALETTE["gray"], alpha=0.12)
     # Formatting
     ax.set_xlabel('Total phoneme inventory size')
     ax.set_ylabel('Language family (ordered by median size)')

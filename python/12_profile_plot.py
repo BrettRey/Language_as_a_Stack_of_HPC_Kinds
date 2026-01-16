@@ -29,6 +29,7 @@ import matplotlib
 matplotlib.use("Agg")  # use non-interactive backend
 import matplotlib.pyplot as plt
 import seaborn as sns
+from plot_style import CATEGORY_COLORS, CORPUS_COLORS, set_plot_style
 
 
 RANDOM_SEED = 20250901
@@ -123,7 +124,8 @@ def main() -> None:
             "n": len(subset),
         }
     # Plotting
-    sns.set(style="whitegrid")
+    set_plot_style()
+    sns.set_theme(style="whitegrid", palette=CORPUS_COLORS)
     fig, axes = plt.subplots(1, 3, figsize=(12, 4), gridspec_kw={'width_ratios': [1, 1.2, 1]})
     # Panel 1: parallelism
     labels = ["GUM", "EWT"]
@@ -131,13 +133,13 @@ def main() -> None:
     lows = [stats['gum']['parallel'][1], stats['ewt']['parallel'][1]]
     highs = [stats['gum']['parallel'][2], stats['ewt']['parallel'][2]]
     yerr = [np.array(means) - np.array(lows), np.array(highs) - np.array(means)]
-    axes[0].bar(labels, means, yerr=yerr, color=["#4C72B0", "#55A868"], capsize=4)
+    axes[0].bar(labels, means, yerr=yerr, color=CORPUS_COLORS[:len(labels)], capsize=4)
     axes[0].set_ylim(0, 1)
     axes[0].set_ylabel("Parallelism rate")
     axes[0].set_title("Parallelism")
     # Panel 2: Y-head distribution (stacked bars)
     bottoms = np.zeros(2)
-    colors = ["#4C72B0", "#55A868", "#C44E52", "#8172B3"]
+    colors = CATEGORY_COLORS
     for i, cat in enumerate(categories):
         vals = [stats['gum']['dist'][cat][0], stats['ewt']['dist'][cat][0]]
         axes[1].bar(labels, vals, bottom=bottoms, color=colors[i], label=cat)
@@ -151,7 +153,7 @@ def main() -> None:
     lic_lows = [stats['gum']['licensing'][1], stats['ewt']['licensing'][1]]
     lic_highs = [stats['gum']['licensing'][2], stats['ewt']['licensing'][2]]
     lic_yerr = [np.array(lic_means) - np.array(lic_lows), np.array(lic_highs) - np.array(lic_means)]
-    axes[2].bar(labels, lic_means, yerr=lic_yerr, color=["#4C72B0", "#55A868"], capsize=4)
+    axes[2].bar(labels, lic_means, yerr=lic_yerr, color=CORPUS_COLORS[:len(labels)], capsize=4)
     axes[2].set_ylim(0, 1)
     axes[2].set_ylabel("Licensing prevalence")
     axes[2].set_title("Licensing")

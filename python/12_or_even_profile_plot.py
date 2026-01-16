@@ -16,6 +16,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import seaborn as sns
+from plot_style import CATEGORY_COLORS, CORPUS_COLORS, set_plot_style
 
 RANDOM_SEED = 20250901
 BOOTSTRAP_REPS = 1000
@@ -74,7 +75,8 @@ def main() -> None:
             "n": len(subset),
         }
 
-    sns.set(style="whitegrid")
+    set_plot_style()
+    sns.set_theme(style="whitegrid", palette=CORPUS_COLORS)
     fig, axes = plt.subplots(1, 3, figsize=(12, 4), gridspec_kw={'width_ratios': [1, 1.2, 1]})
 
     labels = [c.upper() for c in corpora]
@@ -82,13 +84,13 @@ def main() -> None:
     lows = [stats[c]['parallel'][1] for c in corpora]
     highs = [stats[c]['parallel'][2] for c in corpora]
     yerr = [np.array(means) - np.array(lows), np.array(highs) - np.array(means)]
-    axes[0].bar(labels, means, yerr=yerr, color=["#4C72B0", "#55A868", "#C44E52"], capsize=4)
+    axes[0].bar(labels, means, yerr=yerr, color=CORPUS_COLORS[:len(labels)], capsize=4)
     axes[0].set_ylim(0, 1)
     axes[0].set_ylabel("Parallelism rate")
     axes[0].set_title("Parallelism")
 
     bottoms = np.zeros(len(corpora))
-    colors = ["#4C72B0", "#55A868", "#C44E52", "#8172B3"]
+    colors = CATEGORY_COLORS
     for i, cat in enumerate(categories):
         vals = [stats[c]['dist'][cat][0] for c in corpora]
         axes[1].bar(labels, vals, bottom=bottoms, color=colors[i], label=cat)
@@ -102,7 +104,7 @@ def main() -> None:
     lic_lows = [stats[c]['licensing'][1] for c in corpora]
     lic_highs = [stats[c]['licensing'][2] for c in corpora]
     lic_yerr = [np.array(lic_means) - np.array(lic_lows), np.array(lic_highs) - np.array(lic_means)]
-    axes[2].bar(labels, lic_means, yerr=lic_yerr, color=["#4C72B0", "#55A868", "#C44E52"], capsize=4)
+    axes[2].bar(labels, lic_means, yerr=lic_yerr, color=CORPUS_COLORS[:len(labels)], capsize=4)
     axes[2].set_ylim(0, 1)
     axes[2].set_ylabel("Scalar/contrast cue rate")
     axes[2].set_title("Scalar/contrast cues")
